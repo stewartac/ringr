@@ -10,6 +10,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Store uploaded files on cloudinary
+  config.active_storage.service = :cloudinary
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

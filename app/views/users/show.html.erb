@@ -1,0 +1,7 @@
+<p>User Index Page</p>
+
+<% if user_signed_in? && current_user.photo.attached? %>
+<%= cl_image_tag current_user.photo.key%>
+<% end %>
+<h2><%= current_user.first_name %><%= current_user.last_name %></h2>
+<p><%= current_user.email %></p>
