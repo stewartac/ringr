@@ -17,9 +17,10 @@
 <!-- USER CREATED GAMES -->
 
 
-<ul>Games you created <%current_user.teams.each do |team|%>
+<h2>Games you created <%current_user.teams.each do |team|%></h2>
+<ul>
  <% team.games.each do |game|%>
- <li><%= game.address%> @ <%= game.time %></li>
+ <li><%= link_to "See game info", game_path(game) %> <%= game.address%> @ <%= game.time %></li>
   <% end %>
   <% end %>
 </ul>
