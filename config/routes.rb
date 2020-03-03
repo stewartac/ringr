@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     resources :games, only: [:new, :create]
   end
 
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show, :update]
 
 end
