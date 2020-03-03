@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :teams
   has_many :bookings
+  has_many :memberships
 end
