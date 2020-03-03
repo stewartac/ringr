@@ -4,7 +4,7 @@
       <%= simple_form_for([@team, @game]) do |f|%>
       <%= f.input :date, input_html: { class: 'input' } %>
       <%= f.input :time, input_html: { class: 'input' } %>
-      <%= f.input :sport, input_html: { class: 'input' } %>
+      <%= f.input :sport, :collection => %w[Football Rugby Netball Hockey Basketball Cricket], prompt: "Select Sport" %>
       <%= f.input :format, input_html: { class: 'input' } %>
       <%= f.input :address, input_html: { class: 'input' } %>
       <%= f.input :price, input_html: { class: 'input' } %>
