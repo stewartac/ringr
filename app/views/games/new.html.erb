@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="basic_form">
+    <h1>Create a new game</h1>
+      <%= simple_form_for([@team, @game]) do |f|%>
+      <%= f.input :date, input_html: { class: 'input' } %>
+      <%= f.input :time, input_html: { class: 'input' } %>
+      <%= f.input :sport, input_html: { class: 'input' } %>
+      <%= f.input :format, input_html: { class: 'input' } %>
+      <%= f.input :address, input_html: { class: 'input' } %>
+      <%= f.input :price, input_html: { class: 'input' } %>
+      <%= f.input :available_spaces, input_html: { class: 'input' } %>
+      <%= f.submit "Go find your Ringr!", class: "btn btn-block btn-primary submit_button" %>
+      <% end %>
+  </div>
+</div>

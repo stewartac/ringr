@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
 
-  before_action :set_team, :only [:show, :edit :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
     @team = Team.create(team_params)
     @team.user = current_user
     if @team.save
-      redirect_to user_team_path(@team)
+      redirect_to team_path(@team)
     else
       render :new
     end
