@@ -1,7 +1,25 @@
-<p>User Index Page</p>
+
+<!-- USER INFO -->
 
 <span><% if user_signed_in? && current_user.photo.attached? %>
   <%= cl_image_tag current_user.photo.key %>
 <% end %></span>
-<h2><%= current_user.first_name %><%= current_user.last_name %></h2>
-<p><%= current_user.email %></p>
+<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+<p>Email: <%= current_user.email %></p>
+
+<!-- USER TEAMS -->
+
+<ul>Your Teams <%current_user.teams.each do |team|%>
+  <li><%= link_to "#{team.name}", team_path(team) %></li>
+  <% end %>
+</ul>
+
+<!-- USER CREATED GAMES -->
+
+
+<ul>Games you created <%current_user.teams.each do |team|%>
+ <% team.games.each do |game|%>
+ <li><%= game.address%> @ <%= game.time %></li>
+  <% end %>
+  <% end %>
+</ul>
