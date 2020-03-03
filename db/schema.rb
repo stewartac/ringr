@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_104529) do
+ActiveRecord::Schema.define(version: 2020_03_03_105011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2020_03_03_104529) do
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_reviews_on_game_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.string "league_link"
@@ -81,5 +91,7 @@ ActiveRecord::Schema.define(version: 2020_03_03_104529) do
   add_foreign_key "games", "teams"
   add_foreign_key "memberships", "teams"
   add_foreign_key "memberships", "users"
+  add_foreign_key "reviews", "games"
+  add_foreign_key "reviews", "users"
   add_foreign_key "teams", "users", column: "captain_id"
 end
