@@ -1,16 +1,21 @@
 <p>User Index Page</p>
 
-<span><%# if user_signed_in? && current_user.photo.attached? %>
-  <%#= cl_image_tag current_user.photo.key %>
-<%# end %></span>
-<h2><%= current_user.first_name %><%= current_user.last_name %></h2>
+
+<!-- USER INFO -->
+<% if user_signed_in? && current_user.photo.attached? %>
+  <%= cl_image_tag current_user.photo.key %>
+<% end %>
+<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
 <p><%= current_user.email %></p>
 
+
+<!-- USER BOOKINGS -->
 <h5>Booking i have requested</h5>
 <% @user.bookings.each do |booking| %>
   <p><%= booking.status %> booking to <%= booking.game.team.name %></p>
 <% end %>
 
+<!-- BOOKINGS FROM OTHER USERS -->
 
 <h5>Bookings other people have requested</h5>
 <% @user.requested_bookings.each do |booking| %>
@@ -18,3 +23,18 @@
   <%= link_to "accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
   <%= link_to "reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
 <% end %>
+
+<!-- USER TEAMS -->
+
+<h2>Your Teams <%current_user.teams.each do |team|%></h2>
+  <li><%= link_to "#{team.name}", team_path(team) %>
+  <p><%= link_to "Create a game", new_team_game_path(team) %> </li>
+  <% end %>
+
+<!-- USER CREATED GAMES -->
+
+<h2>Games you created <%current_user.teams.each do |team|%></h2>
+ <% team.games.each do |game|%>
+ <li><%= link_to "See game info", game_path(game) %> <%= game.address%> @ <%= game.time %> </li>
+  <% end %>
+  <% end %>
