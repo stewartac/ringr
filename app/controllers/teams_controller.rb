@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
 
-  before_action :set_team, :only [:show, :edit, :destroy]
+  before_action :set_team, :only [:show, :edit :update, :destroy]
 
   def show
   end
@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(team_params)
+    @team = Team.create(team_params)
     @team.user = current_user
     if @team.save
       redirect_to user_team_path(@team)
@@ -23,7 +23,8 @@ class TeamsController < ApplicationController
   end
 
   def update
-    @team.update
+    @team.update(title: params[:team][:title], league_link: params[:team][:league_link])
+    redirect_to user_team_path(@team)
   end
 
   def destroy
