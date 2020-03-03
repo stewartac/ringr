@@ -5,6 +5,7 @@ p "."
 p ".."
 p "..."
 Game.destroy_all
+Membership.destroy_all
 Team.destroy_all
 User.destroy_all
 

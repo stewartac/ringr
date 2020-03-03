@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :users, only: [:show, :edit, :update] do
-    resources :teams, except: [:index]
-  end
+  resources :users, only: [:show, :edit, :update]
+
+  resources :teams, except: [:index]
 
   resources :bookings, only: [:show]
 

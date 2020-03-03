@@ -17,12 +17,11 @@ class GamesController < ApplicationController
   end
 
   def create
-   @user = current_user.id
    @game = Game.create(game_params)
-   @game.user_id = @user
    if @game.save
       redirect_to game_path(@game)
     else
+      raise
       render :new
     end
   end
