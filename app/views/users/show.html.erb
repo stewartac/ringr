@@ -1,7 +1,20 @@
 <p>User Index Page</p>
 
-<span><% if user_signed_in? && current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key %>
-<% end %></span>
+<span><%# if user_signed_in? && current_user.photo.attached? %>
+  <%#= cl_image_tag current_user.photo.key %>
+<%# end %></span>
 <h2><%= current_user.first_name %><%= current_user.last_name %></h2>
 <p><%= current_user.email %></p>
+
+<h5>Booking i have requested</h5>
+<% @user.bookings.each do |booking| %>
+  <p><%= booking.status %> booking to <%= booking.game.team.name %></p>
+<% end %>
+
+
+<h5>Bookings other people have requested</h5>
+<% @user.requested_bookings.each do |booking| %>
+  <p><%= booking.status %> booking to <%= booking.game.team.name %> by <%= booking.user.first_name %></p>
+  <%= link_to "accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
+  <%= link_to "reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
+<% end %>
