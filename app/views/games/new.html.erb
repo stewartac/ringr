@@ -1,7 +1,7 @@
 <div class="container">
   <div class="basic_form">
     <h1>Create a new game</h1>
-      <%= simple_form_for(@game) do |f|%>
+      <%= simple_form_for([@team, @game]) do |f|%>
       <%= f.input :date, input_html: { class: 'input' } %>
       <%= f.input :time, input_html: { class: 'input' } %>
       <%= f.input :sport, input_html: { class: 'input' } %>

@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   end
 
   def new
+    @team = Team.find(params[:team_id])
     @game = Game.new
   end
 
@@ -17,11 +18,13 @@ class GamesController < ApplicationController
   end
 
   def create
-   @game = Game.create(game_params)
-   if @game.save
+    @team = Team.find(params[:team_id])
+    @game = Game.new(game_params)
+    @game.team = @team
+    if @game.save
       redirect_to game_path(@game)
     else
-      raise
+      # raise
       render :new
     end
   end
