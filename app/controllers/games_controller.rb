@@ -3,7 +3,12 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
-    @games = Game.all
+    if params[:address].blank?
+        @games = Game.all
+    else
+        Game.reindex
+        @games = Game.search(params[:address], fields: [:address])
+    end
   end
 
   def show

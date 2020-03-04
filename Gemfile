@@ -9,6 +9,8 @@ gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
 gem 'cloudinary', '~> 1.12.0'
+gem 'searchkick', '~> 3.0'
+gem 'pg_search', '~> 2.3.0'
 
 
 gem 'autoprefixer-rails'

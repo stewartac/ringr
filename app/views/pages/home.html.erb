@@ -19,4 +19,13 @@
 </div>
 
 
+<!-- SEARCH BAR FOR ADDRESS -->
 
+<br>
+<div class="form">
+        <h1>Search for games</h1>
+          <%= form_tag games_path, method: :get, id: :search_form do %>
+            <%= text_field_tag :address, params[:address], class: "form-style", placeholder: "Search by address" %>
+            <%= submit_tag "Find a game", class: "home-button" %>
+          <% end %>
+</div>

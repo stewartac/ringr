@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :joined_teams, through: :memberships, source: :teams
   has_many :reviews
+
 end
