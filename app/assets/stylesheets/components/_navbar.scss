@@ -1,3 +1,8 @@
+.navbar {
+  padding: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: $seashell;
@@ -27,9 +32,6 @@
   padding-top: 10px;
 }
 
-.navbar {
-  padding: 0;
-}
 
 .navbar-brand {
   padding: 0.5rem 1rem;
