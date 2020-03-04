@@ -10,7 +10,7 @@ class GamesController < ApplicationController
         lat: game.latitude,
         lng: game.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
-        image_url: helpers.asset_url('../images/ringr-logo')
+        image_url: helpers.asset_url('ringr-logo')
       }
     end
   end
