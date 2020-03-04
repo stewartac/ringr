@@ -6,8 +6,8 @@
 }
 
 #sport-logo {
-  max-height: 160px;
-  max-width: 160px;
+  max-height: 100px;
+  max-width: 100px;
   width: 100%;
   padding: 2px 16px;
 }
@@ -19,5 +19,20 @@
 .logo-container {
   display: flex;
   flex-direction: row;
+}
+
+.text-container {
+  margin: 20px 20px;
+}
+
+.header-text {
+  font-weight: bolder;
+  font-size: 45px;
+}
+
+.sub-header-text {
+  font-size: 45px;
+  font-family: $body-font;
+  font-weight: lighter;
 }
 
