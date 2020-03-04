@@ -1,0 +1,17 @@
+.background-banner {
+  display: flex;
+}
+
+.main-info {
+  width: 50%;
+}
+
+.background-collage {
+  width: 50%;
+  // height: calc(0.5857452966714907 * 50vw);
+  height: 100vh;
+  background-size: cover;
+  margin: 10px;
+}
+
+
