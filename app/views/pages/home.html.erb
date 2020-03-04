@@ -42,7 +42,7 @@
 
         <div class="d-flex flex-wrap justify-content-center pt-4">
           <div class="clickable logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %>
-            <small>Football</small>
+            <small><%= link_to "Football", new_team_path, remote: true %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("basketball.svg", alt: "basketball", id: "sport-logo") %>
             <small>Basketball</small>

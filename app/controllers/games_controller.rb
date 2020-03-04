@@ -3,11 +3,16 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
-    if params[:address].blank?
+    if params[:query].blank?
+      # && params[:sport].blank?
         @games = Game.all
         @games = @games.geocoded
     else
-        @games = Game.search(params[:address], fields: [:address])
+        search = params[:query].presence || "*"
+        conditions = {}
+        conditions[:address] = params[:address] if params[:address].present?
+        conditions[:sport] = params[:sport] if params[:sport].present?
+        @games = Game.search search, where: conditions, aggs: [:address,:sport]
         # like geocoded but for search kick result
         @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
@@ -19,6 +24,10 @@ class GamesController < ApplicationController
         image_url: helpers.asset_url('football-marker')
       }
     end
+  end
+
+  def search
+
   end
 
   def show
