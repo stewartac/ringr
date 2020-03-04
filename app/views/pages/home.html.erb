@@ -1,16 +1,26 @@
 <div class="background-banner">
   <div class="main-info">
 
-    <div class="text-center">
-      <h1>Ringr</h1>
-      <p>Soon to be the most epic app in the world</p>
-        <%#= link_to "Create a team", new_team_path %>
+    <div class="text-container">
+      <h1 class="header-text">Team sports made simple</h1>
+        <br>
+        <h3 class="sub-header-text">Ringr connects competitive sports teams and players</h3>
+        <br>
     </div>
+
+    <div class="d-flex align-center">
+      <div class="p-3"><%= link_to "Create a team", new_team_path, :class => "main-button" %></div>
+      <div class="p-3"><%= link_to "Find out more", new_team_path, :class => "main-button" %></div>
+    </div>
+
+    <br>
+
     <div class="logo-container">
       <div class="logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %> </div>
       <div class="logo-div"> <%= image_tag("basketball.svg", alt: "basketball", id: "sport-logo") %> </div>
       <div class="logo-div"> <%= image_tag("cricket.svg", alt: "cricket", id: "sport-logo") %> </div>
     </div>
+
     <div class="logo-container">
       <div class="logo-div"> <%= image_tag("hockey.svg", alt: "hockey", id: "sport-logo") %></a> </div>
       <div class="logo-div"> <%= image_tag("netball.svg", alt: "netball", id: "sport-logo") %> </div>
@@ -18,11 +28,13 @@
     </div>
   </div>
 
-  <%= link_to "All games", games_path  %>
 
-  <div class="background-collage" style="background-image: url(<%= asset_path "background_collage.png" %>);">
+  <%= link_to "All games", games_path  %>
+  <div class="background-collage" style="background-image: url(<%= asset_path "improved-collage.png" %>);">
+
 
   </div>
+
 </div>
 
 
