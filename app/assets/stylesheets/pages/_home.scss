@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+#sport-logo {
+  max-height: 160px;
+  max-width: 160px;
+  width: 100%;
+  padding: 2px 16px;
+}
+
+.logo-div {
+  padding: 10px 20px;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+}

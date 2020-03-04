@@ -1,3 +1,23 @@
-<h1>This is the homepage for Ringr</h1>
-<p>Soon to be the most epic app in the world</p>
-<%= link_to "Create a team", new_team_path %>
+<div class="container">
+  <div class="text-center">
+    <h1>Ringr</h1>
+    <p>Soon to be the most epic app in the world</p>
+      <%= link_to "Create a team", new_team_path %>
+  </div>
+
+  <div class="logo-container">
+    <div class="logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %> </div>
+    <div class="logo-div"> <%= image_tag("basketball.svg", alt: "basketball", id: "sport-logo") %> </div>
+    <div class="logo-div"> <%= image_tag("cricket.svg", alt: "cricket", id: "sport-logo") %> </div>
+  </div>
+  <div class="logo-container">
+    <div class="logo-div"> <%= image_tag("hockey.svg", alt: "hockey", id: "sport-logo") %></a> </div>
+    <div class="logo-div"> <%= image_tag("netball.svg", alt: "netball", id: "sport-logo") %> </div>
+    <div class="logo-div"> <%= image_tag("rugby.svg", alt: "rugby", id: "sport-logo") %> </div>
+  </div>
+
+
+</div>
+
+
+
