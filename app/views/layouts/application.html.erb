@@ -8,6 +8,7 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
     <%= render 'shared/navbar' %>
@@ -23,6 +24,5 @@
       <p>this is the ringr footer. Not much to look at yet..</p>
       <p>this is the right side of the page</p>
     </div>
-    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
