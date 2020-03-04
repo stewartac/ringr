@@ -1,4 +1,10 @@
 <h1>This is the index page for all games</h1>
 <% @games.each do |game| %>
-  <%= link_to "See game", game  %>
+  <%= link_to "See game", game %>
 <% end %>
+
+<div id="map"
+     style="width: 100%;
+     height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
