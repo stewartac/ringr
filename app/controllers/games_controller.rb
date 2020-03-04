@@ -7,7 +7,7 @@ class GamesController < ApplicationController
         @games = Game.all
     else
         Game.reindex
-        @games = Game.search(params[:address])
+        @games = Game.search(params[:address], fields: [:address])
     end
   end
 

@@ -1,5 +1,5 @@
 <h1>This is the index page for all games</h1>
 <% @games.each do |game| %>
-  <%= game.address %>
-  <%= link_to "See game"%>
+  <li><%= game.address %>
+  <%= link_to "See game", game_path(game)%></li>
 <% end %>
