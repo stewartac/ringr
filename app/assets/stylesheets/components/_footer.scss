@@ -1,0 +1,11 @@
+.ringr-footer {
+  background: $seashell;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  bottom: 0px;
+  border-top: 1px solid $tumbleweed;
+}
