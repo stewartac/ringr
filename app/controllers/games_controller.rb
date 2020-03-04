@@ -8,13 +8,15 @@ class GamesController < ApplicationController
     else
         @games = Game.search(params[:address], fields: [:address])
     end
-    @markers = @games.geocoded.map do |game|
+    @games = @games.geocoded
+    @markers = @games.map do |game|
       {
         lat: game.latitude,
         lng: game.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
         image_url: helpers.asset_url('football-marker')
       }
+    end
   end
 
   def show
