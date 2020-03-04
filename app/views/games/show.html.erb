@@ -4,6 +4,7 @@
 <p>Sport: <%= @game.sport %></p>
 <p>Format: <%= @game.format %></p>
 <p>Available spaces: <%= @game.available_spaces %></p>
+<p><%= link_to "Delete game", game_path(@game), method: :delete, data: { confirm: "Are you sure?!" } %></p>
 <%= simple_form_for([@game, @booking]) do |f| %>
   <%= f.submit %>
 <% end %>
