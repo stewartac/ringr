@@ -5,10 +5,12 @@ class GamesController < ApplicationController
   def index
     if params[:address].blank?
         @games = Game.all
+        @games = @games.geocoded
     else
         @games = Game.search(params[:address], fields: [:address])
+        # like geocoded but for search kick result
+        @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
-    @games = @games.geocoded
     @markers = @games.map do |game|
       {
         lat: game.latitude,
