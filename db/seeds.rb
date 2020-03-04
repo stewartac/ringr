@@ -21,7 +21,7 @@ team2 = Team.create!(name: "Inter minan", user: User.second)
 puts "Creating games"
 
 game1 = Game.create!(address: "Stamford Bridge, Fulham Road, London", date: "2020/06/06", time: "17:30", sport: "Football", format: "11-a-side", available_spaces: 2, team: Team.first)
-game2 = Game.create!(address: "Emirates Stadium, Hornsey Rd, London, N7 7AJ", date: "2020/04/11", time: "18:00", sport: "Football", format: "5-a-side", available_spaces: 1, team: Team.second)
+game2 = Game.create!(address: "10 downing street, SW1A 2AA", date: "2020/04/11", time: "18:00", sport: "Football", format: "5-a-side", available_spaces: 1, team: Team.second)
 
 puts "Creating memberships"
 
