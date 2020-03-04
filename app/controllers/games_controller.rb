@@ -3,16 +3,18 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
-    @games = Game.all
-    @games.geocoded
-    @markers = @games.map do |game|
+    if params[:address].blank?
+        @games = Game.all
+    else
+        @games = Game.search(params[:address], fields: [:address])
+    end
+    @markers = @games.geocoded.map do |game|
       {
         lat: game.latitude,
         lng: game.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
         image_url: helpers.asset_url('football-marker')
       }
-    end
   end
 
   def show

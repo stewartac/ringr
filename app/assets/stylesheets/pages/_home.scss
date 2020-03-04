@@ -1,4 +1,10 @@
 // Specific CSS for your home-page
+.page-container {
+  position: relative;
+  min-height: 100vh;
+  margin: 0 50px;
+}
+
 #sport-logo {
   max-height: 160px;
   max-width: 160px;
@@ -14,3 +20,4 @@
   display: flex;
   flex-direction: row;
 }
+

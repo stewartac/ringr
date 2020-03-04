@@ -12,8 +12,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <div class="page-container">
     <%= yield %>
-
+    <div class="ringr-footer"> <p>this is the ringr footer. Not much to look at yet..</p> <p>this is the right side of the page</p> </div>
+    </div>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
