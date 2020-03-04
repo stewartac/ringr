@@ -6,9 +6,15 @@ class GamesController < ApplicationController
     if params[:address].blank?
         @games = Game.all
     else
-        Game.reindex
         @games = Game.search(params[:address], fields: [:address])
     end
+    @markers = @games.geocoded.map do |game|
+      {
+        lat: game.latitude,
+        lng: game.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
+        image_url: helpers.asset_url('football-marker')
+      }
   end
 
   def show
@@ -30,7 +36,6 @@ class GamesController < ApplicationController
     if @game.save
       redirect_to game_path(@game)
     else
-      # raise
       render :new
     end
   end
