@@ -27,12 +27,42 @@
     </div>
 
     <div class="logo-container">
-      <div class="logo-div"> <%= image_tag("hockey.svg", alt: "hockey", id: "sport-logo") %></a> </div>
+      <div class="logo-div"> <%= image_tag("hockey.svg", alt: "hockey", id: "sport-logo") %></div>
       <div class="logo-div"> <%= image_tag("netball.svg", alt: "netball", id: "sport-logo") %> </div>
       <div class="logo-div"> <%= image_tag("rugby.svg", alt: "rugby", id: "sport-logo") %> </div>
     </div>
-  </div>
 
+
+<!-- INPUT LIST -->
+
+    <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-8 text-center">
+        <h3>Select your favourite sports:</h3>
+
+        <div class="d-flex flex-wrap justify-content-center pt-4">
+          <div class="clickable logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %>
+            <small>Football</small>
+          </div>
+          <div class="clickable logo-div"> <%= image_tag("basketball.svg", alt: "basketball", id: "sport-logo") %>
+            <small>Basketball</small>
+          </div>
+          <div class="clickable logo-div"> <%= image_tag("cricket.svg", alt: "cricket", id: "sport-logo") %>
+            <small>Cricket</small>
+          </div>
+          <div class="clickable logo-div"> <%= image_tag("hockey.svg", alt: "hockey", id: "sport-logo") %>
+            <small>Hockey</small>
+          </div>
+          <div class="clickable logo-div"> <%= image_tag("netball.svg", alt: "netball", id: "sport-logo") %>
+            <small>Netball</small>
+          </div>
+          <div class="clickable logo-div"> <%= image_tag("rugby.svg", alt: "rugby", id: "sport-logo") %>
+            <small>Rugby</small>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
     <br>
     <br>
     <br>
