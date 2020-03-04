@@ -2,18 +2,23 @@
   <div class="main-info">
 
     <div class="text-container">
-      <h1 class="header-text">Team sports made simple</h1>
-        <br>
-        <h3 class="sub-header-text">Ringr connects competitive sports teams and players</h3>
-        <br>
+      <br>
+      <br>
+      <br>
+      <h1 class="header-text">Find players.</h1>
+      <h1 class="header-text">Find a team.</h1>
+      <h1 class="header-text">Play today.</h1>
+      <h3 class="sub-header-text">Ringr seamlessly matches competitive sports teams with players at short notice.</h3>
     </div>
 
     <div class="d-flex align-center">
       <div class="p-3"><%= link_to "Create a team", new_team_path, :class => "main-button" %></div>
-      <div class="p-3"><%= link_to "Find out more", new_team_path, :class => "main-button" %></div>
+      <div class="p-3"><a href="#find-out-more" class="main-button">Find out more</a></div>
     </div>
+  </div>
 
-    <br>
+  <div class="background-collage" style="background-image: url(<%= asset_path "improved-collage.png" %>);"></div>
+</div>
 
     <div class="logo-container">
       <div class="logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %> </div>
@@ -34,13 +39,16 @@
                 <%= submit_tag "Find a game", class: "home-button" %>
               <% end %>
     </div>
-  </div>
 
-  <div class="background-collage" style="background-image: url(<%= asset_path "improved-collage.png" %>);">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a id="find-out-more"> Hello! </h1>
 
-  </div>
-
-</div>
 
 
 
