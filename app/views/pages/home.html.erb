@@ -42,22 +42,22 @@
 
         <div class="d-flex flex-wrap justify-content-center pt-4">
           <div class="clickable logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %>
-            <small><%= link_to "Football", games_path(query:"football") %></small>
+            <small><%= link_to "Football", games_path(query:"Football") %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("basketball.svg", alt: "basketball", id: "sport-logo") %>
-            <small><%= link_to "Basketball", games_path(query:"basketball") %></small>
+            <small><%= link_to "Basketball", games_path(query:"Basketball") %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("cricket.svg", alt: "cricket", id: "sport-logo") %>
-            <small>Cricket</small>
+            <small><%= link_to "Cricket", games_path(query:"Cricket") %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("hockey.svg", alt: "hockey", id: "sport-logo") %>
-            <small>Hockey</small>
+            <small><%= link_to "Hockey", games_path(query:"Hockey") %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("netball.svg", alt: "netball", id: "sport-logo") %>
-            <small>Netball</small>
+            <small><%= link_to "Netball", games_path(query:"Netball") %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("rugby.svg", alt: "rugby", id: "sport-logo") %>
-            <small>Rugby</small>
+            <small><%= link_to "Rugby", games_path(query:"Rugby") %></small>
           </div>
         </div>
       </div>
