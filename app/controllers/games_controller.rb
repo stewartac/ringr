@@ -57,5 +57,4 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:address, :date, :time, :price, :format, :sport, :available_spaces)
   end
-
 end
