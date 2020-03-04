@@ -33,7 +33,7 @@
     </div>
 
 
-<!-- INPUT LIST -->
+<!-- INPUT LIST FOR SPORT SELECTION -->
 
     <div class="container">
     <div class="row justify-content-center">
@@ -42,10 +42,10 @@
 
         <div class="d-flex flex-wrap justify-content-center pt-4">
           <div class="clickable logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %>
-            <small><%= link_to "Football", new_team_path, remote: true %></small>
+            <small><%= link_to "Football", games_path(query:"football") %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("basketball.svg", alt: "basketball", id: "sport-logo") %>
-            <small>Basketball</small>
+            <small><%= link_to "Basketball", games_path(query:"basketball") %></small>
           </div>
           <div class="clickable logo-div"> <%= image_tag("cricket.svg", alt: "cricket", id: "sport-logo") %>
             <small>Cricket</small>

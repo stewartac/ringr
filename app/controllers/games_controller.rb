@@ -24,6 +24,7 @@ class GamesController < ApplicationController
         image_url: helpers.asset_url('football-marker')
       }
     end
+
   end
 
   def search
@@ -39,7 +40,6 @@ class GamesController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { game: @game }),
       image_url: helpers.asset_url('football-marker')
     }]
-    # raise
   end
 
   def new
