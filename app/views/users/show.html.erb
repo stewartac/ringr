@@ -39,7 +39,7 @@
     <% @user.requested_bookings.each do |booking| %>
       <div class="card" style="width: 24rem;">
         <div class="card-body">
-          <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date %></p>
+          <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
           <p>Current status: <%= booking.status %></p>
           <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
           <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
@@ -83,21 +83,24 @@
     </div>
 </div>
 
+<!-- USER REJECTED GAMES -->
 <div class="games-container">
   <h2>Unsuccessful Booking Requests</h2>
+  <div class="items">
     <% @user.bookings.each do |booking| %>
       <div class="card" style="width: 24rem;">
-       <div class="card-body">
-        <% if booking.status == "rejected" %>
-          <h5 class="card-title"> <%= booking.game.team.name %></h5>
-          <p class="card-text"><%= booking.game.address %></p>
-          <p class="card-text">Unfortunately your request was not accepted. Please search other games that might suit you!</p>
-          <p class="btn"><%= link_to "View all games", games_path %></p>
-        <% else %>
-          <h5 class="card-title">You dont have any current bookings</h5>
-          <p class="card-text">Go check out all available games to find one that works for you!</p>
-          <p class="btn"><%= link_to "View all games", games_path %></p>
-        <% end %>
+        <div class="card-body">
+          <% if booking.status == "rejected" %>
+            <h5 class="card-title"> <%= booking.game.team.name %></h5>
+            <p class="card-text"><%= booking.game.address %></p>
+            <p class="card-text">Unfortunately your request was not accepted. Please search other games that might suit you!</p>
+            <p class="btn"><%= link_to "View all games", games_path %></p>
+          <% else %>
+            <h5 class="card-title">You dont have any current bookings</h5>
+            <p class="card-text">Go check out all available games to find one that works for you!</p>
+            <p class="btn"><%= link_to "View all games", games_path %></p>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
