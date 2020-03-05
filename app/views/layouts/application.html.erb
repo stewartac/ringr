@@ -17,12 +17,11 @@
       <div class="page-container">
     <% end %>
       <%= yield %>
-    <% unless action_name == 'home' %>
+
+      <div>
+      <%= render 'shared/footer' %>
       </div>
-    <% end %>
-    <div class="ringr-footer">
-      <p>this is the ringr footer. Not much to look at yet..</p>
-      <p>this is the right side of the page</p>
-    </div>
+      </div>
+
   </body>
 </html>
