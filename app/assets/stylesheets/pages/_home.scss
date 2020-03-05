@@ -10,6 +10,8 @@
   max-width: 170px;
   width: 100%;
   padding: 2px 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background: #FCEBEA;
 }
 
 .logo-div {
@@ -43,10 +45,13 @@
 }
 
 .home-page-card {
-  border: 1px solid black;
+  // border: 1px solid black;
+  background: #FCEBEA;
   padding: 12px 12px;
   height: 400px;
   width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 10%;
 }
 
 .info-cards {
