@@ -1,4 +1,5 @@
 class Game < ApplicationRecord
+  SPORTS = %w[Football Rugby Netball Hockey Basketball Cricket]
   searchkick
   belongs_to :team
   has_many :bookings, dependent: :destroy

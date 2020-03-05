@@ -20,32 +20,55 @@
   <div class="background-collage" style="background-image: url(<%= asset_path "improved-collage.png" %>);"></div>
 </div>
 
-<div class="background-banner">
-    <div class="logo-container">
-      <div class="logo-div"> <%= image_tag("football.svg", alt: "football", id: "sport-logo") %> </div>
-      <div class="logo-div"> <%= image_tag("basketball.svg", alt: "basketball", id: "sport-logo") %> </div>
-      <div class="logo-div"> <%= image_tag("cricket.svg", alt: "cricket", id: "sport-logo") %> </div>
+<!-- INPUT LIST FOR SPORT SELECTION -->
+
+<%= simple_form_for :filter, url: games_path, method: :get do |f| %>
+  <fieldset class="form-group check_boxes required filter_sports">
+    <legend class="col-form-label pt-0">Sports <abbr title="required">*</abbr></legend>
+    <input type="hidden" name="filter[sports][]" value="">
+    <% Game::SPORTS.each do |sport| %>
+    <div class="form-check">
+      <input class="form-check-input check_boxes required" type="checkbox" value="<%= sport %>" name="filter[sports][]" id="filter_sports_<%= sport.downcase %>">
+      <label class="form-check-label collection_check_boxes" for="filter_sports_<%= sport.downcase %>"><%= sport %></label>
     </div>
+    <% end %>
+  </fieldset>
+  <%= f.submit %>
+<% end %>
+>>>>>>> master
 
-    <div class="logo-container">
-      <div class="logo-div"> <%= image_tag("hockey.svg", alt: "hockey", id: "sport-logo") %></a> </div>
-      <div class="logo-div"> <%= image_tag("netball.svg", alt: "netball", id: "sport-logo") %> </div>
-      <div class="logo-div"> <%= image_tag("rugby.svg", alt: "rugby", id: "sport-logo") %> </div>
-    </div>
 
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a id="find-out-more"> Hello! </h1>
+<div class="sportsform">
+  <div class="form-check form-check-inline" action="/games?query=football.html">
+    <input class="form-check-input" type="checkbox" name="inlineSportOptions" id="inlineFootball" value="Football">
+    <label class="form-check-label" for="inlineFootball"><%= image_tag("football.svg", alt: "football", id: "inlineFootball", id: "sport-logo")%></label>
+  </div>
+      <button type="submit" class="btn main-button"> <%= link_to "choose sports", games_path %></button>
   </div>
 
 
+<!--   <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="inlineSportOptions" id="inlineBasketball" value="basketball">
+    <label class="form-check-label" for="inlineBasketball"><%= image_tag("basketball.svg", alt: "basketball", id: "inlineBasketball", id: "sport-logo")%></label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="inlineSportOptions" id="inlineCricket" value="Cricket">
+    <label class="form-check-label" for="inlineCricket"><%= image_tag("cricket.svg", alt: "cricket", id: "inlineCricket", id: "sport-logo")%></label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="inlineSportOptions" id="inlineHockey" value="Hockey">
+    <label class="form-check-label" for="inlineHockey"><%= image_tag("hockey.svg", alt: "Hockey", id: "inlineHockey", id: "sport-logo")%></label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="inlineSportOptions" id="inlineNetball" value="Netball">
+    <label class="form-check-label" for="inlineNetball"><%= image_tag("netball.svg", alt: "Netball", id: "inlineNetball", id: "sport-logo")%></label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" name="inlineSportOptions" id="inlineRugby" value="Rugby">
+    <label class="form-check-label" for="inlineNetball"><%= image_tag("rugby.svg", alt: "Rugby", id: "inlineRugby", id: "sport-logo")%></label>
+  </div>
+      <button type="submit" class="btn main-button"> <%= link_to "choose sports", games_path %></button>
+  </div> -->
 
-
-
-
+<br>
+<br>
