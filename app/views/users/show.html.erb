@@ -33,6 +33,6 @@
 
 <h2>Games you created <%current_user.teams.each do |team|%></h2>
  <% team.games.each do |game|%>
- <li><%= link_to "See game info", game_path(game) %> <%= game.address%> @ <%= game.time %> </li>
+ <li><%= link_to "See game info", game_path(game) %> <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %> </li>
   <% end %>
   <% end %>
