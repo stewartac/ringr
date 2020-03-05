@@ -82,10 +82,11 @@
     </div>
 </div>
 
-<h2>Unsuccessful Booking Requests</h2>
-<div class="card" style="width: 24rem;">
-  <div class="card-body">
-      <% @user.bookings.each do |booking| %>
+<div class="games-container">
+  <h2>Unsuccessful Booking Requests</h2>
+    <% @user.bookings.each do |booking| %>
+      <div class="card" style="width: 24rem;">
+       <div class="card-body">
         <% if booking.status == "rejected" %>
           <h5 class="card-title"> <%= booking.game.team.name %></h5>
           <p class="card-text"><%= booking.game.address %></p>
@@ -95,7 +96,8 @@
           <h5 class="card-title">You dont have any current bookings</h5>
           <p class="card-text">Go check out all available games to find one that works for you!</p>
           <p class="btn"><%= link_to "View all games", games_path %></p>
-          <% end %>
         <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
