@@ -11,7 +11,7 @@
 
 <% @games.each do |game| %>
   <li><%= link_to "See game", game, data: { turbolinks: false } %>
-  <%= game.address %></li>
+  <%= game.address %> @ <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %> </li>
 <% end %>
 
 <!-- MAP -->
