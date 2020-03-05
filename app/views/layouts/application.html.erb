@@ -13,16 +13,15 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <% unless action_name == 'home' %>
-      <div class="page-container">
-    <% end %>
-      <%= yield %>
-    <% unless action_name == 'home' %>
-      </div>
-    <% end %>
-    <div class="ringr-footer">
-      <p>this is the ringr footer. Not much to look at yet..</p>
-      <p>this is the right side of the page</p>
+  <% unless action_name == 'home' %>
+    <div class="page-container">
+   <% end %>
+
+  <%= yield %>
     </div>
+      <div>
+        <%= render 'shared/footer' %>
+      </div>
+
   </body>
 </html>
