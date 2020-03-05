@@ -1,38 +1,107 @@
+<div>
+  <!-- USER INFO -->
+  <% if user_signed_in? && current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key %>
+  <% end %>
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <h2><%= @user.profile %></h2>
+  <p><%= @user.email %></p>
+</div>
 
-<!-- USER INFO -->
-<% if user_signed_in? && current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key %>
-<% end %>
-<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-<p><%= @user.email %></p>
+<!-- ACCEPTED BOOKINGS <-->
+<div class="games-container">
+  <h2>Your Upcoming Games</h2>
+  <div class="items">
+    <% @user.bookings.each do |booking| %>
+      <div class="card" style="width: 24rem;">
+        <div class="card-body">
+          <% if booking.status == "accepted" %>
+            <h5 class="card-title"> <%= booking.game.team.name %></h5>
+            <p class="card-text"><%= booking.game.address %></p>
+            <p class="card-text"><%= booking.game.date %></p>
+            <p class="profile-button"><%= link_to "View game details", game_path(booking.game) %></p>
+          <% else %>
+            <h5 class="card-title">You dont have any current bookings</h5>
+            <p class="card-text">Go check out all available games to find one that works for you!</p>
+            <p><%= link_to "View all games", games_path %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-
-<!-- USER BOOKINGS -->
-<h5>Booking i have requested</h5>
-<% @user.bookings.each do |booking| %>
-  <p><%= booking.status %> booking to <%= booking.game.team.name %></p>
-<% end %>
 
 <!-- BOOKINGS FROM OTHER USERS -->
-
-<h5>Bookings other people have requested</h5>
-<% @user.requested_bookings.each do |booking| %>
-  <p><%= booking.status %> booking to <%= booking.game.team.name %> by <%= booking.user.first_name %></p>
-  <%= link_to "accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
-  <%= link_to "reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
-<% end %>
+<div class="requests-container">
+  <h2>Requests to join your games</h2>
+  <div class="items">
+    <% @user.requested_bookings.each do |booking| %>
+      <div class="card" style="width: 24rem;">
+        <div class="card-body">
+          <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
+          <p>Current status: <%= booking.status %></p>
+          <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
+          <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <!-- USER TEAMS -->
-
-<h2>Your Teams <%current_user.teams.each do |team|%></h2>
-  <li><%= link_to "#{team.name}", team_path(team) %>
-  <p><%= link_to "Create a game", new_team_game_path(team) %> </li>
-  <% end %>
+<div class="teams-container">
+  <h2>Your Teams</h2>
+    <div class="items">
+      <% current_user.teams.each do |team|%>
+        <div class="card" style="width: 24rem;">
+          <div class="card-body">
+            <p><%= team.name %></p>
+            <p><%= link_to "Team Page", team_path(team) %></p>
+            <li><%= link_to "Create a game for this team", new_team_game_path(team) %> </li>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
 <!-- USER CREATED GAMES -->
+<div class="games-container">
+  <h2>Your Ringr Search - upcoming games</h2>
+    <div class="items">
+      <%current_user.teams.each do |team|%>
+        <div class="card" style="width: 24rem;">
+          <div class="card-body">
+            <% team.games.each do |game|%>
+            <p><%= game.address%></p>
+            <p><%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %></p>
+            <li><%= link_to "See game info", game_path(game) %></li>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
 
-<h2>Games you created <%current_user.teams.each do |team|%></h2>
- <% team.games.each do |game|%>
- <li><%= link_to "See game info", game_path(game) %> <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %> </li>
-  <% end %>
-  <% end %>
+<!-- USER REJECTED GAMES -->
+<div class="games-container">
+  <h2>Unsuccessful Booking Requests</h2>
+  <div class="items">
+    <% @user.bookings.each do |booking| %>
+      <div class="card" style="width: 24rem;">
+        <div class="card-body">
+          <% if booking.status == "rejected" %>
+            <h5 class="card-title"> <%= booking.game.team.name %></h5>
+            <p class="card-text"><%= booking.game.address %></p>
+            <p class="card-text">Unfortunately your request was not accepted. Please search other games that might suit you!</p>
+            <p class="btn"><%= link_to "View all games", games_path %></p>
+          <% else %>
+            <h5 class="card-title">You dont have any current bookings</h5>
+            <p class="card-text">Go check out all available games to find one that works for you!</p>
+            <p class="btn"><%= link_to "View all games", games_path %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
