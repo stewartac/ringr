@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @upcoming = @user.bookings.where(status: 'accepted')
+    @unsuccesful = @user.bookings.where(status: 'rejected')
   end
 
   private
