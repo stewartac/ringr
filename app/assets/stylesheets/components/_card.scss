@@ -3,14 +3,23 @@
   flex-direction: row;
 }
 .card-trip {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
   overflow: hidden;
-  background: white;
+  background: #f9f9f9;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
   width: 550px;
-  margin: auto;
+  margin: 8px auto;
   height: 200px;
   object-fit: cover;
+  .avatar-bordered {
+    width: 100px;
+  }
 }
+
 .w70 {
   width: 100%;
 }
@@ -35,21 +44,6 @@
 }
 
 
-.card-trip .front-card {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  height: 100%;
-}
-
-
-.front-card .card-trip-user {
-  width: 100px;
-
-}
-
 .right-side-card {
   display: flex;
   flex-direction: column;
@@ -60,6 +54,7 @@
 
 .right-side-card h2 {
   margin-bottom: 0;
+  text-align: center;
 }
 
 .left-side-card {
