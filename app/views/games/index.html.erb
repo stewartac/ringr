@@ -22,8 +22,12 @@
               <p>Distance to location</p>
             </div>
             <div class="right-side-card">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-            <h2> <%= game.available_spaces %> - players needed</h2>
+              <% if game.team.user.photo.attached? %>
+                <%= cl_image_tag game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
+              <% else %>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <% end %>
+              <h2> <%= game.available_spaces %> - players needed</h2>
             </div>
       </div>
     <% end %>
