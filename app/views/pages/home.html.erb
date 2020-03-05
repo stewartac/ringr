@@ -25,12 +25,12 @@
 
 <%= simple_form_for :filter, url: games_path, method: :get do |f| %>
   <fieldset class="form-group check_boxes required filter_sports">
-    <legend class="col-form-label pt-0">Sports <abbr title="required">*</abbr></legend>
+    <legend class="col-form-label pt-0">What Sports do you want to play? <abbr title="required">*</abbr></legend>
     <input type="hidden" name="filter[sports][]" value="">
     <% Game::SPORTS.each do |sport| %>
-    <div class="form-check">
+    <div class="form-check logo-container">
       <input class="form-check-input check_boxes required" type="checkbox" value="<%= sport %>" name="filter[sports][]" id="filter_sports_<%= sport.downcase %>">
-      <label class="form-check-label collection_check_boxes" for="filter_sports_<%= sport.downcase %>"><%= sport %></label>
+      <label class="form-check-label collection_check_boxes" for="filter_sports_<%= sport.downcase %>"><%= image_tag("#{sport.downcase}.svg", id: "sport-logo") %></label>
     </div>
     <% end %>
   </fieldset>
@@ -38,13 +38,13 @@
 <% end %>
 
 
-<div class="sportsform">
+<!-- <div class="sportsform">
   <div class="form-check form-check-inline" action="/games?query=football.html">
     <input class="form-check-input" type="checkbox" name="inlineSportOptions" id="inlineFootball" value="Football">
     <label class="form-check-label" for="inlineFootball"><%= image_tag("football.svg", alt: "football", id: "inlineFootball", id: "sport-logo")%></label>
   </div>
       <button type="submit" class="btn main-button"> <%= link_to "choose sports", games_path %></button>
-  </div>
+  </div> -->
 
 
 <!--   <div class="form-check form-check-inline">
