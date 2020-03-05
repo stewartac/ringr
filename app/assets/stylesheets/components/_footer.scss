@@ -1,11 +1,18 @@
 .ringr-footer {
-  background: $seashell;
+  background: $linen;
   display: flex;
-  // position: absolute;
+  padding: 12px 24px;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 60px;
   bottom: 0px;
   border-top: 1px solid $tumbleweed;
+  // position: absolute;
+  // margin: 8px 24px;
 }
+
+#social-icons {
+  padding: 10px 5px;
+}
+
