@@ -27,12 +27,12 @@
 <!-- INPUT LIST FOR SPORT SELECTION -->
 
 <%= simple_form_for :filter, url: games_path, method: :get do |f| %>
-  <fieldset class="form-group check_boxes required filter_sports">
-    <legend class="col-form-label pt-0">What Sports do you want to play? <abbr title="required">*</abbr></legend>
+  <fieldset class="form-group check_boxes required filter_sports ">
+    <legend class="col-form-label pt-0">What Sports do you want to play? <abbr title="required"></abbr></legend>
     <input type="hidden" name="filter[sports][]" value="">
     <% Game::SPORTS.each do |sport| %>
-    <div class="form-check logo-container col ">
-      <input class="form-check-input check_boxes required" type="checkbox" style="display:none" value="<%= sport %>" name="filter[sports][]" id="filter_sports_<%= sport.downcase %>">
+    <div class="form-check custom-control custom-checkbox custom-control-inline">
+      <input class="form-check-input check_boxes required" type="checkbox" value="<%= sport %>" name="filter[sports][]" id="filter_sports_<%= sport.downcase %>">
       <label class="form-check-label collection_check_boxes" for="filter_sports_<%= sport.downcase %>"><%= image_tag("#{sport.downcase}.svg", id: "sport-logo") %></label>
     </div>
     <% end %>
