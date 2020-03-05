@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
+
     if params[:address].blank? && params[:filter].blank?
         @games = Game.all
         @games = @games.geocoded
