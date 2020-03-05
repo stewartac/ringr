@@ -54,12 +54,12 @@
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="requests-container">
-      <h2>Requests to join your games</h2>
+      <!-- Requests to join your games -->
       <div class="items">
         <% if @user.requested_bookings.empty? %>
           <div class="card" style="width: 24rem;">
             <div class="card-body">
-              <h5 class="card-title">No current requests to join your games</h5>
+              <h5 class="card-title">There are no current requests to join your games</h5>
               <p class="card-text">Remember to include all game game details for the best chance of securing a last minute Ringr!</p>
             </div>
           </div>
@@ -73,6 +73,7 @@
               <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
             </div>
           </div>
+        <% end %>
         <% end %>
       </div>
     </div>
