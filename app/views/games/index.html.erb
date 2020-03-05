@@ -8,18 +8,44 @@
 </div>
 
 <!-- GAME LIST -->
+<div class="wrapping_games">
+  <div class="w70">
+    <% @games.each do |game| %>
+      <li><%= link_to "See game", game, data: { turbolinks: false } %>
+      <%= game.address %></li>
+    <% end %>
 
-<% @games.each do |game| %>
-  <li><%= link_to "See game", game, data: { turbolinks: false } %>
-  <%= game.address %></li>
-<% end %>
+    <div class="card-trip thecard">
+      <!-- <img src="https://images.unsplash.com/photo-1556056504-dc77ff4d11b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1036&q=80" /> -->
 
-<!-- MAP -->
+      <div class="front-card">
 
-<div id="map"
-     style="width: 100%;
-     height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          <div class="left-side-card">
+            <div class="main-card-info">
+              <h1>Team Name - Venue Name</h1>
+              <h3>Kick-off - Date & Time</h3>
+            </div>
+            <p>Distance to location</p>
+          </div>
+          <div class="right-side-card">
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <h2>X - players needed</h2>
+          </div>
 
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- MAP -->
+
+  <div id="map"
+       style="width: 100%;
+       height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  </div>
+</div>
 <%# raise %>

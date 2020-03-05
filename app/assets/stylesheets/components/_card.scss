@@ -1,0 +1,77 @@
+.wrapping_games {
+  display: flex;
+  flex-direction: row;
+}
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  width: 550px;
+  margin: auto;
+  height: 200px;
+  object-fit: cover;
+}
+.w70 {
+  width: 100%;
+}
+
+
+.card-trip h1 {
+  font-size: 24px;
+  font-weight: bold;
+  // margin: 0;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  // margin: 0;
+}
+
+
+.card-trip h3 {
+  font-size: 16px;
+
+}
+
+
+.card-trip .front-card {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  height: 100%;
+}
+
+
+.front-card .card-trip-user {
+  width: 100px;
+
+}
+
+.right-side-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.right-side-card h2 {
+  margin-bottom: 0;
+}
+
+.left-side-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: left;
+}
+
+.left-side-card p {
+  margin-bottom: 0;
+}
+
+
