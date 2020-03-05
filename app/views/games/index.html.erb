@@ -16,14 +16,17 @@
         <div class="card-trip">
               <div class="left-side-card">
                 <div class="main-card-info">
-                  <h1><%= game.team.name %> - <%= game.address %></h1>
-                  <h3>Kick-off - <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %></h3>
+                  <h3><u><%= game.sport %></u> </h3>
+                  <h2><u>Team:</u> <%= game.team.name %></h2>
+                  <h3><u>Address:</u> <%= game.address %></h3>
+                  <h3><u>Kick-off:</u> <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
                 </div>
                 <p>Distance to location</p>
               </div>
               <div class="right-side-card">
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              <h2> <%= game.available_spaces %> - players needed</h2>
+              <h2 style="color: green"> Spaces: <%= game.available_spaces %></h2>
+              <h2> £ <%= game.price.to_i %> </h2>
               </div>
         </div>
         <% end %>
