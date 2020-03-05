@@ -1,20 +1,32 @@
 
-<!-- USER INFO -->
-<% if user_signed_in? && current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key %>
-<% end %>
-<h2><%= @user.first_name %> <%= @user.last_name %></h2>
-<p><%= @user.email %></p>
+<div>
+  <!-- USER INFO -->
+  <% if user_signed_in? && current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key %>
+  <% end %>
+  <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+  <p><%= @user.email %></p>
+</div>
 
+  <!-- USER BOOKINGS -->
+<div>
+  <h5>Accepted Bookings</h5>
+  <div class="card">
+      <% current_user.requested_bookings.each do |booking| %>
+      <% if booking.status == "accepted" %>
+    <h5 class="card-header"><%= booking.status %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= booking.game.team.name %></h5>
+      <p class="card-text"><%= booking.game.address %></p>
+      <p class="btn"> <%= link_to "View game details", game_path(booking.game) %></p>
+    <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
 
-<!-- USER BOOKINGS -->
-<h5>Booking i have requested</h5>
-<% @user.bookings.each do |booking| %>
-  <p><%= booking.status %> booking to <%= booking.game.team.name %></p>
-<% end %>
 
 <!-- BOOKINGS FROM OTHER USERS -->
-
 <h5>Bookings other people have requested</h5>
 <% @user.requested_bookings.each do |booking| %>
   <p><%= booking.status %> booking to <%= booking.game.team.name %> by <%= booking.user.first_name %></p>
