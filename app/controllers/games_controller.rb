@@ -12,11 +12,12 @@ class GamesController < ApplicationController
       array.reject! {|string| string == ""}
       @games = Game.where(sport: array)
     else
-        search = params[:address].presence || "*"
-        conditions = {}
-        conditions[:address] = params[:address] if params[:address].present?
-        conditions[:sport] = params[:sport] if params[:sport].present?
-        @games = Game.search search, where: conditions, aggs: [:address,:sport]
+        # search = params[:address].presence || "*"
+        # conditions = {}
+        # conditions[:address] = params[:address] if params[:address].present?
+        # conditions[:sport] = params[:sport] if params[:sport].present?
+        Game.reindex
+        @games = Game.search(params[:address], fields:[:address])
         # like geocoded but for search kick result
         @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
