@@ -3,11 +3,15 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
-    if params[:query].blank?
+    if params[:address].blank? && params[:filter].blank?
         @games = Game.all
         @games = @games.geocoded
+    elsif params[:filter]
+      array = params.require(:filter).require(:sports)
+      array.reject! {|string| string == ""}
+      @games = Game.where(sport: array)
     else
-        search = params[:query].presence || "*"
+        search = params[:address].presence || "*"
         conditions = {}
         conditions[:address] = params[:address] if params[:address].present?
         conditions[:sport] = params[:sport] if params[:sport].present?
@@ -23,10 +27,6 @@ class GamesController < ApplicationController
         image_url: helpers.asset_url('football-marker')
       }
     end
-
-  end
-
-  def search
 
   end
 
