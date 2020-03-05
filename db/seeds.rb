@@ -8,8 +8,7 @@ Game.destroy_all
 Membership.destroy_all
 Team.destroy_all
 User.destroy_all
-Game.reindex
-Game.search_index.delete
+
 
 puts "Creating users"
 user1 = User.create!(first_name: "Alex", last_name: "Stewart", email: "test2@test.com", address: "27a Nevern Square, London", password: "password", date_of_birth: "1991/06/17", gender: "male", profile: "prolific left-booted, goal-scoring machine")
@@ -34,5 +33,8 @@ puts "Creating memberships"
 
 membership1 = Membership.create!(team: team1, user: user2)
 membership2 = Membership.create!(team: team2, user: user1)
+
+Game.reindex
+Game.search_index.delete
 
 puts "Done!"
