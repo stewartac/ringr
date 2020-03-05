@@ -73,7 +73,8 @@
         <div class="card" style="width: 24rem;">
           <div class="card-body">
             <% team.games.each do |game|%>
-            <p><%= game.address%> @ <%= game.time %></p>
+            <p><%= game.address%></p>
+            <p><%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %></p>
             <li><%= link_to "See game info", game_path(game) %></li>
             <% end %>
           </div>
