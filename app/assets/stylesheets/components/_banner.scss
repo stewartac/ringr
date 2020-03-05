@@ -1,6 +1,6 @@
 .background-banner {
   display: flex;
-  margin: 8px 24px;
+  margin-left: 16px;
 }
 
 .main-info {
@@ -12,7 +12,7 @@
   // height: calc(0.5857452966714907 * 50vw);
   height: 100vh;
   background-size: cover;
-  margin: 10px;
+  transform: translate(15px, -55px);
 }
 
 
