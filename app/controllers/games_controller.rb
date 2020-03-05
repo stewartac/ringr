@@ -4,7 +4,6 @@ class GamesController < ApplicationController
 
   def index
     if params[:query].blank?
-      # && params[:sport].blank?
         @games = Game.all
         @games = @games.geocoded
     else
