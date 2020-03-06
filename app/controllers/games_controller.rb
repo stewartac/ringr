@@ -10,10 +10,8 @@ class GamesController < ApplicationController
     # elsif params[:filter].present? && params[:address].present?
     #   @games = Game.search_by_address(params[:address])
     #   # raise
-
     #   array = params[:filter].split(",")
     #   array.reject! {|string| string == ""}
-
     #   @games = @games.where(sport: array)
     elsif params[:filter]
       array = params.require(:filter).require(:sports)
