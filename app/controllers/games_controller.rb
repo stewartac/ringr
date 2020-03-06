@@ -3,19 +3,20 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
-    raise
-    if params[:address].blank? && params[:filter].blank?
-        @games = Game.all
-        @games = @games.geocoded
-    elsif params[:filter]
+    @games = Game.geocoded
+    if params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
-      @games = Game.where(sport: array)
-    else
+      @games = @games.where(sport: array)
+    end
+    if params[:address]
         # Game.reindex
-        @games = Game.search_by_address(params[:address])
+        @games = @games.search_by_address(params[:address])
         # like geocoded but for search kick result
         @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
+    end
+    if params[:hidden_filter]
+      @games = @games.where(sport: params[:hidden_filter].split(" "))
     end
     @markers = @games.map do |game|
       {
