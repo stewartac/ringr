@@ -18,10 +18,10 @@
         <div class="game-card">
               <div class="left-side-card">
                 <div class="main-card-info">
-                  <h3><u><%= game.sport %></u> </h3>
-                  <h2><u>Team:</u> <%= game.team.name %></h2>
-                  <h3><u>Address:</u> <%= game.address %></h3>
-                  <h3><u>Kick-off:</u> <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
+                  <h3><%= game.sport %></h3>
+                  <h2>Team: <%= game.team.name %> (<%= game.format %>)</h2>
+                  <h3>Address: <%= game.address %></h3>
+                  <h3>Kick-off: <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
                 </div>
                 <p>Distance to location</p>
               </div>
