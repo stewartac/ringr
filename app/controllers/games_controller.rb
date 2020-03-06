@@ -1,18 +1,12 @@
 class GamesController < ApplicationController
-
+  require 'json'
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
-
+    raise
     if params[:address].blank? && params[:filter].blank?
         @games = Game.all
         @games = @games.geocoded
-    # elsif params[:filter].present? && params[:address].present?
-    #   @games = Game.search_by_address(params[:address])
-    #   # raise
-    #   array = params[:filter].split(",")
-    #   array.reject! {|string| string == ""}
-    #   @games = @games.where(sport: array)
     elsif params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
