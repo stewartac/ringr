@@ -22,7 +22,7 @@ class GamesController < ApplicationController
         lat: game.latitude,
         lng: game.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
-        image_url: helpers.asset_url('football-marker')
+        image_url: helpers.asset_url('football-marker.png')
       }
     end
 
@@ -35,7 +35,7 @@ class GamesController < ApplicationController
       lat: @game.latitude,
       lng: @game.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { game: @game }),
-      image_url: helpers.asset_url('football-marker')
+      image_url: helpers.asset_url('football-marker.png')
     }]
   end
 
