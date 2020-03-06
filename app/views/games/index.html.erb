@@ -13,7 +13,7 @@
     <div class="w70">
       <% @games.each do |game| %>
       <%= link_to game_path(game), :id => "card-link" do %>
-        <div class="card-trip">
+        <div class="game-card">
               <div class="left-side-card">
                 <div class="main-card-info">
                   <h3><u><%= game.sport %></u> </h3>
@@ -26,7 +26,7 @@
               <div class="right-side-card">
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
               <h2 style="color: green"> Spaces: <%= game.available_spaces %></h2>
-              <h2 style="color: apricot"> <i class="fas fa-coins"></i> £<%= game.price.to_i %> </h2>
+              <h2 id="coins"> <i class="fas fa-coins"></i> £<%= game.price.to_i %> </h2>
               </div>
         </div>
         <% end %>

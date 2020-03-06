@@ -3,7 +3,7 @@
   flex-direction: row;
   margin-top: 16px;
 }
-.card-trip {
+.game-card {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -43,18 +43,18 @@
 }
 
 
-.card-trip h1 {
+.game-card h1 {
   font-size: 24px;
   // margin: 0;
 }
 
-.card-trip h2 {
+.game-card h2 {
   font-size: 16px;
   // margin: 0;
 }
 
 
-.card-trip h3 {
+.game-card h3 {
   font-size: 16px;
 
 }
