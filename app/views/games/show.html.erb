@@ -5,7 +5,7 @@
     <div class="card-left">
       <h3 class="text-center" style="font-family: Oswald">Team Details</h3>
       <br>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-large" />
+      <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
       <p>Team: <%= @game.team.name %></p>
       <p><%= @game.format %></p>
       <p>Captain: <%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
@@ -23,7 +23,7 @@
               <% if booking.user.photo.attached? %>
                 <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
               <% else %>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
               <% end %>
                 <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
                 <p><%= booking.user.profile %></p>
