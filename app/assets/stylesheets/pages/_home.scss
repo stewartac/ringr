@@ -11,8 +11,28 @@
   width: 100%;
   padding: 2px 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  background: #FCEBEA;
+  // background: #FCEBEA;
+  cursor: pointer;
+  border-radius: 8%;
 }
+
+#sport-logo:hover {
+  background-color: $pink-orange;
+}
+
+#check_boxes:checked {
+  img {
+    background-color: red !important;
+  }
+}
+
+// #filter_sports_football:focus img{
+//   background-color: red !important;
+// }
+
+// #filter_sports_football:focus {
+//   background-color: $pink-orange;
+// }
 
 .logo-div {
   padding: 10px 20px;
@@ -62,3 +82,7 @@
   align-items: center;
   margin-right: 52px;
 }
+
+// .form-check-input {
+//   display: none;
+// }
