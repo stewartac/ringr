@@ -3,6 +3,22 @@
   position: sticky;
   top: 0;
   width: 100%;
+
+  h2 {
+    font-size: 12px;
+    color: black;
+  }
+
+  p {
+    color: green;
+  }
+}
+
+#show-card-map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 .mapboxgl-popup {
