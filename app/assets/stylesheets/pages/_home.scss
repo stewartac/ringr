@@ -19,6 +19,7 @@
 }
 
 .logo-container {
+  margin-top: 70px;
   display: flex;
   // flex-direction: row;
   justify-content: space-around;
@@ -47,18 +48,20 @@
 .home-page-card {
   // border: 1px solid black;
   background: #FCEBEA;
-  padding: 12px 12px;
+  padding: 24px 24px;
   height: 400px;
   width: 300px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   border-radius: 10%;
+  margin-right: 56px;
+  margin-left: 56px;
 }
 
 .info-cards {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 10px 20px;
+  justify-content: center;
+  // padding: 40px 40px;
   align-items: center;
-  margin-right: 52px;
+  // margin-right: 52px;
 }
