@@ -15,6 +15,22 @@
 <% end %>
 
 
+<!-- Bookings for specific game - everyone -->
+<h2>Confirmed Players</h2>
+<% @game.bookings.each do |booking| %>
+  <% if booking.status == "accepted" %>
+    <% if booking.user.photo.attached? %>
+      <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
+    <% else %>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <% end %>
+      <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
+      <p><%= booking.user.profile %></p>
+  <% else %>
+    <p>There are currently no bookings for this game! Join in below!</p>
+  <% end %>
+<% end %>
+
 <!-- Map for the game -->
 
 <div id="map"
