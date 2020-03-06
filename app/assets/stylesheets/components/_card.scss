@@ -1,23 +1,41 @@
 .wrapping_games {
   display: flex;
   flex-direction: row;
+  margin-top: 16px;
 }
-.card-trip {
+.game-card {
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
   overflow: hidden;
-  background: #f9f9f9 ;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background: $silk;
+  box-shadow: 0 0 2px rgba(0,0,0,0.4);
   width: 550px;
-  margin: 8px auto;
+  margin: 0 auto;
+  margin-bottom: 16px;
   height: 200px;
+  transition: 0.5s ease;
+  cursor: pointer;
   object-fit: cover;
+  border-radius: 8px;
   .avatar-bordered {
     width: 100px;
   }
+}
+
+.card-trip:hover {
+  background-color: $tumbleweed;
+}
+
+
+#card-link {
+  color: black;
+}
+
+#card-link:hover {
+  text-decoration: none;
 }
 
 .w70 {
@@ -25,20 +43,18 @@
 }
 
 
-.card-trip h1 {
+.game-card h1 {
   font-size: 24px;
-  font-weight: bold;
   // margin: 0;
 }
 
-.card-trip h2 {
+.game-card h2 {
   font-size: 16px;
-  font-weight: bold;
   // margin: 0;
 }
 
 
-.card-trip h3 {
+.game-card h3 {
   font-size: 16px;
 
 }
