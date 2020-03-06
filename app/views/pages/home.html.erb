@@ -5,16 +5,15 @@
       <br>
       <br>
       <br>
-      <h1 class="header-text">Find players.</h1>
-      <h1 class="header-text">Find a team.</h1>
-      <h1 class="header-text">Play today.</h1>
+      <h1 class="header-text">Find a Ringr.</h1>
+      <h1 class="header-text">Find a Team.</h1>
+      <h1 class="header-text">Play Today.</h1>
       <h3 class="sub-header-text">Ringr seamlessly matches competitive sports teams with players at short notice.</h3>
     </div>
 
     <div class="d-flex align-center">
-      <div class="p-3"><%= link_to "Create a team", new_team_path, :class => "main-button" %></div>
-      <div class="p-3"><a href="#find-out-more" class="main-button">Find out more</a></div>
       <div class="p-3"><a href="#play-now" class="main-button">Play now!</a></div>
+      <div class="p-3"><a href="#find-out-more" class="main-button">Find out more</a></div>
     </div>
   </div>
 
@@ -24,8 +23,8 @@
 <a id="find-out-more"></a>
 
 <div class="info-cards">
-  <div class="home-page-card"><p class="text-center align-center">Ringr is an app that links teams with players at short notice. Through our advanced algorithm, we make that right connection, leaving you to get the job done on the pitch.</p></div>
-  <div class="home-page-card"><h4 class="text-center" style="color:pink-orange">Don't go a man down!</h4> <br> <p>Given the fast-paced, unpredictable nature of modern life, last minute dropouts are a regular problem for sports teams. Until now, your typical ringer was an unwilling passerby, or a mate of the league's organiser, who'd huff and puff his way through his third game of the evening. That's where Ringr can lend a foot or hand. If you're a team captain, Ringr allows you to find keen reinforcements nearby, however last minute!</p></div>
+  <div class="home-page-card"><h4 class="text-center" style="color:pink-orange">Who we are</h4><br><p class="text-center align-center">Ringr is an app that links teams with players at short notice. Through our advanced algorithm, we make that right connection, leaving you to get the job done on the pitch.</p></div>
+  <div class="home-page-card"><h4 class="text-center" style="color:pink-orange">Don't go a man down!</h4> <br><p>Given the fast-paced, unpredictable nature of modern life, last minute dropouts are a regular problem for sports teams. That's where Ringr can lend a foot or hand. If you're a team captain, Ringr allows you to find keen reinforcements nearby, however last minute!</p></div>
   <div class="home-page-card"><h4 class="text-center">Competitive sport at your fingertips!</h4> <br> <p>Ringr caters for the everyday sportsman. Whether you've knocked off work early and want to let off some steam this evening, or your friends are all too busy to get a regular game going, Ringr puts you back in the action, finding teams in need of an extra body in your area. Get a sweat on and make some new friends in the process!</p> </div>
 </div>
 
@@ -33,10 +32,7 @@
 <div class="logo-container cursor: pointer;">
 <%= simple_form_for :filter, url: games_path, method: :get do |f| %>
   <fieldset class="form-group check_boxes required filter_sports ">
-    <legend class="col-form-label text-center"><h1 class="pb-3 sub-header-text"><b>Select your sport</b></h1><abbr title="required"></abbr></legend>
-    <br>
-    <br>
-    <br>
+    <legend class="col-form-label text-center"><h1 class="pb-3 sub-header-text"><strong>Select your sport</strong></h1><abbr title="required"></abbr></legend>
     <a id="play-now"></a>
     <br>
 <!--     <input type="hidden" name="filter[sports][]" value="Find me a game!" class="text-center">
@@ -47,7 +43,7 @@
     </div>
     <% end %>
   </fieldset>
-  <div class="text-center pt-3 pb-5">
+  <div class="text-center pt-2">
   <%= f.submit 'Let\'s play', :class => 'main-button', :id => 'lets-play-btn' %>
   </div>
 <% end %>

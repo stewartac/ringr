@@ -30,8 +30,7 @@ class GamesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
         image_url: helpers.asset_url('football-marker.png')
       }
-    end
-
+      end
   end
 
   def show
