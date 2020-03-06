@@ -6,10 +6,12 @@
 }
 
 #sport-logo {
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 170px;
+  max-width: 170px;
   width: 100%;
   padding: 2px 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background: #FCEBEA;
 }
 
 .logo-div {
@@ -18,7 +20,9 @@
 
 .logo-container {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .text-container {
@@ -36,4 +40,25 @@
   font-weight: lighter;
 }
 
+#lets-play-btn {
+  align-item: center;
+}
 
+.home-page-card {
+  // border: 1px solid black;
+  background: #FCEBEA;
+  padding: 12px 12px;
+  height: 400px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 10%;
+}
+
+.info-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px 20px;
+  align-items: center;
+  margin-right: 52px;
+}

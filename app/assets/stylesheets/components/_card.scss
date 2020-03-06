@@ -1,0 +1,88 @@
+.wrapping_games {
+  display: flex;
+  flex-direction: row;
+  margin-top: 16px;
+}
+.game-card {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  background: $silk;
+  box-shadow: 0 0 2px rgba(0,0,0,0.4);
+  width: 550px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  height: 200px;
+  transition: 0.5s ease;
+  cursor: pointer;
+  object-fit: cover;
+  border-radius: 8px;
+  .avatar-bordered {
+    width: 100px;
+  }
+}
+
+.game-card:hover {
+  background-color: $tumbleweed;
+}
+
+
+#card-link {
+  color: black;
+}
+
+#card-link:hover {
+  text-decoration: none;
+}
+
+.w70 {
+  width: 100%;
+}
+
+
+.game-card h1 {
+  font-size: 24px;
+  // margin: 0;
+}
+
+.game-card h2 {
+  font-size: 16px;
+  // margin: 0;
+}
+
+
+.game-card h3 {
+  font-size: 16px;
+
+}
+
+
+.right-side-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.right-side-card h2 {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.left-side-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: left;
+}
+
+.left-side-card p {
+  margin-bottom: 0;
+}
+
+
