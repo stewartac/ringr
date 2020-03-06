@@ -7,16 +7,21 @@ class GamesController < ApplicationController
     if params[:address].blank? && params[:filter].blank?
         @games = Game.all
         @games = @games.geocoded
+    # elsif params[:filter].present? && params[:address].present?
+    #   @games = Game.search_by_address(params[:address])
+    #   # raise
+
+    #   array = params[:filter].split(",")
+    #   array.reject! {|string| string == ""}
+
+    #   @games = @games.where(sport: array)
     elsif params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
       @games = Game.where(sport: array)
     else
-        search = params[:address].presence || "*"
-        conditions = {}
-        conditions[:address] = params[:address] if params[:address].present?
-        conditions[:sport] = params[:sport] if params[:sport].present?
-        @games = Game.search search, where: conditions, aggs: [:address,:sport]
+        # Game.reindex
+        @games = Game.search_by_address(params[:address])
         # like geocoded but for search kick result
         @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
@@ -25,7 +30,7 @@ class GamesController < ApplicationController
         lat: game.latitude,
         lng: game.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
-        image_url: helpers.asset_url('football-marker')
+        image_url: helpers.asset_url('football-marker.png')
       }
     end
 
@@ -38,7 +43,7 @@ class GamesController < ApplicationController
       lat: @game.latitude,
       lng: @game.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { game: @game }),
-      image_url: helpers.asset_url('football-marker')
+      image_url: helpers.asset_url('football-marker.png')
     }]
   end
 

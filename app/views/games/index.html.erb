@@ -4,6 +4,8 @@
     <h1>Search for games</h1>
     <%= form_tag games_path, method: :get, id: :search_form do %>
       <%= text_field_tag :address, params[:address], id: "games-search-bar", placeholder: "Enter your address" %>
+
+      <%#= hidden_field_tag :filter, params[:filter] %>
       <%= submit_tag "Find a game", class: "main-button" %>
     <% end %>
   </div>
@@ -24,9 +26,13 @@
                 <p>Distance to location</p>
               </div>
               <div class="right-side-card">
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              <h2 style="color: green"> Spaces: <%= game.available_spaces %></h2>
-              <h2 id="coins"> <i class="fas fa-coins"></i> £<%= game.price.to_i %> </h2>
+                <% if game.team.user.photo.attached? %>
+                  <%= cl_image_tag game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                <% else %>
+                  <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                <% end %>
+                <h2 style="color: green"> Spaces: <%= game.available_spaces %></h2>
+                <h2 id="coins"> <i class="fas fa-coins"></i> £<%= game.price.to_i %> </h2>
               </div>
         </div>
         <% end %>
