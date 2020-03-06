@@ -9,14 +9,13 @@ class GamesController < ApplicationController
       array.reject! {|string| string == ""}
       @games = @games.where(sport: array)
     end
-    if params[:address]
-        # Game.reindex
-        @games = @games.search_by_address(params[:address])
-        # like geocoded but for search kick result
-        @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
-    end
     if params[:hidden_filter]
       @games = @games.where(sport: params[:hidden_filter].split(" "))
+    end
+    @addresses = @games.pluck(:address)
+    if params[:address].present?
+      @games = @games.search_by_address(params[:address])
+      @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
     @markers = @games.map do |game|
       {
@@ -25,7 +24,7 @@ class GamesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
         image_url: helpers.asset_url('football-marker.png')
       }
-      end
+    end
   end
 
   def show

@@ -2,8 +2,14 @@
 <!-- Search Form for ad-->
   <div class="form">
     <h1>Search for games</h1>
+
     <%= form_tag games_path, method: :get, id: :search_form do %>
-      <%= text_field_tag :address, params[:address], id: "games-search-bar", placeholder: "Enter your address" %>
+      <%#= select_tag :address, params[:address], id: "games-search-bar", placeholder: "Enter your address" %>
+      <select name="address" id="games-search-bar" style="height: 60px;">
+        <% @addresses.each do |add| %>
+          <option value="<%= add %>"><%= add %></option>
+        <% end %>
+      </select>
       <%= hidden_field_tag :hidden_filter, params[:hidden_filter] || params[:filter][:sports] %>
       <%= submit_tag "Find a game", class: "main-button" %>
     <% end %>
