@@ -1,6 +1,17 @@
+.home_video {
+ width: 100vw;
+ height: 110vh;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ object-fit: cover;
+ top: 0;
+ z-index: -2;
+}
+
 .login {
   width: 400px;
-  margin: 16px auto;
+  margin: 0 auto;
   font-size: 16px;
 }
 
