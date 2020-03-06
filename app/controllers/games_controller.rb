@@ -7,13 +7,21 @@ class GamesController < ApplicationController
     if params[:address].blank? && params[:filter].blank?
         @games = Game.all
         @games = @games.geocoded
+    # elsif params[:filter].present? && params[:address].present?
+    #   @games = Game.search_by_address(params[:address])
+    #   # raise
+
+    #   array = params[:filter].split(",")
+    #   array.reject! {|string| string == ""}
+
+    #   @games = @games.where(sport: array)
     elsif params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
       @games = Game.where(sport: array)
     else
         # Game.reindex
-        @games = Game.search(params[:address], fields:[:address])
+        @games = Game.search_by_address(params[:address])
         # like geocoded but for search kick result
         @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
