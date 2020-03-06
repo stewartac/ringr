@@ -33,4 +33,6 @@ puts "Creating memberships"
 membership1 = Membership.create!(team: team1, user: user2)
 membership2 = Membership.create!(team: team2, user: user1)
 
+Game.reindex
+Game.search_index.delete
 puts "Done!"
