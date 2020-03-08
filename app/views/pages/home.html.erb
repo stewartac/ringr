@@ -13,44 +13,41 @@
 
     <div class="d-flex align-center">
       <div class="p-3"><a href="#play-now" class="main-button">Play now!</a></div>
-      <div class="p-3"><a href="#find-out-more" class="main-button">Find out more</a></div>
+      <div class="p-3"><a href="#find-out-more" class="green-button">Find out more</a></div>
     </div>
   </div>
+
+<!-- Middle 1/3 -->
 
   <div class="background-collage" style="background-image: url(<%= asset_path "background_done_now.png" %>);"></div>
 </div>
 
 <a id="find-out-more"></a>
-
+ <br>
 <div class="info-cards">
-  <div class="home-page-card"><h4 class="text-center" style="color:pink-orange; font-family: Oswald">Who we are</h4><br><p class="text-center align-center">Ringr is an app that links teams with players at short notice. Through our advanced algorithm, we make that right connection, leaving you to get the job done on the pitch.</p></div>
-  <div class="home-page-card"><h4 class="text-center" style="color:pink-orange; font-family: Oswald">Don't go a man down!</h4> <br><p class="text-center">Given the fast-paced, unpredictable nature of modern life, last minute dropouts are a regular problem for sports teams. That's where Ringr can lend a foot or hand. If you're a team captain, Ringr allows you to find keen reinforcements nearby, however last minute!</p></div>
-  <div class="home-page-card"><h4 class="text-center" style="color:pink-orange; font-family: Oswald">Competitive sport at your fingertips!</h4> <br> <p class="text-center">Ringr caters for the everyday sportsman. Whether you've knocked off work early and want to let off some steam this evening, or your friends are all too busy to get a regular game going, Ringr puts you back in the action, finding teams in need of an extra body in your area. Get a sweat on and make some new friends in the process!</p> </div>
+  <div class="home-page-card"><h3 class="text-center">Who we are</h3><p class="text-center align-center">Ringr instantly links teams with players. Through our advanced algorithm we make the right connection, leaving you to get the job done on the pitch.</p><%= image_tag "cricket_amateur.png", :id => 'cricket-image' %></div>
+  <div class="home-page-card"> <%= image_tag "rugby_orange.png", :class => 'style-image' %> <br><br><h3 class="text-center" id="green">Captains</h3><p class="text-center">Last minute dropouts are a regular problem for sports teams. Just getting a squad together can be a stressful process. Fortunately, Ringr can find you keen reinforcements nearby, however last minute!<div class="p-2"><a href="#find-out-more" class="green-button">Find a ringr</a></div></p></div>
+  <div class="home-page-card"><h3 class="text-center" style="color: orange">Players</h3> <p class="text-center">Whether you've knocked off work early and want to let off some steam, or just can't get your mates together for a game, Ringr puts you in the action, connecting you to teams in need of an extra player.</p> <div class="p-3"><a href="#play-now" class="main-button">Find a game</a></div> <%= image_tag "ringr_footy.png", :class => 'style-image' %></div>
 </div>
 
-<!-- <a id="play-now"></a> -->
+<!-- Bottom 1/3 -->
+
+<a id="play-now"></a>
+
 <div class="logo-container cursor: pointer;">
 <%= simple_form_for :filter, url: games_path, method: :get do |f| %>
   <fieldset class="form-group check_boxes required filter_sports ">
-    <legend class="col-form-label text-center"><h1 class="pb-3 sub-header-text"><strong>Select your sport</strong></h1><abbr title="required"></abbr></legend>
-    <a id="play-now"></a>
-    <br>
-<!--     <input type="hidden" name="filter[sports][]" value="Find me a game!" class="text-center">
- -->    <% Game::SPORTS.each do |sport| %>
-    <div class="form-check custom-control custom-checkbox custom-control-inline align-center">
+    <legend class="col-form-label text-center"><h1 class="pb-5 sub-header-text">I'd like to play:</h1><abbr title="required"></abbr></legend>
+     <% Game::SPORTS.each do |sport| %>
+    <div class="form-check custom-control custom-checkbox custom-control-inline">
       <input class="form-check-input check_boxes required" type="checkbox" value="<%= sport %>" name="filter[sports][]" id="filter_sports_<%= sport.downcase %>">
       <label class="form-check-label collection_check_boxes" for="filter_sports_<%= sport.downcase %>"><%= image_tag("#{sport.downcase}.svg", id: "sport-logo") %></label>
     </div>
     <% end %>
   </fieldset>
   <div class="text-center pt-2">
-  <%= f.submit 'Let\'s play', :class => 'main-button', :id => 'lets-play-btn' %>
+  <%= f.submit 'Let\'s go!', :class => 'main-button', :id => 'lets-play-btn' %>
   </div>
 <% end %>
-</div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>
