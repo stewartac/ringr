@@ -20,14 +20,26 @@
   border-radius: 8%;
 }
 
+label:before {
+  content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/unchecked_checkbox.png");
+  position: absolute;
+  z-index: 100;
+}
+:checked+label:before {
+  content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/checked_checkbox.png");
+}
+
+
 #sport-logo:hover {
   background-color: $pink-orange;
 }
 
+#sport-logo:visited {
+  background-color: yellow;
+}
+
 #check_boxes:checked {
-  img {
     background-color: red !important;
-  }
 }
 
 // #filter_sports_football:focus img{
@@ -43,9 +55,9 @@
 }
 
 .logo-container {
-  margin-top: 70px;
+  margin-top: 20px;
   display: flex;
-  height: 80vh;
+  height: 100vh;
   // flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -109,6 +121,6 @@
   color: #a1c932;
 }
 
-// .form-check-input {
-//   display: none;
-// }
+.form-check-input {
+  display: none;
+}
