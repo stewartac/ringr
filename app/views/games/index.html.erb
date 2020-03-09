@@ -1,10 +1,15 @@
 
 <!-- Search Form for ad-->
   <div class="form">
-    <h1>Search for games</h1>
+    <h1>Search games local to you!</h1>
 
     <%= form_tag games_path, method: :get, id: :search_form do %>
       <%#= select_tag :address, params[:address], id: "games-search-bar", placeholder: "Enter your address" %>
+
+    <select name="filter" id="games-search-bar">
+        <option value="Location"</option>
+    </select>
+
       <select name="address" id="games-search-bar" style="height: 60px;">
         <% @addresses.each do |add| %>
           <option value="<%= add %>"><%= add %></option>
