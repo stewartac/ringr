@@ -4,5 +4,22 @@
   background-attachment:fixed;
   height: auto;
   width: 100vw;
-  opacity: 0.3;
+  opacity: 0.1;
+}
+
+.team-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  color: black;
+}
+
+.team-card {
+  text-align: center;
+  padding-top: 40px;
+}
+
+#sport-logo-small {
+  height: 30px;
+  width: auto;
 }
