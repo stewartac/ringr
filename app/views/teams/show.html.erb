@@ -1,5 +1,17 @@
+<div class="team-container">
+ <!--  <%= image_tag "", alt: "alttext", :class => "football-background" %> -->
+  <div class="bottom-left">
+      <% @team.games.each do |game| %>
+      <h2><%= game.sport %></h2>
+      <p> <%= link_to "Create a game", new_team_game_path(@team), :class => "green-button" %></p>
+      <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
+        <h1 class="text-center pt-2"> <%= @team.name %></h1>
+      <p> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
+      <p> Other Members </p>
+      <p>Bio: ???</p>
+      <p>League Table</p>
 
-  <%= image_tag "ringr_footy.png", alt: "alttext", :class => "football-background" %>
-  <h1 class="text-center pt-2"> <%= @team.name %></h1>
-  <%= link_to "Create a game", new_team_game_path(@team)  %>
+      <% end %>
+    </div>
+</div>
 

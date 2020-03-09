@@ -4,5 +4,22 @@
   background-attachment:fixed;
   height: auto;
   width: 100vw;
-  opacity: 0.3;
+  opacity: 0.1;
+}
+
+.team-container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.bottom-left {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+#sport-logo-small {
+  height: 20px;
+  width: auto;
 }
