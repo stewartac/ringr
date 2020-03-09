@@ -1,7 +1,7 @@
 
 <!-- Search Form for ad-->
   <div class="form">
-    <h1>Search for games</h1>
+    <h1>Search games local to you!</h1>
 
     <%= form_tag games_path, method: :get, id: :search_form do %>
       <%#= select_tag :address, params[:address], id: "games-search-bar", placeholder: "Enter your address" %>
@@ -28,7 +28,11 @@
               <h3>Address: <%= game.address %></h3>
               <h3>Kick-off: <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
             </div>
-            <p>Distance to location</p>
+              <% if current_user.address.present? %>
+                <% dist = '' %>
+                <% dist = Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]) %>
+                <p><%= dist.round(1) %> miles</p>
+              <% end %>
           </div>
           <div class="right-side-card">
             <% if game.team.user && game.team.user.photo.attached? %>
