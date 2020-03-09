@@ -9,9 +9,8 @@
       <p>Team: <%= @game.team.name %></p>
       <p><%= @game.format %></p>
       <p>Captain: <%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
+      <% if current_user == @game.team.user %>
       <p><%= link_to "Delete game", game_path(@game), method: :delete, data: { confirm: "Are you sure?!" } %></p>
-      <%= simple_form_for([@game, @booking]) do |f| %>
-        <%= f.submit %>
       <% end %>
       <br>
       <br>
@@ -27,8 +26,6 @@
               <% end %>
                 <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
                 <p><%= booking.user.profile %></p>
-            <% else %>
-              <p>There are currently no bookings for this game! Join in below!</p>
             <% end %>
           <% end %>
       </div>
@@ -41,11 +38,11 @@
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "requested" %>
             <% if booking.user.photo.attached? %>
-              <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
+            <span> <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
               <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
             <% end %>
-              <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
+              <%= booking.user.first_name %>  <%= booking.user.last_name %></span>
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
@@ -53,11 +50,11 @@
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
             <% if booking.user.photo.attached? %>
-              <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
+              <span><%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
               <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
             <% end %>
-              <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
+              <%= booking.user.first_name %> <%= booking.user.last_name %></span>
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
@@ -79,8 +76,12 @@
       </div>
     </div>
     <div class="card-bottom">
-    <div id="request-button"> <%= link_to "Request to play", new_team_path, {:id => "request-button"} %> </div>
-      </div>
+      <% if current_user != @game.team.user %>
+        <%= simple_form_for([@game, @booking]) do |f| %>
+          <%= f.button :submit, id:"request-button" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
