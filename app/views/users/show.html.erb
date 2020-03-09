@@ -16,11 +16,8 @@
       <li class="nav-item">
         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Requests</a>
       </li>
-<!--       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Pending Requests</a>
-      </li> -->
       <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Your Teams</a>
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My Teams</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="fourth-tab" data-toggle="tab" href="#fourth" role="tab" aria-controls="fourth" aria-selected="false">Ringr Searches</a>
@@ -85,14 +82,18 @@
           </div>
         </div>
       </div>
+
+      <!-- MY TEAMS TAB -->
+
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <div class="teams-container">
+        <div class="ringr-searches-container">
           <!-- User Teams -->
           <div class="items">
             <% current_user.teams.each do |team|%>
               <div class="card" style="width: 24rem;">
                 <div class="card-body">
-                  <p><%= link_to team.name, team_path(team) %></p>
+                  <p> Upcoming games for <%= link_to team.name, team_path(team) %></p>
+                  <% team.games.sort_by {|game| game.time.to_i } %>
                   <% team.games.each do |game| %>
                   <ul><li><%= link_to game.address, game_path(game) %> </li>
                     <ul>
@@ -107,42 +108,20 @@
             <% end %>
         </div>
           <div class="p-3"><%= link_to "Create a new team", new_team_path, :class => "main-button" %></div>
-        ß</div>
-      </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="requests-container">
-          <!-- Requests to join your games -->
-          <div class="items">
-            <% if @user.requested_bookings.empty? %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <h5 class="card-title">There are no current requests to join your games</h5>
-                  <p class="card-text">Remember to include all game game details for the best chance of securing a last minute Ringr!</p>
-                </div>
-              </div>
-            <% else %>
-            <% @user.requested_bookings.each do |booking| %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
-                  <p>Current status: <%= booking.status %></p>
-                  <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
-                  <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
-                </div>
-              </div>
-            <% end %>
-            <% end %>
-          </div>
         </div>
       </div>
+
+<!-- Ringr Search -->
+
       <div class="tab-pane fade" id="fourth" role="tabpanel" aria-labelledby="fourth-tab">
-        <div class="games-container">
+        <div class="ringr-searches-container">
           <!-- Your Ringr Search - upcoming games -->
             <div class="items">
               <%current_user.teams.each do |team|%>
                 <div class="card" style="width: 24rem;">
                   <div class="card-body">
                     <% team.games.each do |game|%>
+                    <%= game.bookings.all %>
                     <p><%= game.address%></p>
                     <p><%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %></p>
                     <li><%= link_to "See game info", game_path(game) %></li>
@@ -153,6 +132,7 @@
             </div>
         </div>
       </div>
+
       <div class="tab-pane fade" id="fifth" role="tabpanel" aria-labelledby="fifth-tab">
         <div class="games-container">
           <!-- Unsuccessful Booking Requests -->
