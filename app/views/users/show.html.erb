@@ -30,29 +30,58 @@
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
+
+      <!-- MY REQUESTS TAB -->
+
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="games-container">
-          <!-- <h2>Your Upcoming Games</h2> -->
-          <div class="items">
-            <% if @upcoming.empty? %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <h5 class="card-title">You dont have any current bookings</h5>
-                  <p class="card-text">Go check out all available games to find one that works for you!</p>
-                  <p><%= link_to "View all games", games_path %></p>
+        <div class="my-requests-container">
+          <div class="upcoming">
+          <h2>Confirmed Games</h2>
+            <div class="items">
+              <% if @upcoming.empty? %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">You dont have any current bookings</h5>
+                    <p class="card-text">Go check out all available games to find one that works for you!</p>
+                    <p><%= link_to "View all games", games_path %></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-            <% @upcoming.each do |booking| %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <h5 class="card-title"> <%= booking.game.team.name %></h5>
-                  <p><%= booking.game.address %></p>
-                  <p><%= booking.game.date %></p>
-                  <p><%= link_to "View game details", game_path(booking.game) %></p>
+              <% end %>
+              <% @upcoming.each do |booking| %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title"> <%= booking.game.team.name %></h5>
+                    <p><%= booking.game.address %></p>
+                    <p><%= booking.game.date %></p>
+                    <p><%= link_to "View game details", game_path(booking.game) %></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="Pending">
+            <h2> Pending Games </h2>
+            <div class="items">
+              <% if @pending.empty? %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">You dont have any pending requests</h5>
+                    <p class="card-text">Go check out all available games to find one that works for you!</p>
+                    <p><%= link_to "View all games", games_path %></p>
+                  </div>
+                </div>
+              <% end %>
+              <% @pending.each do |booking| %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title"> <%= booking.game.team.name %></h5>
+                    <p><%= booking.game.address %></p>
+                    <p><%= booking.game.date %></p>
+                    <p><%= link_to "View game details", game_path(booking.game) %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
