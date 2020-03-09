@@ -12,11 +12,6 @@
       <% if current_user == @game.team.user %>
       <p><%= link_to "Delete game", game_path(@game), method: :delete, data: { confirm: "Are you sure?!" } %></p>
       <% end %>
-      <% if current_user != @game.team.user %>
-      <%= simple_form_for([@game, @booking]) do |f| %>
-        <%= f.submit %>
-      <% end %>
-      <% end %>
       <br>
       <br>
       <div>
@@ -81,8 +76,12 @@
       </div>
     </div>
     <div class="card-bottom">
-    <div id="request-button"> <%= link_to "Request to play", new_team_path, {:id => "request-button"} %> </div>
-      </div>
+      <% if current_user != @game.team.user %>
+        <%= simple_form_for([@game, @booking]) do |f| %>
+          <%= f.button :submit, id:"request-button" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
