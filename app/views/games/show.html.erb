@@ -16,9 +16,9 @@
       <br>
       <div>
 <!-- Bookings for specific game - everyone view-->
-        <h2>Confirmed Players</h2>
           <% @game.bookings.each do |booking| %>
             <% if booking.status == "accepted" %>
+        <h2>Confirmed Players</h2>
               <% if booking.user.photo.attached? %>
                 <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
               <% else %>
@@ -34,27 +34,27 @@
       <div>
       <% if current_user == @game.team.user %>
             <!-- Capatain sees requested & rejected bookings-->
+      <h2>Pending bookings</h2>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "requested" %>
-      <h2>Pending bookings</h2>
             <% if booking.user.photo.attached? %>
-              <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
+            <span> <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
               <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
             <% end %>
-              <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
+              <%= booking.user.first_name %>  <%= booking.user.last_name %></span>
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
+      <h2>Rejected bookings</h2>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
-      <h2>Rejected bookings</h2>
             <% if booking.user.photo.attached? %>
-              <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
+              <span><%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
               <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
             <% end %>
-              <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
+              <%= booking.user.first_name %> <%= booking.user.last_name %></span>
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
