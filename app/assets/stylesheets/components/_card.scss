@@ -1,46 +1,29 @@
-.wrapping_games {
-  display: flex;
-  flex-direction: row;
-  margin-top: 16px;
-}
+
 .game-card {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  opacity: 0.7;
+  margin-right: 16px;
+  margin-left: 16px;
+  padding: 4px 4px;
   position: relative;
-  overflow: hidden;
-  background: $silk;
+  display: flex;
+  flex: 0 1 24%;
+  flex-direction: row;
+  background: #DAF5FF;
   box-shadow: 0 0 2px rgba(0,0,0,0.4);
-  width: 550px;
   margin-bottom: 16px;
-  height: 200px;
+  height: 250px;
   transition: 0.5s ease;
   cursor: pointer;
   object-fit: cover;
   border-radius: 8px;
   .avatar-bordered {
-    width: 100px;
+    width: 80px;
   }
 }
 
 .game-card:hover {
-  background-color: $tumbleweed;
+  background-color: #FFBFA0;
 }
-
-
-#card-link {
-  color: black;
-}
-
-#card-link:hover {
-  text-decoration: none;
-}
-
-.w70 {
-  width: 100%;
-}
-
 
 .game-card h1 {
   font-size: 24px;
@@ -52,36 +35,49 @@
   // margin: 0;
 }
 
-
 .game-card h3 {
   font-size: 16px;
-
 }
 
-
-.right-side-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+.card-top {
+  width: 95%;
+  padding-left: 6px;
   align-items: center;
-}
-
-.right-side-card h2 {
-  margin-bottom: 0;
-  text-align: center;
-}
-
-.left-side-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  height: 100%;
-  align-items: left;
+  position: absolute;
+  padding: 4px auto;
+  top: 1;
+  border-bottom: 1px solid $pink-orange;
 }
 
-.left-side-card p {
-  margin-bottom: 0;
+// .left-side-card p {
+//   margin-bottom: 0;
+// }
+
+.card-body {
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 6;
 }
 
+// .right-side-card h2 {
+//   margin-bottom: 0;
+// }
+
+.card-bottom {
+  padding-right: 12px;
+  padding-left: 6px;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  padding: auto;
+  bottom: 1;
+  border-top: 1px solid $pink-orange;
+}
 

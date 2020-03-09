@@ -1,10 +1,38 @@
 #games-search-bar {
   color: black;
-  border-radius: 25px;
+  border-radius: 19px/50%;
   width: 70%;
   height: 40px;
+  letter-spacing: 1px;
 }
 
-#coins {
+.game-form {
+  padding-top: 12px;
+  margin-left: 16px;
+  text-align: center;
+}
+
+.wrapping_games {
+  display: flex;
+  margin: 16px auto;
+}
+
+.w70 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+}
+
+#card-link {
   color: black;
+}
+
+#card-link:hover {
+  text-decoration: none;
+}
+
+.team-font {
+  font-family: $cards-font;
+  font-weight: lighter;
 }
