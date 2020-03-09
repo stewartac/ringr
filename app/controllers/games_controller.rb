@@ -22,7 +22,7 @@ class GamesController < ApplicationController
         lat: game.latitude,
         lng: game.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
-        image_url: helpers.asset_url('football-marker.png')
+        image_url: helpers.asset_url(set_markers(game))
       }
     end
   end
@@ -34,7 +34,7 @@ class GamesController < ApplicationController
       lat: @game.latitude,
       lng: @game.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { game: @game }),
-      image_url: helpers.asset_url('football-marker.png')
+      image_url: helpers.asset_url(set_markers(@game))
     }]
   end
 
@@ -69,5 +69,22 @@ class GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:address, :date, :time, :price, :format, :sport, :available_spaces)
+  end
+
+  def set_markers(game)
+   placeholder = ''
+   if game.sport == "Football"
+    placeholder = 'football-marker.png'
+   elsif game.sport == "Basketball"
+    placeholder = 'basketball-marker.png'
+   elsif game.sport == "Netball"
+    placeholder = 'netball-marker.png'
+   elsif game.sport == 'Rugby'
+    placeholder = 'rugby-marker.png'
+   elsif game.sport == "Cricket"
+    placeholder = 'cricket-marker.png'
+   elsif game.sport == "Hockey"
+    placeholder = 'hockey-marker.png'
+    end
   end
 end

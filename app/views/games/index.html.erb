@@ -31,7 +31,7 @@
             <p>Distance to location</p>
           </div>
           <div class="right-side-card">
-            <% if game.team.user.photo.attached? %>
+            <% if game.team.user && game.team.user.photo.attached? %>
               <%= cl_image_tag game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
