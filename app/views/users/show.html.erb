@@ -85,6 +85,30 @@
           </div>
         </div>
       </div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="teams-container">
+          <!-- User Teams -->
+          <div class="items">
+            <% current_user.teams.each do |team|%>
+              <div class="card" style="width: 24rem;">
+                <div class="card-body">
+                  <p><%= link_to team.name, team_path(team) %></p>
+                  <% team.games.each do |game| %>
+                  <ul><li><%= link_to game.address, game_path(game) %> </li>
+                    <ul>
+                      <li><%= game.date.strftime('%a %d %b') %> <%= game.time.strftime("- %I:%M%p") %></li>
+                      <li>Spot available: <%= game.available_spaces %></li>
+                    </ul>
+                  </ul>
+                  <% end %>
+                  <%= link_to "Create a new game for this team", new_team_game_path(team) %>
+                </div>
+              </div>
+            <% end %>
+        </div>
+          <div class="p-3"><%= link_to "Create a new team", new_team_path, :class => "main-button" %></div>
+        ß</div>
+      </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <div class="requests-container">
           <!-- Requests to join your games -->
@@ -108,23 +132,6 @@
               </div>
             <% end %>
             <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <div class="teams-container">
-          <!-- User Teams -->
-          <div class="items">
-            <% current_user.teams.each do |team|%>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <p><%= team.name %></p>
-                  <p><%= link_to "Team Page", team_path(team) %></p>
-                  <li><%= link_to "Create a game for this team", new_team_game_path(team) %> </li>
-                </div>
-              </div>
-            <% end %>
-            <div class="p-3"><%= link_to "Create a new team", new_team_path, :class => "main-button" %></div>
           </div>
         </div>
       </div>
