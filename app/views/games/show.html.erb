@@ -27,8 +27,6 @@
               <% end %>
                 <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
                 <p><%= booking.user.profile %></p>
-            <% else %>
-              <p>There are currently no bookings for this game! Join in below!</p>
             <% end %>
           <% end %>
       </div>
@@ -37,9 +35,9 @@
       <div>
       <% if current_user == @game.team.user %>
             <!-- Capatain sees requested & rejected bookings-->
-      <h2>Pending bookings</h2>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "requested" %>
+      <h2>Pending bookings</h2>
             <% if booking.user.photo.attached? %>
               <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
@@ -49,9 +47,9 @@
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
-      <h2>Rejected bookings</h2>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
+      <h2>Rejected bookings</h2>
             <% if booking.user.photo.attached? %>
               <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
