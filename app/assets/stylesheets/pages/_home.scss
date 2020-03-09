@@ -21,7 +21,7 @@
 }
 
 #sport-logo:hover {
-  background-color: $pink-orange;
+  background-color: $june-bud;
 }
 
 #sport-logo:visited {
@@ -113,6 +113,14 @@
   color: #a1c932;
 }
 
-// .form-check-input {
-//   display: none;
-// }
+.form-check-input {
+  display: none;
+
+  &.active {
+    ~ label {
+        img {
+          background-color: #b0db43;
+      }
+    }
+  }
+}
