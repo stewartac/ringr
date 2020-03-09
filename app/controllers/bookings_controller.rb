@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :destroy]
-
+  after_save :update_game_available_spaces, on: update
 
   def show
   end
@@ -22,14 +22,18 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(booking_params)
       if booking_params[:status] == "accepted"
-        @booking.game.available_spaces = @booking.game.available_spaces - 1
-      redirect_to user_path(current_user)
+        @booking.update(booking_params)
+        update_booking_available_spaces
+      elsif
+        @booking.update(booking_params)
       end
-    else
-      redirect_to user_path(current_user)
-    end
+        redirect_to user_path(current_user)
+  end
+
+  def update_game_available_spaces
+      @game = Game.find(params[:game_id])
+      @game.available_spaces = @game.available_spaces - 1
   end
 
   def destroy
