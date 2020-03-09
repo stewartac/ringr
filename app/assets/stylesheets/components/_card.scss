@@ -1,30 +1,29 @@
 
 .game-card {
+  opacity: 0.7;
+  font-weight: bolder;
   margin-right: 16px;
   margin-left: 16px;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  padding: 4px 4px;
   position: relative;
-  overflow: hidden;
-  background: $silk;
+  display: flex;
+  flex: 0 1 24%;
+  flex-direction: row;
+  background: #DAF5FF;
   box-shadow: 0 0 2px rgba(0,0,0,0.4);
-  width: auto;
   margin-bottom: 16px;
-  height: 320px;
+  height: 300px;
   transition: 0.5s ease;
   cursor: pointer;
   object-fit: cover;
   border-radius: 8px;
   .avatar-bordered {
-    width: 100px;
+    width: 80px;
   }
 }
 
 .game-card:hover {
-  background-color: $tumbleweed;
+  background-color: $pink-orange;
 }
 
 .game-card h1 {
@@ -41,26 +40,40 @@
   font-size: 16px;
 }
 
-.left-side-card {
-  height: 100%;
-  align-items: left;
+.card-top {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  padding: auto;
+  top: 1;
+  border-bottom: 1px solid $pink-orange;
 }
 
-.left-side-card p {
-  margin-bottom: 0;
-}
+// .left-side-card p {
+//   margin-bottom: 0;
+// }
 
-.right-side-card {
-  align-items: center;
-}
-
-.right-side-card h2 {
-  margin-bottom: 0;
+.card-body {
   text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 6;
 }
+
+// .right-side-card h2 {
+//   margin-bottom: 0;
+// }
 
 .card-bottom {
-  align-content: flex-end;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  position: absolute;
+  padding: auto;
+  bottom: 1;
+  border-top: 1px solid $pink-orange;
 }
 

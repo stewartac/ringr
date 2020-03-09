@@ -18,9 +18,10 @@
 }
 
 .w70 {
-  width: 120%;
-  display: flex;
-  flex-direction: row;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
 }
 
 #card-link {
@@ -33,5 +34,6 @@
 
 
 #coins {
-  color: black;
+  color: #EEE82C;
+  padding-right: 14px;
 }

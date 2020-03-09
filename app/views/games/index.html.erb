@@ -19,24 +19,26 @@
       <% @games.each do |game| %>
       <%= link_to game_path(game), :id => "card-link" do %>
         <div class="game-card">
-          <div class="left-side-card">
-            <h1><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %>
-            <h3><%= game.sport %></h3>
-            <h2>Team: <%= game.team.name %> (<%= game.format %>)</h2>
-            <h3>Address: <%= game.address %></h3>
-            <h3>Kick-off: <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
-            <p>Distance to location</p>
+          <div class="card-top">
+            <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
+            <p style="color:purple"><%= game.time.strftime("%I:%M%p") %></p>
+
           </div>
-          <div class="right-side-card">
+          <div class="card-body">
             <% if game.team.user && game.team.user.photo.attached? %>
-              <%= cl_image_tag game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
+              <%= cl_image_tag game.team.user.photo.key, class: 'avatar-small' %>
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             <% end %>
+              <p>Captain: <%= game.team.user.first_name %> <%= game.team.user.last_name %></p>
+              <p>Team: <%= game.team.name %> (<%= game.format %>)</p>
+              <p>Date: <%= game.date.strftime('%a %d %b %Y') %></p>
+            <!--   <p>Address: <%= game.address %> (x distance from me)</p> -->
+
           </div>
           <div class="card-bottom">
-            <h2 style="color: green"> Spaces: <%= game.available_spaces %></h2>
-            <h2 id="coins"> <i class="fas fa-coins"></i> £<%= game.price.to_i %> </h2>
+            <p style="color: blue"> Spaces: <%= game.available_spaces %></h2>
+            <h2 (x distance from me) </h2>
           </div>
         </div>
         <% end %>
