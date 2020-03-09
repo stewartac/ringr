@@ -6,3 +6,39 @@
   margin: 8px;
   box-shadow: 0px 0px 5px 0px #e4e2e2;
 }
+
+.profile-page-layout {
+  display: flex;
+  .profile-info-div {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    margin: 0 40px;
+
+    width: 300px;
+    img {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      padding: 8px;
+      width: 200px;
+    }
+    .profile-info-details {
+      padding: 8px;
+      text-align: center;
+    }
+  }
+}
+
+.profile-card-body {
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+
