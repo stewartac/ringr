@@ -29,9 +29,9 @@
               <h3>Kick-off: <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
             </div>
               <% if current_user.address.present? %>
-                <% current_user.address.distance_to(game.address) %>
-                <% raise %>
-                <p><%=  %></p>
+                <% dist = '' %>
+                <% dist = Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]) %>
+                <p><%= dist.round(1) %> miles</p>
               <% end %>
           </div>
           <div class="right-side-card">
