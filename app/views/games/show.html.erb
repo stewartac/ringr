@@ -16,9 +16,9 @@
       <br>
       <div>
 <!-- Bookings for specific game - everyone view-->
+        <h2>Confirmed Players</h2>
           <% @game.bookings.each do |booking| %>
             <% if booking.status == "accepted" %>
-        <h2>Confirmed Players</h2>
               <% if booking.user.photo.attached? %>
                 <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
               <% else %>
