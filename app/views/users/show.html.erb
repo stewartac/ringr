@@ -3,7 +3,7 @@
     <!-- USER INFO -->
     <% if user_signed_in? && current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key %>
-    <% end %>
+     <% end %>
     <div class="profile-info-details">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
       <p><%= @user.email %></p>
@@ -14,13 +14,10 @@
   <div class="profile-content">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Upcoming Games</a>
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Requests</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Pending Requests</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Your Teams</a>
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My Teams</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" id="fourth-tab" data-toggle="tab" href="#fourth" role="tab" aria-controls="fourth" aria-selected="false">Ringr Searches</a>
@@ -30,83 +27,101 @@
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
+
+      <!-- MY REQUESTS TAB -->
+
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-        <div class="games-container">
-          <!-- <h2>Your Upcoming Games</h2> -->
-          <div class="items">
-            <% if @upcoming.empty? %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <h5 class="card-title">You dont have any current bookings</h5>
-                  <p class="card-text">Go check out all available games to find one that works for you!</p>
-                  <p><%= link_to "View all games", games_path %></p>
+        <div class="my-requests-container">
+          <div class="upcoming">
+          <h2>Confirmed Games</h2>
+            <div class="items">
+              <% if @upcoming.empty? %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">You dont have any current bookings</h5>
+                    <p class="card-text">Go check out all available games to find one that works for you!</p>
+                    <p><%= link_to "View all games", games_path %></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-            <% @upcoming.each do |booking| %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <h5 class="card-title"> <%= booking.game.team.name %></h5>
-                  <p><%= booking.game.address %></p>
-                  <p><%= booking.game.date %></p>
-                  <p><%= link_to "View game details", game_path(booking.game) %></p>
+              <% end %>
+              <% @upcoming.each do |booking| %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title"> <%= booking.game.team.name %></h5>
+                    <p><%= booking.game.address %></p>
+                    <p><%= booking.game.date %></p>
+                    <p><%= link_to "View game details", game_path(booking.game) %></p>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="Pending">
+            <h2> Pending Games </h2>
+            <div class="items">
+              <% if @pending.empty? %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">You dont have any pending requests</h5>
+                    <p class="card-text">Go check out all available games to find one that works for you!</p>
+                    <p><%= link_to "View all games", games_path %></p>
+                  </div>
+                </div>
+              <% end %>
+              <% @pending.each do |booking| %>
+                <div class="card" style="width: 24rem;">
+                  <div class="card-body">
+                    <h5 class="card-title"> <%= booking.game.team.name %></h5>
+                    <p><%= booking.game.address %></p>
+                    <p><%= booking.game.date %></p>
+                    <p><%= link_to "View game details", game_path(booking.game) %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="requests-container">
-          <!-- Requests to join your games -->
-          <div class="items">
-            <% if @user.requested_bookings.empty? %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <h5 class="card-title">There are no current requests to join your games</h5>
-                  <p class="card-text">Remember to include all game game details for the best chance of securing a last minute Ringr!</p>
-                </div>
-              </div>
-            <% else %>
-            <% @user.requested_bookings.each do |booking| %>
-              <div class="card" style="width: 24rem;">
-                <div class="card-body">
-                  <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
-                  <p>Current status: <%= booking.status %></p>
-                  <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
-                  <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
-                </div>
-              </div>
-            <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+
+      <!-- MY TEAMS TAB -->
+
       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <div class="teams-container">
+        <div class="ringr-searches-container">
           <!-- User Teams -->
           <div class="items">
             <% current_user.teams.each do |team|%>
               <div class="card" style="width: 24rem;">
                 <div class="card-body">
-                  <p><%= team.name %></p>
-                  <p><%= link_to "Team Page", team_path(team) %></p>
-                  <li><%= link_to "Create a game for this team", new_team_game_path(team) %> </li>
+                  <p> Upcoming games for <%= link_to team.name, team_path(team) %></p>
+                  <% team.games.sort_by {|game| game.time.to_i } %>
+                  <% team.games.each do |game| %>
+                  <ul><li><%= link_to game.address, game_path(game) %> </li>
+                    <ul>
+                      <li><%= game.date.strftime('%a %d %b') %> <%= game.time.strftime("- %I:%M%p") %></li>
+                      <li>Spot available: <%= game.available_spaces %></li>
+                    </ul>
+                  </ul>
+                  <% end %>
+                  <%= link_to "Create a new game for this team", new_team_game_path(team) %>
                 </div>
               </div>
             <% end %>
-            <div class="p-3"><%= link_to "Create a new team", new_team_path, :class => "main-button" %></div>
-          </div>
+        </div>
+          <div class="p-3"><%= link_to "Create a new team", new_team_path, :class => "main-button" %></div>
         </div>
       </div>
+
+<!-- Ringr Search -->
+
       <div class="tab-pane fade" id="fourth" role="tabpanel" aria-labelledby="fourth-tab">
-        <div class="games-container">
+        <div class="ringr-searches-container">
           <!-- Your Ringr Search - upcoming games -->
             <div class="items">
               <%current_user.teams.each do |team|%>
                 <div class="card" style="width: 24rem;">
                   <div class="card-body">
                     <% team.games.each do |game|%>
+                    <%= game.bookings.all %>
                     <p><%= game.address%></p>
                     <p><%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("at %I:%M%p") %></p>
                     <li><%= link_to "See game info", game_path(game) %></li>
@@ -117,6 +132,7 @@
             </div>
         </div>
       </div>
+
       <div class="tab-pane fade" id="fifth" role="tabpanel" aria-labelledby="fifth-tab">
         <div class="games-container">
           <!-- Unsuccessful Booking Requests -->
