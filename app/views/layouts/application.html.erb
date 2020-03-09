@@ -24,11 +24,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <% unless action_name == 'home' || controller_name == 'sessions' || controller_name == 'registrations' %>
-      <div class="page-container min-height">
-    <% else %>
-      <div class="full-page-cont min-height">
-    <% end %>
+    <div class="full-page-cont min-height">
     <%= yield %>
     </div>
     <%= render 'shared/footer' %>
