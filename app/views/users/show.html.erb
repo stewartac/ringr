@@ -3,7 +3,7 @@
     <!-- USER INFO -->
     <% if user_signed_in? && current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key %>
-    <% end %>
+     <% end %>
     <div class="profile-info-details">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
       <p><%= @user.email %></p>
@@ -14,11 +14,11 @@
   <div class="profile-content">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Upcoming Games</a>
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Requests</a>
       </li>
-      <li class="nav-item">
+<!--       <li class="nav-item">
         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Pending Requests</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Your Teams</a>
       </li>
