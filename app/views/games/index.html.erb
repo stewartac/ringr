@@ -22,24 +22,25 @@
         <div class="game-card">
           <div class="card-top">
             <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
-            <p style="color:purple"><%= game.time.strftime("%I:%M%p") %></p>
+            <p><i class="fas fa-clock"></i> <%= game.time.strftime("%I:%M%p") %></p>
           </div>
 
           <div class="card-body">
             <% if game.team.user && game.team.user.photo.attached? %>
               <%= cl_image_tag game.team.user.photo.key, class: 'avatar-small' %>
             <% else %>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
             <% end %>
-              <p>Captain: <%= game.team.user.first_name %> <%= game.team.user.last_name %></p>
-              <p>Team: <%= game.team.name %> (<%= game.format %>)</p>
-              <p>Date: <%= game.date.strftime('%a %d %b %Y') %></p>
+              <br>
+              <h1 class="team-font"><%= game.team.name %></h1>
+              <p class="pb-0"><%= game.format %></p>
+              <p><%= game.date.strftime('%a %d %b %Y') %></p>
             <!--   <p>Address: <%= game.address %> (x distance from me)</p> -->
 
           </div>
 
           <div class="card-bottom">
-            <p style="color: blue"> Spaces: <%= game.available_spaces %></h2>
+            <p> Spaces: <%= game.available_spaces %></h2>
               <% if current_user.address.present? %>
                 <% dist = '' %>
                 <% dist = Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]) %>
