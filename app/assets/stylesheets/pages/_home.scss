@@ -20,16 +20,6 @@
   border-radius: 8%;
 }
 
-label:before {
-  content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/unchecked_checkbox.png");
-  position: absolute;
-  z-index: 100;
-}
-:checked+label:before {
-  content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/checked_checkbox.png");
-}
-
-
 #sport-logo:hover {
   background-color: $pink-orange;
 }
@@ -123,6 +113,6 @@ label:before {
   color: #a1c932;
 }
 
-.form-check-input {
-  display: none;
-}
+// .form-check-input {
+//   display: none;
+// }
