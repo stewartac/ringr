@@ -1,17 +1,15 @@
 
 <!-- Search Form for ad-->
-  <div class="form">
-    <h1>Search for games</h1>
-
+  <div class="game-form">
     <%= form_tag games_path, method: :get, id: :search_form do %>
       <%#= select_tag :address, params[:address], id: "games-search-bar", placeholder: "Enter your address" %>
-      <select name="address" id="games-search-bar" style="height: 60px;">
+      <select name="address" id="games-search-bar" placeholder="Search for games">
         <% @addresses.each do |add| %>
           <option value="<%= add %>"><%= add %></option>
         <% end %>
       </select>
       <%= hidden_field_tag :hidden_filter, params[:hidden_filter] || params[:filter][:sports] %>
-      <%= submit_tag "Find a game", class: "main-button" %>
+      <%= submit_tag "Find a game", class: "search-button" %>
     <% end %>
   </div>
 
@@ -22,12 +20,11 @@
       <%= link_to game_path(game), :id => "card-link" do %>
         <div class="game-card">
           <div class="left-side-card">
-            <div class="main-card-info">
-              <h3><%= game.sport %></h3>
-              <h2>Team: <%= game.team.name %> (<%= game.format %>)</h2>
-              <h3>Address: <%= game.address %></h3>
-              <h3>Kick-off: <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
-            </div>
+            <h1><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %>
+            <h3><%= game.sport %></h3>
+            <h2>Team: <%= game.team.name %> (<%= game.format %>)</h2>
+            <h3>Address: <%= game.address %></h3>
+            <h3>Kick-off: <%= game.date.strftime('%a %d %b %Y') %> <%= game.time.strftime("- %I:%M%p") %></h3>
             <p>Distance to location</p>
           </div>
           <div class="right-side-card">
@@ -36,6 +33,8 @@
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             <% end %>
+          </div>
+          <div class="card-bottom">
             <h2 style="color: green"> Spaces: <%= game.available_spaces %></h2>
             <h2 id="coins"> <i class="fas fa-coins"></i> £<%= game.price.to_i %> </h2>
           </div>
