@@ -4,10 +4,12 @@
       <% @team.games.each do |game| %>
       <h1><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %> <%= game.sport %> <%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h1>
         <h4 class="text-center pt-2"> <%= @team.name %></h4>
-      <p> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
+      <p> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p><p>testing</p>
       <p> Other Members </p>
       <p>Bio: ???</p>
       <p>League Table</p>
+
+
       <p> <%= link_to "Create a game", new_team_game_path(@team), :class => "green-button" %></p>
 
       <% end %>

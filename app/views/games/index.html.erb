@@ -20,12 +20,12 @@
       <% @games.each do |game| %>
       <%= link_to game_path(game), :id => "card-link" do %>
         <div class="game-card">
-          <div class="card-top">
+          <div class="game-card-top">
             <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
             <p><i class="fas fa-clock"></i> <%= game.time.strftime("%I:%M%p") %></p>
           </div>
 
-          <div class="card-body">
+          <div class="game-card-body">
             <% if game.team.user && game.team.user.photo.attached? %>
               <%= cl_image_tag game.team.user.photo.key, class: 'avatar-small' %>
             <% else %>
@@ -39,7 +39,7 @@
 
           </div>
 
-          <div class="card-bottom">
+          <div class="game-card-bottom">
             <p> Spaces: <%= game.available_spaces %></h2>
               <% if current_user.address.present? %>
                 <% dist = '' %>

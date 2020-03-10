@@ -39,7 +39,7 @@
   font-size: 16px;
 }
 
-.card-top {
+.game-card-top {
   width: 95%;
   padding-left: 6px;
   align-items: center;
@@ -56,7 +56,7 @@
 //   margin-bottom: 0;
 // }
 
-.card-body {
+.game-card-body {
   align-items: center;
   text-align: center;
   width: 100%;
@@ -68,8 +68,9 @@
 //   margin-bottom: 0;
 // }
 
-.card-bottom {
-  padding-right: 12px;
+.game-card-bottom {
+  margin-top: 12px;
+  padding-right: 6px;
   padding-left: 6px;
   width: 95%;
   display: flex;
@@ -78,6 +79,9 @@
   position: absolute;
   padding: auto;
   bottom: 1;
+  align-self: flex-end;
   border-top: 1px solid $pink-orange;
 }
+
+
 
