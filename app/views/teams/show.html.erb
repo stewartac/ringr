@@ -1,21 +1,24 @@
 <div class="team-container">
  <!--  <%= image_tag "", alt: "alttext", :class => "football-background" %> -->
   <div class="team-card">
-      <% @team.games.each do |game| %>
+    <% @team.games.each do |game| %>
       <h1><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %> <%= game.sport %> <%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h1>
         <h4 class="text-center pt-2"> <%= @team.name %></h4>
-      <p> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
-      <p> Other Members</p>
-        <% @team.memberships.each do |member| %>
-        <p><%= member.user.first_name %></p>
-        <% end %>
-      <p>Bio: ???</p>
-      <p>League Table</p>
-      <p> <%= link_to "Create a game", new_team_game_path(@team), :class => "green-button" %></p>
+          <p> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
+          <p> Other Members</p>
+          <% @team.memberships.each do |member| %>
+            <p><%= member.user.first_name %></p>
+          <% end %>
+        <p>Bio: ???</p>
+        <p>League Table</p>
+        <p> <%= link_to "Create a game", new_team_game_path(@team), :class => "green-button" %></p>
+    <% end %>
+      <% if current_user != @team.user %>
+        <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
+        <p><%= f.button :submit, id:"request-button" %></p>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>
-<p><%= simple_form_for ([@team, @membership]) do |f| %></p>
-<p><%= f.button :submit, id:"request-button" %></p>
-<% end %>
+
 
