@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.game = @game
     if @booking.save
+      flash[:notice] = "Booking Requested for #{@game.date.strftime('%a %d %b')}"
       redirect_to user_path(current_user)
     else
       redirect_to games_path
@@ -21,7 +22,12 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(booking_params)
+    if booking_params[:status] == "accepted"
+      @booking.update(booking_params)
+      flash[:notice] = "Booking Accepted"
+      redirect_to user_path(current_user)
+    elsif booking_params[:status] == "rejected"
+      flash[:alert] = "Booking Rejected"
       redirect_to user_path(current_user)
     else
       redirect_to user_path(current_user)

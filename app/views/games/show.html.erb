@@ -13,7 +13,7 @@
 
       <p>Captain: <%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
       <% if current_user == @game.team.user %>
-      <p><%= link_to "Delete game", game_path(@game), method: :delete, data: { confirm: "Are you sure?!" } %></p>
+      <p><%= link_to "Delete game", game_path(@game), method: :delete, data: { confirm: "Are you sure?!" }%></p>
       <% end %>
       <br>
       <br>
