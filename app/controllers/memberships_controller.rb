@@ -12,7 +12,7 @@ class MembershipsController < ApplicationController
     if @membership.save
       redirect_to team_path(@team)
     else
-      render :new
+      redirect_to team_path(@team), flash: { alert: "you can't join this team more than once"  }
     end
   end
 
