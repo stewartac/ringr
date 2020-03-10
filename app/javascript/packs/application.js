@@ -19,3 +19,5 @@ checkboxInputs.forEach((input) => {
     input.classList.toggle('active');
   })
 })
+
+const iconClick = document.querySelectorAll('.form-check-input');
