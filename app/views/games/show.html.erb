@@ -5,8 +5,13 @@
     <div class="card-left">
       <h3 class="text-center" style="font-family: Oswald">Team Details</h3>
       <br>
-      <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
+        <% if @game.team.user.photo.attached? %>
+          <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
+        <% else %>
+          <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
+        <% end %>
       <p>Team: <%= @game.team.name %></p>
+      <p><%= link_to "Team details", team_path(@game.team)  %></p>
       <p><%= @game.format %></p>
       <p>Captain: <%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
       <% if current_user == @game.team.user %>
