@@ -15,7 +15,7 @@
     <% end %>
       <% if current_user != @team.user %>
         <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
-        <p><%= f.button :submit, id:"request-button" %></p>
+        <p><%= f.button :submit, id:"join-button" %></p>
       <% end %>
     <% end %>
   </div>

@@ -10,11 +10,15 @@
 .team-container {
   display: flex;
   justify-content: space-around;
+  height: 90vh;
   text-align: center;
   color: black;
 }
 
 .team-card {
+  border: 1px green solid;
+  width: 90vw;
+  margin: 24px auto;
   text-align: center;
   padding-top: 40px;
 }
@@ -22,4 +26,19 @@
 #sport-logo-small {
   height: 30px;
   width: auto;
+}
+
+#join-button {
+  color: $white;
+  background-color: $pink-orange;
+  padding: 16px 14px;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#join-button:hover {
+  text-decoration: none;
+  background-color: $white;
+  color: $pink-orange;
 }
