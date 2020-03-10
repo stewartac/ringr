@@ -88,6 +88,7 @@
   justify-content: center;
   background-color: $silk;
   padding: 50px 50px;
+  margin-bottom: 26px;
   align-items: center;
   // margin-right: 52px;
 }
@@ -132,4 +133,28 @@
       }
     }
   }
+}
+
+.bottom-third {
+  display: flex;
+  flex-direction: row;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  width: 50%;
+}
+
+.form-check-label {
+  transition: 0.3s ease;
+}
+
+.form-check-label:hover {
+  transform: scale(1.1);
+}
+
+.filter_sports {
+  text-align: center;
 }
