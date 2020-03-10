@@ -63,13 +63,19 @@
     // align-items: center;
     // text-align: center;
     width: 300px;
+    background-color: #DAF5FF;
+    color: $gray;
 }
 
-.profile-card-body h3 {
+.profile-card-body a {
+  color: inherit;
   font-family: $cards-font;
 }
 
-
+.profile-card-body h3 {
+  color: inherit;
+ font-family: $cards-font;
+ }
 
 
 .flip-card {
