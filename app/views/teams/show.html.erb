@@ -10,15 +10,22 @@
     </div>
 
     <div class="team-card-left">
+      <h3> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></h3>
       <% if @team.user && @team.user.photo.attached? %>
         <%= cl_image_tag @team.user.photo.key, :class => "avatar-card" %>
       <% else %>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-card" />
       <% end %>
-        <p> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
-          <p> Other Members</p>
+      <br>
+      <br>
+          <h3> Other Team Members</h3>
             <% @team.memberships.each do |member| %>
-              <p><%= member.user.first_name %></p>
+            <% if member.user && member.user.photo.attached? %>
+               <span> <%= cl_image_tag member.user.photo.key, :class => "avatar-small" %>
+            <% else %>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-small" />
+            <% end %>
+             <%= member.user.first_name %> <%= member.user.last_name %></span>
             <% end %>
     </div>
 
