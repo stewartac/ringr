@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # new and create game methods nested within host team
   resources :teams, except: [:index] do
     resources :games, only: [:new, :create]
+    resources :memberships, only: [:new, :create]
   end
 
   resources :bookings, only: [:show, :update]
