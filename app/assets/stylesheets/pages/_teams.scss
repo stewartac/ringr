@@ -16,16 +16,27 @@
 }
 
 .team-card {
+  background-color: $sky-blue;
   border: 1px green solid;
   width: 90vw;
   margin: 24px auto;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
-#sport-logo-small {
-  height: 30px;
+.team-card-top {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+}
+
+#sport-logo-medium {
+  height: 80px;
   width: auto;
+  padding: 0 18px 0 18px;
 }
 
 #join-button {
