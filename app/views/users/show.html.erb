@@ -24,6 +24,9 @@
         <div class="my-requests-container">
           <div class="upcoming">
             <h2>Confirmed Games</h2>
+
+
+
             <div class="items">
               <% if @upcoming.empty? %>
               <div class="card" style="width: 24rem;">
@@ -165,11 +168,24 @@
 
 
 
+<% @upcoming.each do |booking| %>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h2 class="card-title"><%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %> <%= booking.game.team.name %> <%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h2>
+      <h5><%= booking.game.countdown %> Days</h5>
 
-
-
-
-
+    </div>
+    <div class="flip-card-back">
+      <h1><% if booking.game.team.user && booking.game.team.user.photo.attached? %>
+              <%= cl_image_tag booking.game.team.user.photo.key, class: 'avatar-small' %><% end %>Captain: <%= booking.game.team.user.first_name %></h1>
+      <p>Address: <%= booking.game.address %></p>
+      <p>Date: <%= booking.game.date %></p>
+      <p><%= link_to "View game details", game_path(booking.game) %></p>
+    </div>
+  </div>
+</div>
+<% end %>
 
 
 

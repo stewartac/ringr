@@ -14,4 +14,8 @@ class Game < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  def countdown
+    (date - DateTime.current.to_date).to_i
+  end
+
 end
