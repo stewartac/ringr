@@ -18,6 +18,7 @@
   <div class="wrapping_games">
     <div class="w70">
       <% @games.each do |game| %>
+    <% if game.remaining_spots > 0 %>
       <%= link_to game_path(game), :id => "card-link" do %>
         <div class="game-card">
           <div class="game-card-top">
@@ -36,9 +37,7 @@
               <p class="pb-0"><%= game.format %></p>
               <p><%= game.date.strftime('%a %d %b %Y') %></p>
             <!--   <p>Address: <%= game.address %> (x distance from me)</p> -->
-
           </div>
-
           <div class="game-card-bottom">
             <p> Spaces: <%= game.remaining_spots %></h2>
               <% if current_user.address.present? %>
@@ -50,6 +49,7 @@
           </div>
         <% end %>
       <% end %>
+    <% end %>
     </div>
 
     <!-- MAP -->
