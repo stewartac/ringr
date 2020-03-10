@@ -22,10 +22,7 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <%#= render 'shared/flashes' %>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+    <%= render 'shared/flashes' %>
     <div class="full-page-cont min-height">
     <%= yield %>
     </div>

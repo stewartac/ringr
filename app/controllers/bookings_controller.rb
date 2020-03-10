@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.game = @game
     if @booking.save
-      flash[:success] = "Booking NOW Requested"
+      flash[:success] = "Booking Requested"
       redirect_to user_path(current_user)
     else
       redirect_to games_path
