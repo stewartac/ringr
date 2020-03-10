@@ -15,6 +15,7 @@ class GamesController < ApplicationController
     @addresses = @games.pluck(:address)
     if params[:address].present?
       @games = @games.search_by_address(params[:address])
+
       @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
     @markers = @games.map do |game|
