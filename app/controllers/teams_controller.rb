@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def show
+    @membership = Membership.new
   end
 
   def new
