@@ -4,7 +4,7 @@ class Game < ApplicationRecord
   pg_search_scope :search_by_address,
     against: [ :address ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
   belongs_to :team
   has_many :bookings, dependent: :destroy

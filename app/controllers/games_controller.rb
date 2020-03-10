@@ -25,7 +25,7 @@ class GamesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
         image_url: helpers.asset_url(set_markers(game))
       }
-    end
+      end
   end
 
   def show
