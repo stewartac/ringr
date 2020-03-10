@@ -45,3 +45,17 @@
   background-color: $white;
   color: $pink-orange;
 }
+
+.show-team-font {
+  font-family: $cards-font;
+  font-weight: lighter;
+  font-size: 48px;
+  color: $green;
+}
+
+.show-team-font:hover {
+  font-family: $cards-font;
+  font-weight: lighter;
+  font-size: 48px;
+  color: $tumbleweed;
+}
