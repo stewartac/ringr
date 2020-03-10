@@ -60,6 +60,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
+    redirect_to root_path
   end
 
   private
