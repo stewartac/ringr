@@ -19,7 +19,7 @@
 
 <!-- Middle 1/3 -->
 
-  <div class="background-collage" style="background-image: url(<%= asset_path "background_done_now.png" %>);"></div>
+  <div class="background-collage" style="background-image: url(<%= asset_path "background_collage.png" %>);"></div>
 </div>
 
 <a id="find-out-more"></a>
@@ -54,22 +54,31 @@
 
 <!-- Bottom 1/3 -->
 
-<a id="play-now"></a>
+<div class="bottom-third">
+  <a id="play-now"></a>
 
-<div class="logo-container cursor: pointer;">
-  <%= simple_form_for :filter, url: games_path, method: :get do |f| %>
-    <fieldset class="form-group check_boxes required filter_sports ">
-      <legend class="col-form-label text-center"><h1 class="pb-2 play-header-text">Choose your sport(s)</h1><abbr title="required"></abbr></legend>
-        <% Game::SPORTS.each do |sport| %>
-          <div class="form-check custom-control custom-checkbox custom-control-inline">
-            <input class="form-check-input check_boxes required" type="checkbox" value="<%= sport %>" name="filter[sports][]" id="filter_sports_<%= sport.downcase %>">
-            <label class="form-check-label collection_check_boxes" for="filter_sports_<%= sport.downcase %>"><%= image_tag("#{sport.downcase}.svg", id: "sport-logo") %></label>
-          </div>
-        <% end %>
-    </fieldset>
+  <div class="logo-container cursor: pointer;">
+    <%= simple_form_for :filter, url: games_path, method: :get do |f| %>
+      <fieldset class="form-group check_boxes required filter_sports ">
+        <legend class="col-form-label text-center"><h1 class="pb-2 play-header-text">Choose your sport</h1><abbr title="required"></abbr></legend>
+          <% Game::SPORTS.each do |sport| %>
+            <div class="form-check custom-control custom-checkbox custom-control-inline">
+              <input class="form-check-input check_boxes required" type="checkbox" value="<%= sport %>" name="filter[sports][]" id="filter_sports_<%= sport.downcase %>">
+              <label class="form-check-label collection_check_boxes" for="filter_sports_<%= sport.downcase %>"><%= image_tag("#{sport.downcase}.svg", id: "sport-logo") %></label>
+            </div>
+          <% end %>
+      </fieldset>
 
-    <div class="text-center pt-2">
-      <%= f.submit 'Let\'s go!', :class => 'main-button', :id => 'lets-play-btn' %>
+      <div class="text-center pt-2">
+        <%= f.submit 'Let\'s go!', :class => 'main-button', :id => 'lets-play-btn' %>
+      </div>
+    <% end %>
+  </div>
+
+    <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  <% end %>
-</div>
+
+  </div>
+

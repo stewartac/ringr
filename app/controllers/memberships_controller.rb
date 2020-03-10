@@ -23,4 +23,3 @@ class MembershipsController < ApplicationController
   end
 
 end
-s
