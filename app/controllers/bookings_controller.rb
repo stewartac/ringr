@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :destroy]
 
-
   def show
   end
 
@@ -28,6 +27,8 @@ class BookingsController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
+
+
 
   def destroy
     @booking = Booking.find(params[:id])
