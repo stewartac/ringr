@@ -22,7 +22,12 @@ class BookingsController < ApplicationController
   end
 
   def update
-    if @booking.update(booking_params)
+    if booking_params[:status] == "accepted"
+      @booking.update(booking_params)
+      flash[:notice] = "Booking Accepted"
+      redirect_to user_path(current_user)
+    elsif booking_params[:status] == "rejected"
+      flash[:alert] = "Booking Rejected"
       redirect_to user_path(current_user)
     else
       redirect_to user_path(current_user)
