@@ -10,9 +10,9 @@ class MembershipsController < ApplicationController
     @membership.team = @team
     @membership.user = current_user
     if @membership.save
-      redirect_to team_path(@team)
+      redirect_to team_path(@team), notice: "Welcome to team #{@team.name}!"
     else
-      redirect_to team_path(@team), flash: { alert: "you can't join this team more than once"  }
+      redirect_to team_path(@team), alert: "You can't join a team more than once"
     end
   end
 
@@ -23,3 +23,4 @@ class MembershipsController < ApplicationController
   end
 
 end
+s

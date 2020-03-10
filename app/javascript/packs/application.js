@@ -14,3 +14,16 @@ checkboxInputs.forEach((input) => {
     input.classList.toggle('active');
   })
 })
+
+const mapPopUps = document.querySelectorAll('.mapboxgl-marker');
+mapPopUps.forEach(marker => {
+  marker.addEventListener('click', event => {
+    // when the click happens, the corresponding card should hover
+    const id = marker.id
+    // find the id of the marker
+    // identify the corresponding card by searching for the same id
+    const card = document.querySelector(`#card-${id}`)
+    // inject a pseudo-class into that corresponding card
+    card.classList.toggle('ghost-hover')
+  })
+})

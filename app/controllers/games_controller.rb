@@ -23,7 +23,8 @@ class GamesController < ApplicationController
         lat: game.latitude,
         lng: game.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { game: game }),
-        image_url: helpers.asset_url(set_markers(game))
+        image_url: helpers.asset_url(set_markers(game)),
+        id: game.id
       }
       end
   end
@@ -60,6 +61,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
+    redirect_to root_path
   end
 
   private

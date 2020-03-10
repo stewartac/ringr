@@ -20,7 +20,7 @@
       <% @games.each do |game| %>
     <% if game.remaining_spots > 0 %>
       <%= link_to game_path(game), :id => "card-link" do %>
-        <div class="game-card">
+        <div class="game-card" id="card-<%= game.id %>">
           <div class="game-card-top">
             <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
             <p><i class="fas fa-clock"></i> <%= game.time.strftime("%I:%M%p") %></p>
