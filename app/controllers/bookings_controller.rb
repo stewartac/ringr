@@ -21,13 +21,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-      if booking_params[:status] == "accepted"
-        @booking.update(booking_params)
-        update_game_available_spaces
-      elsif
-        @booking.update(booking_params)
-      end
-        redirect_to user_path(current_user)
+    if @booking.update(booking_params)
+      redirect_to user_path(current_user)
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
 
