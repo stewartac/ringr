@@ -1,28 +1,39 @@
 <div class="team-container">
  <!--  <%= image_tag "", alt: "alttext", :class => "football-background" %> -->
   <div class="team-card">
-    <% @team.games.each do |game| %>
-      <div class="team-card-top">
-        <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-medium" %></p>
+    <div class="team-card-top">
+      <% @team.games.each do |game| %>
+        <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
           <h4 class="text-center show-team-font pt-2"> <%= @team.name %></h4>
-        <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-medium" %></p>
-      </div>
-      <div class="team-card-body">
+        <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
+      <% end %>
+    </div>
+
+    <div class="team-card-left">
+      <% if @team.user && @team.user.photo.attached? %>
+        <%= cl_image_tag @team.user.photo.key, :class => "avatar-card" %>
+      <% else %>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+      <% end %>
         <p> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
           <p> Other Members</p>
             <% @team.memberships.each do |member| %>
               <p><%= member.user.first_name %></p>
             <% end %>
-              <p>Bio: ???</p>
-                <p>League Table</p>
-      </div>
-        <p> <%= link_to "Create a game", new_team_game_path(@team), :class => "green-button" %></p>
-    <% end %>
+    </div>
+
+    <div class="team-card-right">
+      <p>Bio: ???</p>
+      <p>League Table</p>
+      <p> <%= link_to "Create a game", new_team_game_path(@team), :class => "green-button" %></p>
+    </div>
+
       <% if current_user != @team.user %>
         <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
         <p><%= f.button :submit, 'Become a squad member', id:"join-button" %></p>
       <% end %>
     <% end %>
+
   </div>
 </div>
 
