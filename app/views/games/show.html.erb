@@ -71,9 +71,11 @@
       <h3 style="font-family: Oswald">Game Details</h3>
       <p><%= @game.date.strftime('%a %d %b %Y') %></p>
       <p style="color: green"><%= @game.time.strftime("%I:%M%p") %></p>
-      <% if @game.remaining_spots.nil? %>
-      <p></p>
+        <% if @game.remaining_spots <= 0 %>
+          <p>There are no more spots available for this game</p>
+        <% else %>
       <p><%= @game.team.name %> are looking for <%= @game.remaining_spots %> players</p>
+      <% end %>
       <p>Venue: <%= @game.address %></p>
       <div id="map"
          style="width: 100%;
@@ -83,7 +85,7 @@
       </div>
     </div>
     <div class="card-bottom">
-      <% if current_user != @game.team.user %>
+      <% unless @game.remaining_spots <= 0 || current_user != @game.team.user %>
         <%= simple_form_for([@game, @booking]) do |f| %>
           <%= f.button :submit, id:"request-button" %>
         <% end %>
