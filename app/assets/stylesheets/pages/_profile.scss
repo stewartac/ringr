@@ -21,6 +21,13 @@
   border-radius: 2px;
 }
 
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+ background-color: $pink-orange;
+}
+
+.nav-pills a {
+  color: #2F4F4F;
+}
 
 .profile-content {
   width: 100%;
