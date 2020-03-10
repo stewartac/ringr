@@ -40,7 +40,7 @@
           </div>
 
           <div class="card-bottom">
-            <p> Spaces: <%= game.available_spaces %></h2>
+            <p> Spaces: <%= game.remaining_spots %></h2>
               <% if current_user.address.present? %>
                 <% dist = '' %>
                 <% dist = Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]) %>
@@ -60,5 +60,5 @@
 
     </div>
   </div>
-  <%# raise %>
+
 
