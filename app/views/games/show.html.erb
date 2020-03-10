@@ -6,7 +6,8 @@
       <h3 class="text-center">Team Details</h3>
       <br>
       <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
-      <p>Team: <%= @game.team.name %></p>
+      <%= link_to "#{@game.team.name}", team_path(@game.team) %>
+      <h3 class="team-font">Team: <%= @game.team.name %></h3>
       <p><%= @game.format %></p>
       <p>Captain: <%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
       <% if current_user == @game.team.user %>
@@ -79,7 +80,7 @@
     <div class="show-card-bottom">
       <% if current_user != @game.team.user %>
         <%= simple_form_for([@game, @booking]) do |f| %>
-          <%= f.button :submit, id:"request-button" %>
+          <%= f.button :submit, 'Request to Play', id:"request-button" %>
         <% end %>
       <% end %>
     </div>
