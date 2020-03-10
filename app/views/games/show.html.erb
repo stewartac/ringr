@@ -66,7 +66,7 @@
       <h3 style="font-family: Oswald">Game Details</h3>
       <p><%= @game.date.strftime('%a %d %b %Y') %></p>
       <p style="color: green"><%= @game.time.strftime("%I:%M%p") %></p>
-      <p><%= @game.team.name %> are looking for <%= @game.available_spaces %> players</p>
+      <p><%= @game.team.name %> are looking for <%= @game.remaining_spots %> players</p>
       <p>Venue: <%= @game.address %></p>
       <div id="map"
          style="width: 100%;
