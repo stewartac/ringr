@@ -13,8 +13,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(status: 'requested')
     @booking.user = current_user
     @booking.game = @game
+    flash[:notice] = "Booking Requested for #{@game.time}"
+    sleep(1)
     if @booking.save
-      flash[:success] = "Booking Requested"
       redirect_to user_path(current_user)
     else
       redirect_to games_path
