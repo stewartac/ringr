@@ -28,7 +28,7 @@
 
           <div class="game-card-body">
             <% if game.team.user && game.team.user.photo.attached? %>
-              <%= cl_image_tag game.team.user.photo.key, class: 'avatar-small' %>
+              <%= cl_image_tag game.team.user.photo.key, class: 'avatar-card' %>
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
             <% end %>
