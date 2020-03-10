@@ -13,7 +13,7 @@ const mapBox = () => {
 
   const addMarkersToMap = (map, markers) => {
     markers.forEach((marker) => {
-      // const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
       const element = document.createElement('div');
       element.className = 'marker';
       element.id = `${marker.id}`;
@@ -23,7 +23,7 @@ const mapBox = () => {
       element.style.height = '70px';
       new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
-        // .setPopup(popup)
+        .setPopup(popup)
         .addTo(map);
     });
   };
