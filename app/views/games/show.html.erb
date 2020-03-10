@@ -85,7 +85,7 @@
       </div>
     </div>
     <div class="card-bottom">
-      <% unless @game.remaining_spots <= 0 || current_user != @game.team.user %>
+      <% if current_user != @game.team.user %>
         <%= simple_form_for([@game, @booking]) do |f| %>
           <%= f.button :submit, id:"request-button" %>
         <% end %>
