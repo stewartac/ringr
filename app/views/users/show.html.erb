@@ -124,8 +124,8 @@
                   <% if booking.status == "requested" %>
                   <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
                   <p>Current status: <%= booking.status %></p>
-                  <%= link_to "Accept", booking_path(booking, notice: "✅ Booking Accepted", booking: {status: "accepted"}), method: :patch %>
-                  <%= link_to "Reject", booking_path(booking, notice: "❌ Booking Rejected", booking: {status: "rejected"}), method: :patch %>
+                  <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
+                  <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
                   <% end %>
                   <% end %>
                 </div>
