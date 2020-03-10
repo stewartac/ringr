@@ -10,7 +10,8 @@
     </div>
 
     <div class="team-card-left">
-      <h3> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></h3>
+      <h3> Captain <h3>
+      <h3><%= @team.user.first_name %> <%= @team.user.last_name %></h3>
       <% if @team.user && @team.user.photo.attached? %>
         <%= cl_image_tag @team.user.photo.key, :class => "avatar-card" %>
       <% else %>
