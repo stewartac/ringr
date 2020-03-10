@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :destroy]
-  # after_save :update_game_available_spaces, on: update
 
   def show
   end
@@ -31,10 +30,7 @@ class BookingsController < ApplicationController
         redirect_to user_path(current_user)
   end
 
-  def update_game_available_spaces
-      @game = Game.find(params[:id])
-      @game.available_spaces = @game.available_spaces - 1
-  end
+
 
   def destroy
     @booking = Booking.find(params[:id])
