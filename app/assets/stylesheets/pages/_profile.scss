@@ -36,10 +36,11 @@
     display: flex;
     flex-direction: column;
     padding-right: 8px;
-    border-right: solid 2px gray;
+    border-right: solid 1px lightgray;
     width: 300px;
     img {
-      height: 300px;
+      height: 200px;
+      width: 100%;
       object-fit: cover;
       border-radius: 2px;
       padding: 8px;
@@ -58,10 +59,10 @@
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
-    -webkit-box-align: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
+    // -webkit-box-align: center;
+    // align-items: center;
+    // text-align: center;
+    width: 300px;
 }
 
 .profile-card-body h3 {
@@ -106,7 +107,7 @@
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: $sky-blue;
+  background-color: #DAF5FF;
   color: black;
   display: flex;
   flex-direction: column;
@@ -122,6 +123,9 @@
   background-color: $tumbleweed;
   color: white;
   transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .my-teams-container {
@@ -139,23 +143,25 @@
 
 .my-teams-container h4:after, .my-teams-container h4:before {
   content: '';
-  width: 150px;
+  width: 400px;
   height: 2px;
   background: $tumbleweed;
   margin: 0 10px;
 }
 .your-team-cards {
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
     margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
 }
 
 .team-button-create {
+    // display: flex;
+    // justify-content: center;
+    margin: 40px 0;
     display: flex;
     justify-content: center;
-    margin: 40px 0;
 }
 
-.your-team-heading {
-  text-align: center;
-}
