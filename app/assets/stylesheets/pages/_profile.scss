@@ -108,7 +108,7 @@
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
   background-color: #DAF5FF;
-  color: black;
+  color: $gray;
   display: flex;
   flex-direction: column;
   padding-top: 20%;
@@ -120,8 +120,8 @@
 }
 /* Style the back side */
 .flip-card-back {
-  background-color: $tumbleweed;
-  color: white;
+  background-color: #DAF5FF;
+  color: $gray;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
