@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.game = @game
     if @booking.save
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user), notice: "☑️ Booking requested!"
     else
       redirect_to games_path
     end
