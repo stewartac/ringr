@@ -69,8 +69,14 @@
       <br>
       <h3 class="team-font">Game Details</h3>
       <p><%= @game.date.strftime('%a %d %b %Y') %></p>
-      <p><i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %></p>
-      <p>Players needed: <%= @game.available_spaces %></p>
+      <p style="color: green"><%= @game.time.strftime("%I:%M%p") %></p>
+        <% if @game.remaining_spots <= 0 %>
+          <p>There are no more spots available for this game</p>
+        <% else %>
+          <p><i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %></p>
+          <p>Players needed: <%= @game.available_spaces %></p>
+        <% end %>
+
       <p>Venue: <%= @game.address %></p>
       <div id="map"
          style="width: 100%;
