@@ -143,13 +143,49 @@
         </tr>
       </table>
       <% if current_user != @team.user %>
-        <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
-        <p><%= f.button :submit, 'Become a squad member', id:"join-button-sweet"%></p>
+        <button id="join-button-sweet">Become a squad member</button>
+
+        <!-- <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
+        <p><%= f.button :submit, 'Become a squad member', id:"join-button-sweet"%></p> -->
       <% end %>
       <% end %>
     </div>
 
   </div>
 </div>
+
+<script>
+
+  // const joinTeamRequest = document.querySelector("#join-button-sweet");
+
+
+  // const initSweetalert = async () => {
+  //   const { value: password } = await Swal.fire({
+  //     title: 'You need a password to join this team',
+  //     input: 'password',
+  //     inputPlaceholder: 'Enter here or ask the team captain',
+  //     inputAttributes: {
+  //       maxlength: 10,
+  //       autocapitalize: 'off',
+  //       autocorrect: 'off'
+  //     }
+  //   })
+  //   if (password) {
+  //     // Swal.fire(`Entered password: ${password}`)
+  //     const {value: confirm } = await Swal.fire({
+  //       title: 'Congrats!',
+  //       text: "You're in the team",
+  //       icon: "success",
+  //       confirmButtonText: "Woohoo!"
+  //       })
+  //   }
+  //   if (confirm) {
+  //     window.location.replace("<%= root_path%>")
+  //   }
+  // }
+  // joinTeamRequest.addEventListener('click', event => {
+  //   initSweetalert()
+  // })
+</script>
 
 

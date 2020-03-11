@@ -1,10 +1,10 @@
 require("@rails/activestorage").start()
 require("channels")
 require("@rails/ujs").start()
-
 import "bootstrap";
-
 import { mapBox } from '../plugins/init_mapbox';
+import { initSweetalert } from '../plugins/init_sweetalert';
+// import Swal from "sweetalert2";
 
 mapBox();
 
@@ -35,18 +35,18 @@ mapPopUps.forEach(marker => {
   })
 })
 
-import { initSweetalert } from '../plugins/init_sweetalert';
+
+const joinTeamRequest = document.querySelector("#join-button-sweet");
+joinTeamRequest.addEventListener('click', event => {
+  initSweetalert()
+})
 
 
-initSweetalert('#join-button-sweet', {
-  title: "Please enter the password provided to you by the Captain",
-  input: "password",
-  inputPlaceholder: 'Enter your password',
-  inputAttributes: {
-    maxlength: 10,
-    autocapitalize: 'off',
-    autocorrect: 'off'
-  }
-}, (value) => {
-  console.log(value);
-});
+// initSweetalert('#join-button-sweet', {
+//   title: "Enter the password provided by the team captain",
+//   text: "This is a great alert, isn't it?",
+//   icon: "success"
+// }, (value) => {
+//   sconsole.log();
+// });
+
