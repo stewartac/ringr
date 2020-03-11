@@ -1,10 +1,10 @@
 require("@rails/activestorage").start()
 require("channels")
 require("@rails/ujs").start()
-
 import "bootstrap";
-
 import { mapBox } from '../plugins/init_mapbox';
+import { initSweetalert } from '../plugins/init_sweetalert';
+// import Swal from "sweetalert2";
 
 mapBox();
 
@@ -31,6 +31,22 @@ mapPopUps.forEach(marker => {
     const card = document.querySelector(`#card-${id}`)
     // inject a pseudo-class into that corresponding card
     card.classList.toggle('ghost-hover')
-    card.scrollIntoView();
+    card.scrollIntoView(true);
   })
 })
+
+
+const joinTeamRequest = document.querySelector("#join-button-sweet");
+joinTeamRequest.addEventListener('click', event => {
+  initSweetalert()
+})
+
+
+// initSweetalert('#join-button-sweet', {
+//   title: "Enter the password provided by the team captain",
+//   text: "This is a great alert, isn't it?",
+//   icon: "success"
+// }, (value) => {
+//   sconsole.log();
+// });
+
