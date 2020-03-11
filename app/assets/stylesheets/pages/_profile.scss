@@ -91,7 +91,7 @@
   height: 200px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  margin-right: 30px;
+  margin: 8px;
 }
 
 /* This container is needed to position the front and back side */
@@ -164,7 +164,7 @@
 .your-team-cards {
     // display: flex;
     // justify-content: center;
-    margin: 40px 0;
+    margin: 20px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
