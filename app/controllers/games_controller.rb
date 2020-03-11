@@ -4,6 +4,7 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.geocoded
+    @user = User.geocoded
     if params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
@@ -15,7 +16,6 @@ class GamesController < ApplicationController
     @addresses = @games.pluck(:address)
     if params[:address].present?
       @games = @games.search_by_address(params[:address])
-
       @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
     end
     @markers = @games.map do |game|
