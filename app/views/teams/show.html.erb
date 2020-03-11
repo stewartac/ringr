@@ -1,6 +1,8 @@
 <div class="team-container">
  <!--  <%= image_tag "", alt: "alttext", :class => "football-background" %> -->
+
   <div class="team-card">
+
     <div class="team-card-top">
       <% @team.games.each do |game| %>
         <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
@@ -10,8 +12,8 @@
     </div>
 
     <div class="team-card-left">
-      <h3> Captain <h3>
-      <h3><%= @team.user.first_name %> <%= @team.user.last_name %></h3>
+      <div>
+      <h4>Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></h4>
       <% if @team.user && @team.user.photo.attached? %>
         <%= cl_image_tag @team.user.photo.key, :class => "avatar-card" %>
       <% else %>
@@ -19,28 +21,133 @@
       <% end %>
       <br>
       <br>
-          <h3> Other Team Members</h3>
+      <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
+      </div>
+
+      <div style="border-top: 1px solid orange; padding-top: 12px;">
+          <h4> Other Team Members</h4>
             <% @team.memberships.each do |member| %>
             <% if member.user && member.user.photo.attached? %>
                <span> <%= cl_image_tag member.user.photo.key, :class => "avatar-small" %>
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-small" />
+            <% end %></span>
+             <span><%= member.user.first_name %> <%= member.user.last_name %></span>
             <% end %>
-             <%= member.user.first_name %> <%= member.user.last_name %></span>
-            <% end %>
+      </div>
     </div>
 
     <div class="team-card-right">
-      <p>Bio: ???</p>
-      <p>League Table</p>
-      <p> <%= link_to "Create a game", new_team_game_path(@team), :class => "green-button" %></p>
-    </div>
-
+      <br>
+      <h4>League Table</h4>
+      <table class="team-table" style="width:100%">
+        <tr style="background-color:white;">
+          <th>POS</th>
+          <th></th>
+          <th>P</th>
+          <th>W</th>
+          <th>D</th>
+          <th>L</th>
+          <th>GD</th>
+          <th>PTS</th>
+        </tr>
+        <tr>
+          <th>1</th>
+          <th>Puff Puff Pass</th>
+          <th>7</th>
+          <th>6</th>
+          <th>0</th>
+          <th>1</th>
+          <th>24</th>
+          <th>18</th>
+        </tr>
+       <em><tr style="background-color:white; color:orange;"></em>
+          <th>2</th>
+          <th> <%= @team.name %></th>
+          <th>6</th>
+          <th>6</th>
+          <th>0</th>
+          <th>0</th>
+          <th>16</th>
+          <th>18</th>
+        </tr>
+        <tr>
+          <th>3</th>
+          <th>Werder Beermen</th>
+          <th>7</th>
+          <th>5</th>
+          <th>1</th>
+          <th>1</th>
+          <th>10</th>
+          <th>16</th>
+        </tr>
+        <tr style="background-color:white;">
+          <th>4</th>
+          <th>Boca Seniors</th>
+          <th>8</th>
+          <th>3</th>
+          <th>1</th>
+          <th>4</th>
+          <th>-3</th>
+          <th>10</th>
+        </tr>
+        <tr>
+          <th>5</th>
+          <th>Penguin FC</th>
+          <th>8</th>
+          <th>3</th>
+          <th>0</th>
+          <th>5</th>
+          <th>-7</th>
+          <th>9</th>
+        </tr>
+        <tr style="background-color:white;">
+          <th>6</th>
+          <th>FC Poor Toe</th>
+          <th>7</th>
+          <th>3</th>
+          <th>0</th>
+          <th>4</th>
+          <th>-13</th>
+          <th>9</th>
+        </tr>
+        <tr>
+          <th>7</th>
+          <th>The Hackney Parrots</th>
+          <th>7</th>
+          <th>2</th>
+          <th>0</th>
+          <th>5</th>
+          <th>-10</th>
+          <th>6</th>
+        </tr>
+        <tr style="background-color:white;">
+          <th>8</th>
+          <th>Obi One Kenobi Nil</th>
+          <th>6</th>
+          <th>1</th>
+          <th>1</th>
+          <th>4</th>
+          <th>-3</th>
+          <th>4</th>
+        </tr>
+        <tr>
+          <th>9</th>
+          <th>Ivory Toast</th>
+          <th>8</th>
+          <th>1</th>
+          <th>1</th>
+          <th>6</th>
+          <th>-14</th>
+          <th>4</th>
+        </tr>
+      </table>
       <% if current_user != @team.user %>
         <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
         <p><%= f.button :submit, 'Become a squad member', id:"join-button-sweet"%></p>
       <% end %>
-    <% end %>
+      <% end %>
+    </div>
 
   </div>
 </div>
