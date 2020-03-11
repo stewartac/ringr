@@ -31,6 +31,6 @@ mapPopUps.forEach(marker => {
     const card = document.querySelector(`#card-${id}`)
     // inject a pseudo-class into that corresponding card
     card.classList.toggle('ghost-hover')
-    card.scrollIntoView();
+    card.scrollIntoView(true);
   })
 })
