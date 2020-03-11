@@ -12,10 +12,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="hover-effect nav-item">
-          <%= link_to "How it works", "#", class: "nav-link" %>
+          <%= link_to "How it works", "#find-out-more", class: "nav-link" %>
         </li>
         <li class="hover-effect nav-item">
-          <%= link_to "My Profile", user_path(current_user) , class: "nav-link" %>
+          <%= link_to "Create a team", user_path(current_user) , class: "nav-link" %>
         </li>
         <li class="hover-effect nav-item dropdown">
           <% if user_signed_in? && current_user.photo.attached? %>
@@ -33,7 +33,7 @@
             <%= link_to "How it works", "#", class: "nav-link" %>
         </li>
         <li class="hover-effect nav-item">
-          <%= link_to "Find a Ringr", "#", class: "nav-link"%>
+          <%= link_to "Create a team", "#", class: "nav-link"%>
         </li>
         <li class="hover-effect nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
