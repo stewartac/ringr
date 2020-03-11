@@ -38,7 +38,7 @@
 
       <% if current_user != @team.user %>
         <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
-        <p><%= f.button :submit, 'Become a squad member', id:"join-button" %></p>
+        <p><%= f.button :submit, 'Become a squad member', id:"join-button-sweet"%></p>
       <% end %>
     <% end %>
 

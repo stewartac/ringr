@@ -34,3 +34,19 @@ mapPopUps.forEach(marker => {
     card.scrollIntoView();
   })
 })
+
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+
+initSweetalert('#join-button-sweet', {
+  title: "Please enter the password provided to you by the Captain",
+  input: "password",
+  inputPlaceholder: 'Enter your password',
+  inputAttributes: {
+    maxlength: 10,
+    autocapitalize: 'off',
+    autocorrect: 'off'
+  }
+}, (value) => {
+  console.log(value);
+});
