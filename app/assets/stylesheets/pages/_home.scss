@@ -5,6 +5,10 @@
   margin: 0 50px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .full-page-cont {
   min-height: 100vh;
 }
@@ -32,6 +36,11 @@
 #check_boxes:checked {
     background-color: red !important;
 }
+
+// body {
+
+//   scroll-behavior: smooth;
+// }
 
 // #filter_sports_football:focus img{
 //   background-color: red !important;

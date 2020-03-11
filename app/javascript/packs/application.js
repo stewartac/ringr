@@ -22,8 +22,15 @@ mapPopUps.forEach(marker => {
     const id = marker.id
     // find the id of the marker
     // identify the corresponding card by searching for the same id
+
+    // Reset cards select effect
+    document.querySelectorAll('.game-card').forEach((card) => {
+      card.classList.remove('ghost-hover')
+    });
+
     const card = document.querySelector(`#card-${id}`)
     // inject a pseudo-class into that corresponding card
     card.classList.toggle('ghost-hover')
+    card.scrollIntoView();
   })
 })
