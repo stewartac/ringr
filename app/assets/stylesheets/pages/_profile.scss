@@ -21,6 +21,13 @@
   border-radius: 2px;
 }
 
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+ background-color: $pink-orange;
+}
+
+.nav-pills a {
+  color: #2F4F4F;
+}
 
 .profile-content {
   width: 100%;
@@ -63,13 +70,19 @@
     // align-items: center;
     // text-align: center;
     width: 300px;
+    background-color: #DAF5FF;
+    color: $gray;
 }
 
-.profile-card-body h3 {
+.profile-card-body a {
+  color: inherit;
   font-family: $cards-font;
 }
 
-
+.profile-card-body h3 {
+  color: inherit;
+ font-family: $cards-font;
+ }
 
 
 .flip-card {
@@ -108,7 +121,7 @@
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
   background-color: #DAF5FF;
-  color: black;
+  color: $gray;
   display: flex;
   flex-direction: column;
   padding-top: 20%;
@@ -120,8 +133,8 @@
 }
 /* Style the back side */
 .flip-card-back {
-  background-color: $tumbleweed;
-  color: white;
+  background-color: #DAF5FF;
+  color: $gray;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
