@@ -15,6 +15,10 @@
         <%= f.input :address,
                     required: false,
                     input_html: { autocomplete: "address", class: "input-info" } %>
+        <%= f.input :profile,
+                    required: false,
+                    label:"Profile description",
+                    input_html: { autocomplete: "profile", class: "input-info" } %>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
