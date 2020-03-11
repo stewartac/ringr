@@ -14,11 +14,11 @@ class GamesController < ApplicationController
       @games = @games.where(sport: params[:hidden_filter].split(" "))
     end
 
-    @addresses = @games.pluck(:address)
-    if params[:address].present?
-      @games = @games.search_by_address(params[:address])
-      @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
-    end
+    # @addresses = @games.pluck(:address)
+    # if params[:address].present?
+    #   @games = @games.search_by_address(params[:address])
+    #   @games.to_a.reject! { |g| g.latitude.nil? || g.longitude.nil?}
+    # end
     @markers = @games.map do |game|
       {
         lat: game.latitude,
