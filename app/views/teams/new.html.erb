@@ -1,10 +1,16 @@
-<div class="body_form">
+<%= video_tag "another_football_vid.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video", style: "height:115vh"; %>
+<div class="login">
+  <div class="login-triangle"></div>
   <div class="basic_form">
-    <h1>Create your team</h1>
+    <h1 class="login-header">Create your team</h1>
       <%= simple_form_for(@team) do |f|%>
-      <%= f.input :name, input_html: { class: 'input' } %>
-      <%= f.input :league_link, input_html: { class: 'input' } %>
-      <%= f.submit "Create team!", class: "btn btn-block submit_button" %>
+      <div class="login-container">
+        <%= f.input :name, input_html: { class: 'input-info' } %>
+        <%= f.input :league_link, input_html: { class: 'input-info' } %>
+        <div class="input-info">
+          <%= f.submit "Create team!", class: "btn btn-block submit_button" %>
+        </div>
+      </div>
       <% end %>
   </div>
 </div>
