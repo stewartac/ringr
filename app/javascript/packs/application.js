@@ -37,9 +37,11 @@ mapPopUps.forEach(marker => {
 
 
 const joinTeamRequest = document.querySelector("#join-button-sweet");
-joinTeamRequest.addEventListener('click', event => {
-  initSweetalert()
-})
+if (joinTeamRequest) {
+  joinTeamRequest.addEventListener('click', event => {
+    initSweetalert()
+  })
+}
 
 
 // initSweetalert('#join-button-sweet', {
