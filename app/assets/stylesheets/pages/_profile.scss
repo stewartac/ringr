@@ -30,12 +30,52 @@
 }
 
 .profile-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   width: 100%;
   height: 100%;
-}
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
 
-.profile-content h2 {
-  margin: 8px;
+  .profile-info-details {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+
+    img {
+      object-fit: cover;
+      width: 160px;
+      height: 160px;
+      border-radius: 3px;
+    }
+
+    .user-info {
+      padding-left: 30px;
+
+      h2 {
+        margin: 0;
+        font-size: 26px;
+      }
+
+      p {
+        margin-bottom: 0px;
+
+        i.label {
+          margin-right: 6px;
+          font-style: normal;
+          text-transform: uppercase;
+          font-size: 10px;
+          opacity: 0.8;
+        }
+      }
+
+      p.user-descriptions {
+        font-size: 14px;
+        margin-top: 12px;
+      }
+    }
+  }
 }
 .profile-page-layout {
   display: flex;
@@ -53,10 +93,6 @@
       padding: 8px;
       background: white;
       border: solid 2px lightgray;
-    }
-    .profile-info-details {
-      padding: 8px;
-      text-align: center;
     }
   }
 }
@@ -186,6 +222,14 @@
     justify-content: center;
 }
 
+.my-requests-container, .my-teams-container, .ringr-search-container, .games-container {
+  margin-top: 36px;
+}
+.your-team-heading {
+  font-size: 18px;
+  border-bottom: 1px solid #cdcdcd;
+  padding-bottom: 8px;
+}
 
 
 
