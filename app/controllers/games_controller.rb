@@ -80,12 +80,6 @@ class GamesController < ApplicationController
     params.require(:game).permit(:address, :date, :time, :price, :format, :sport, :available_spaces)
   end
 
-  # def set_distance
-  #   @games.each do |game|
-  #     Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]
-  #   end
-  # end
-
   def set_markers(game)
    placeholder = ''
    if game.sport == "Football"
