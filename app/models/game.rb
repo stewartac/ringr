@@ -22,4 +22,9 @@ class Game < ApplicationRecord
     available_spaces - bookings.where(status: "accepted").count
   end
 
+  def distance_from_user(user)
+    Geocoder::Calculations.distance_between(Geocoder.coordinates(user.address), [latitude, longitude])
+  end
+
+
 end
