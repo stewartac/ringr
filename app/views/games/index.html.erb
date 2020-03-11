@@ -36,14 +36,11 @@
               <h1 class="team-font"><%= game.team.name %></h1>
               <p class="pb-0"><%= game.format %></p>
               <p><%= game.date.strftime('%a %d %b %Y') %></p>
-            <!--   <p>Address: <%= game.address %> (x distance from me)</p> -->
           </div>
           <div class="game-card-bottom">
             <p> Spaces: <%= game.remaining_spots %></h2>
               <% if current_user.address.present? %>
-                <% dist = '' %>
-                <% dist = Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]) %>
-                <h2><%= dist.round(1) %> miles</h2>
+              <p><%= game.distance_from_user(current_user).round(1) %> miles</p>
               <% end %>
             </div>
           </div>

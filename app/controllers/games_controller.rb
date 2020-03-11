@@ -4,15 +4,18 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.geocoded
+    @sort_games = current_user.sort_games
     @user = User.geocoded
     if params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
-      @games = @games.where(sport: array)
-    end
-    if params[:hidden_filter]
+      @games = @games.where(sport: array).sort_by{|game| game.distance_from_user(current_user)}
+    elsif params[:hidden_filter]
       @games = @games.where(sport: params[:hidden_filter].split(" "))
     end
+
+
+
     @addresses = @games.pluck(:address)
     if params[:address].present?
       @games = @games.search_by_address(params[:address])
@@ -73,6 +76,12 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:address, :date, :time, :price, :format, :sport, :available_spaces)
   end
+
+  # def set_distance
+  #   @games.each do |game|
+  #     Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]
+  #   end
+  # end
 
   def set_markers(game)
    placeholder = ''
