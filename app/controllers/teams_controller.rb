@@ -13,9 +13,6 @@ class TeamsController < ApplicationController
       end
     else
       @Membership = Membership.new
-      # find the current user ('current_user')
-      # find the team
-      # make a new membership between team and current user
     end
   end
 
