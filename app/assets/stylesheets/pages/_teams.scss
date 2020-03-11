@@ -64,10 +64,10 @@
 
 #join-button {
   color: $white;
-  background-color: $pink-orange;
-  padding: 12px 8px;
+  background-color: $green;
+  padding: 12px 12px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 15px;
   text-align: center;
   text-decoration: none;
 }
@@ -84,5 +84,5 @@
 #join-button:hover {
   text-decoration: none;
   background-color: $white;
-  color: $pink-orange;
+  color: $green;
 }

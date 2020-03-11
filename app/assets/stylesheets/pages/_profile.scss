@@ -30,12 +30,52 @@
 }
 
 .profile-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   width: 100%;
   height: 100%;
-}
+  overflow-y: scroll;
+  height: calc(100vh - 80px);
 
-.profile-content h2 {
-  margin: 8px;
+  .profile-info-details {
+    display: flex;
+    padding: 20px;
+    background-color: white;
+
+    img {
+      object-fit: cover;
+      width: 160px;
+      height: 160px;
+      border-radius: 3px;
+    }
+
+    .user-info {
+      padding-left: 30px;
+
+      h2 {
+        margin: 0;
+        font-size: 26px;
+      }
+
+      p {
+        margin-bottom: 0px;
+
+        i.label {
+          margin-right: 6px;
+          font-style: normal;
+          text-transform: uppercase;
+          font-size: 10px;
+          opacity: 0.8;
+        }
+      }
+
+      p.user-descriptions {
+        font-size: 14px;
+        margin-top: 12px;
+      }
+    }
+  }
 }
 .profile-page-layout {
   display: flex;
@@ -53,10 +93,6 @@
       padding: 8px;
       background: white;
       border: solid 2px lightgray;
-    }
-    .profile-info-details {
-      padding: 8px;
-      text-align: center;
     }
   }
 }
@@ -92,6 +128,9 @@
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   margin: 8px;
+  color: inherit;
+  font-family: "Londrina Solid", "cursive";
+
 }
 
 /* This container is needed to position the front and back side */
@@ -102,6 +141,7 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -116,6 +156,7 @@
   height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
   backface-visibility: hidden;
+
 }
 
 /* Style the front side (fallback if image is missing) */
@@ -139,6 +180,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  h4 {
+    font-family: "Londrina Solid", "cursive";
+  }
 }
 
 .my-teams-container {
@@ -156,7 +200,7 @@
 
 .my-teams-container h4:after, .my-teams-container h4:before {
   content: '';
-  width: 400px;
+  width: 300px;
   height: 2px;
   background: $tumbleweed;
   margin: 0 10px;
@@ -177,4 +221,16 @@
     display: flex;
     justify-content: center;
 }
+
+.my-requests-container, .my-teams-container, .ringr-search-container, .games-container {
+  margin-top: 36px;
+}
+.your-team-heading {
+  font-size: 18px;
+  border-bottom: 1px solid #cdcdcd;
+  padding-bottom: 8px;
+}
+
+
+
 
