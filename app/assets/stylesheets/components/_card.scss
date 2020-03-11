@@ -1,9 +1,10 @@
 
 .game-card {
+  margin: 0 16px 16px 16px;
   opacity: 0.8;
-  margin-right: 8px;
-  margin-left: 8px;
-  margin-bottom: 8px;
+  // margin-right: 8px;
+  // margin-left: 8px;
+  // margin-bottom: 8px;
   padding: 4px 4px;
   position: relative;
   display: flex;
@@ -12,14 +13,14 @@
   flex-grow: 1;
   background: #DAF5FF;
   box-shadow: 0 0 2px rgba(0,0,0,0.4);
-  height: 250px;
+  height: 260px;
   transition: 0.5s ease;
   cursor: pointer;
   object-fit: cover;
   border-radius: 8px;
-  .avatar-bordered {
-    width: 80px;
-  }
+  // .avatar-bordered {
+  //   width: 80px;
+  // }
 }
 
 .game-card:hover {

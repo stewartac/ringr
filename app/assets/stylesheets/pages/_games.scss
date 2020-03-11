@@ -20,7 +20,9 @@
 .w70 {
   width: 100%;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  align-items: center;
 }
 
 #card-link {
@@ -34,7 +36,7 @@
 #sport-logo-small {
   height: 32px;
   width: auto;
-  padding: 0 18px 0 18px;
+  padding: 4px 4px 0px 4px;
 }
 
 .team-font {
