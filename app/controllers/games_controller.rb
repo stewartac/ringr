@@ -3,15 +3,19 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
-
+    # raise
     @games = Game.geocoded
     @user = User.geocoded
     if params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
-      @games = @games.where(sport: array)
-    elsif params[:hidden_filter]
-      @games = @games.where(sport: params[:hidden_filter].split(" "))
+      @games = @games.where(sport:array)
+    elsif params[:filter2]
+      # raise
+      sports = params.require(:filter2).gsub("[", "").gsub("]","").gsub('"','').gsub(" ","").split(",")
+      @games = @games.where(sport:sports)
+    # elsif params[:hidden_filter]
+    #   @games = @games.where(sport: params[:hidden_filter].split(" "))
     end
 
     @addresses = @games.pluck(:address)
@@ -33,6 +37,7 @@ class GamesController < ApplicationController
     elsif params[:sort_by] == "time"
       @games = @games.sort_by{|game| game.time}
     end
+
   end
 
   def show
