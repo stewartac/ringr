@@ -88,6 +88,16 @@
         <div class="my-teams-container">
           <!-- User Teams -->
           <div class="items your-team-cards">
+            <% if current_user.teams.empty? %>
+            <div class="empty-card">
+              <div class="profile-card-body">
+                <h3 style="none"> You don't have any teams yet</h3>
+                <p> Create a team below to list games & find Ringrs</p>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          <div class="items your-team-cards">
             <% current_user.teams.each do |team|%>
             <div class="empty-card">
               <div class="profile-card-body">
@@ -102,11 +112,19 @@
         </div>
       </div>
 
-      <!-- Ringr Search  -->
+<!-- Ringr Search  -->
       <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
         <div class="ringr-search-container">
           <div class="upcoming">
             <h2 class="your-team-heading">Accepted Bookings</h2>
+              <div class="items your-team-cards">
+                <% @user.requested_bookings.where(status: 'accepted').empty? %>
+                  <div class="empty-card">
+                    <div class="profile-card-body">
+                        <h3> You don't have any accepted bookings yet </h3>
+                    </div>
+                  </div>
+              </div>
             <div class="items your-team-cards">
               <% @user.requested_bookings.each do |booking| %>
                 <% if booking.status == "accepted" %>
@@ -122,6 +140,14 @@
           </div>
           <div class="requested">
             <h2 class="your-team-heading">Requested Bookings</h2>
+              <div class="items your-team-cards">
+                <% @user.requested_bookings.where(status: 'requested').empty? %>
+                  <div class="empty-card">
+                    <div class="profile-card-body">
+                        <h3> You don't have any requested bookings yet </h3>
+                    </div>
+                  </div>
+              </div>
             <div class="items your-team-cards">
               <% @user.requested_bookings.each do |booking| %>
                 <% if booking.status == "requested" %>
