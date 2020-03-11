@@ -3,18 +3,16 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:edit, :show, :destroy]
 
   def index
+
     @games = Game.geocoded
-    @sort_games = current_user.sort_games
     @user = User.geocoded
     if params[:filter]
       array = params.require(:filter).require(:sports)
       array.reject! {|string| string == ""}
-      @games = @games.where(sport: array).sort_by{|game| game.distance_from_user(current_user)}
+      @games = @games.where(sport: array)
     elsif params[:hidden_filter]
       @games = @games.where(sport: params[:hidden_filter].split(" "))
     end
-
-
 
     @addresses = @games.pluck(:address)
     if params[:address].present?
@@ -30,6 +28,11 @@ class GamesController < ApplicationController
         id: game.id
       }
       end
+    if params[:sort_by] == "distance"
+      @games = @games.sort_by{|game| game.distance_from_user(current_user)}
+    elsif params[:sort_by] == "time"
+      @games = @games.sort_by{|game| game.time}
+    end
   end
 
   def show
