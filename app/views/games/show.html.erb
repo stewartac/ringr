@@ -3,23 +3,26 @@
   <div class="show-card">
 
     <div class="show-card-left">
-        <p><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
-          <p><%= @game.format %></p>
-            <% if @game.team.user.photo.attached? %>
-              <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
-            <% else %>
-              <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
-            <% end %>
+      <div>
+        <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
 
-      <p>Captain: <%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
+        <h3 style="font-weight: lighter">Captain</h3>
+          <% if @game.team.user.photo.attached? %>
+            <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
+          <% else %>
+            <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
+          <% end %>
+          <p style="font-weight: lighter"><%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
       <% if current_user == @game.team.user %>
       <p><%= link_to "Delete game", game_path(@game), :id => "join-button", method: :delete, data: { confirm: "Are you sure?!" }%></p>
       <% end %>
       <br>
-      <br>
+      </div>
+
       <div>
 <!-- Bookings for specific game - everyone view-->
-        <h4>Confirmed Players</h4>
+
+        <h4 style="font-weight: lighter">Confirmed Players</h4>
           <% @game.bookings.each do |booking| %>
             <% if booking.status == "accepted" %>
               <% if booking.user.photo.attached? %>
@@ -63,11 +66,13 @@
           <% end %>
         <% end %>
       </div>
+
     </div>
 
     <div class="show-card-right">
       <br>
       <h3 class="team-font">Game Details</h3>
+      <p>Format: <%= @game.format %></p>
       <p><%= @game.date.strftime('%a %d %b %Y') %></p>
         <% if @game.remaining_spots <= 0 %>
           <p>There are no more spots available for this game</p>
