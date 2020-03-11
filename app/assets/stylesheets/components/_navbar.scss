@@ -1,5 +1,5 @@
 .navbar {
-  padding: 0;
+  padding-right: 16px;
   box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 
@@ -22,7 +22,8 @@
 
 .nav-item:hover {
   // background-color: white;
-  background-color: $wheat;
+  border-bottom: 1px solid $pink-orange;
+  cursor: pointer;
 }
 
 .hover-effect {
