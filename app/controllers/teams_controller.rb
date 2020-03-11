@@ -4,16 +4,19 @@ class TeamsController < ApplicationController
 
   def show
     @membership = Membership.new
-    if params[:newmember] == 1
+    if params[:newmember] == "1"
+      @membership = Membership.new
       @membership.team = @team
       @membership.user = current_user
-      @membership = Membership.new
-      raise
+      if @membership.save
+        redirect_to team_path(@team)
+      end
+    else
+      @Membership = Membership.new
       # find the current user ('current_user')
       # find the team
       # make a new membership between team and current user
     end
-    # raise
   end
 
   def new
