@@ -4,13 +4,11 @@
 
     <%= form_tag games_path, method: :get, id: :search_form do %>
       <%#= select_tag :address, params[:address], id: "games-search-bar", placeholder: "Enter your address" %>
-      <select name="address" id="games-search-bar" placeholder="Search for games">
-        <% @addresses.each do |add| %>
-          <option value="<%= add %>"><%= add %></option>
-        <% end %>
+      <select name="sort_by" id="games-search-bar" placeholder="Search for games">
+          <option value="time">Sort by Time</option>
+          <option value="distance">Sort by Distance</option>
       </select>
-      <%= hidden_field_tag :hidden_filter, params[:hidden_filter] || params[:filter][:sports] %>
-      <%= submit_tag "Find a game", class: "search-button" %>
+      <%= submit_tag "Filter Search", class: "search-button" %>
     <% end %>
   </div>
 
@@ -36,14 +34,11 @@
               <h1 class="team-font"><%= game.team.name %></h1>
               <p class="pb-0"><%= game.format %></p>
               <p><%= game.date.strftime('%a %d %b %Y') %></p>
-            <!--   <p>Address: <%= game.address %> (x distance from me)</p> -->
           </div>
           <div class="game-card-bottom">
             <p> Spaces: <%= game.remaining_spots %></h2>
               <% if current_user.address.present? %>
-                <% dist = '' %>
-                <% dist = Geocoder::Calculations.distance_between(Geocoder.coordinates(current_user.address), [game.latitude, game.longitude]) %>
-                <h2><%= dist.round(1) %> miles</h2>
+              <p><%= game.distance_from_user(current_user).round(1) %> miles</p>
               <% end %>
             </div>
           </div>
@@ -54,7 +49,7 @@
 
     <!-- MAP -->
 
-    <div id="map"
+    <div  class="index-map" id="map"
          data-markers="<%= @markers.to_json %>"
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
