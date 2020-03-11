@@ -35,8 +35,8 @@
               <p class="pb-0"><%= game.format %></p>
               <p><%= game.date.strftime('%a %d %b %Y') %></p>
           </div>
-          <div class="game-card-bottom">
-            <p> Spaces: <%= game.remaining_spots %></h2>
+          <div style="font-size: 14px" class="game-card-bottom">
+            <p> Spaces: <%= game.remaining_spots %></p>
               <% if current_user.address.present? %>
               <p><%= game.distance_from_user(current_user).round(1) %> miles</p>
               <% end %>
