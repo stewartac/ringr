@@ -1,16 +1,17 @@
 
 .game-card {
-  opacity: 0.7;
-  margin-right: 16px;
-  margin-left: 16px;
+  opacity: 0.8;
+  margin-right: 8px;
+  margin-left: 8px;
+  margin-bottom: 8px;
   padding: 4px 4px;
   position: relative;
   display: flex;
   flex: 0 1 24%;
   flex-direction: row;
+  flex-grow: 1;
   background: #DAF5FF;
   box-shadow: 0 0 2px rgba(0,0,0,0.4);
-  margin-bottom: 16px;
   height: 250px;
   transition: 0.5s ease;
   cursor: pointer;
