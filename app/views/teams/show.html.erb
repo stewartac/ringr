@@ -7,23 +7,23 @@
       <h4 class="show-team-font pt-2"> <%= @team.name %></h4>
       <p class="team-font"> " <%= @team.bio %> " </p>
     </div>
-
-    <div class="team-card-left" style="font-weight: lighter;">
-      <h4>Squad</h4>
-      <div >
-        <p style="font-weight: lighter;">Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
+    <div class="team-card-left">
+      <h4 style="font-weight: lighter;">Squad</h4>
+      <div class="squad-members">
+        <div>
         <% if @team.user && @team.user.photo.attached? %>
           <%= cl_image_tag @team.user.photo.key, :class => "avatar-small" %>
         <% else %>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-card" />
         <% end %>
+        <p style="font-weight: lighter;"><p><%= @team.user.first_name %> <%= @team.user.last_name %></p>
+      </div>
+        <p>Bio will be inserted here like this.</p>
         <br>
         <br>
-        <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
       </div>
 
       <div style="border-top: 1px solid $terracotta; padding-top: 12px;">
-          <h4 style="font-weight: lighter;">Squad Members</h4>
           <p>
             <% @team.memberships.each do |member| %>
             <% if member.user && member.user.photo.attached? %>
@@ -34,6 +34,7 @@
              <p><%= member.user.first_name %> <%= member.user.last_name %></p>
             <% end %>
       </div>
+      <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
     </div>
 
     <div class="team-card-right">
@@ -143,6 +144,8 @@
       <br>
       <% if current_user != @team.user %>
         <button id="join-button-sweet">Become a squad member</button>
+
+
 
         <!-- <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
         <p><%= f.button :submit, 'Become a squad member', id:"join-button-sweet"%></p> -->
