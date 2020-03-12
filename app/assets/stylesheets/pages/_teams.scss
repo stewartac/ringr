@@ -15,7 +15,7 @@
 
 .team-card {
   background-color: $off-white;
-  border: 1px $terracotta solid;
+  // border: 1px $terracotta solid;
   border-radius: 8px;
   width: 90vw;
   height: 90%;
@@ -33,9 +33,11 @@
   align-self: flex-start;
   display: inline-flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  border-bottom: 1px dotted $terracotta;
+  border-bottom: 1px solid $terracotta;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .team-card-left {
@@ -45,6 +47,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.squad-members {
+  display: flex;
+  flex-direction: row;
 }
 
 .team-card-right {
