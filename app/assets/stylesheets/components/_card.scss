@@ -1,6 +1,6 @@
 
 .game-card {
-  margin: 0 16px 16px 16px;
+  margin: 0 8px 16px 8px;
   opacity: 0.8;
   // margin-right: 8px;
   // margin-left: 8px;
@@ -24,7 +24,8 @@
 }
 
 .game-card:hover {
-  background-color: $pink-orange;
+  background-color: $green;
+  color: $off-white;
 }
 
 .game-card h1 {
@@ -49,7 +50,7 @@
   justify-content: space-between;
   position: absolute;
   top: 1;
-  border-bottom: 1px solid $pink-orange;
+  border-bottom: 1px solid $green;
 }
 
 // .left-side-card p {
@@ -80,7 +81,7 @@
   padding: auto;
   bottom: 1;
   align-self: flex-end;
-  border-top: 1px solid $pink-orange;
+  border-top: 1px solid $green;
 }
 
 

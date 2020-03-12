@@ -1,6 +1,6 @@
 .show-card {
   color: black;
-  background-color: $pale-orange;
+  background-color: $off-white;
   margin: 18px 24px;
   display: flex;
   flex-wrap: wrap;
@@ -13,7 +13,7 @@
 .show-card-left {
   width: 50%;
   padding: 8px 8px;
-  border-right: 1px solid $tumbleweed;
+  border-right: 1px solid $terracotta;
   text-align: center;
   font-family: Poppins;
   font-weight: lighter;
@@ -39,12 +39,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border-bottom: 1px $pink-orange solid
+  border-bottom: 1px $terracotta dotted;
 }
 
 #request-button {
   color: $white;
-  background-color: $pink-orange;
+  background-color: $green;
   padding: 16px 14px;
   text-align: center;
   width: 100%;
@@ -54,14 +54,14 @@
 #request-button:hover {
   text-decoration: none;
   background-color: $white;
-  color: $pink-orange;
+  color: $green;
 }
 
 .show-team-font {
   font-family: $cards-font;
   font-weight: lighter;
   font-size: 48px;
-  color: $tumbleweed;
+  color: $terracotta;
 }
 
 .show-team-font:hover {

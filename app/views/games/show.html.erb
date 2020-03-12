@@ -8,9 +8,9 @@
       <div style="padding-right: 16px;">
         <h4 style="font-weight:lighter;">Captain</h4>
           <% if @game.team.user.photo.attached? %>
-            <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
+            <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-small" %>
           <% else %>
-            <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
+            <img> <%= image_tag "avatar.png", class: "avatar-small" %> </>
           <% end %>
           <p style="font-weight: lighter"><%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
       <% if current_user == @game.team.user %>
@@ -51,7 +51,7 @@
       <div>
       <% if current_user == @game.team.user %>
             <!-- Capatain sees requested & rejected bookings-->
-      <h4>Pending bookings</h4>
+      <p>Pending bookings</p>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "requested" %>
             <% if booking.user.photo.attached? %>
@@ -63,7 +63,7 @@
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
-      <h2>Rejected bookings</h2>
+      <p>Rejected bookings</p>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
             <% if booking.user.photo.attached? %>
@@ -82,7 +82,7 @@
 
     <div class="show-card-right">
       <br>
-      <h4 style="font-weight:lighter;">Game Info</h4> <p><%= @game.date.strftime('%a %d %b %Y - ') %><i class="fas fa-clock"></i><%= @game.time.strftime("%I:%M%p") %></p>
+      <h4 style="font-weight:lighter;">Game Info</h4> <p><%= @game.date.strftime('%a %d %b %Y - ') %><i class="fas fa-clock"></i><%= @game.time.strftime(" %I:%M%p") %></p>
       <p>Big game against the top of the league. We've had a last minute dropout so looking for a ringer to come in. Ideally a striker who can finish!</p>
 
       <div id="map"

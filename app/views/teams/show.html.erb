@@ -24,8 +24,8 @@
       <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
       </div>
 
-      <div style="border-top: 1px solid orange; padding-top: 12px;">
-          <h4 style="font-weight: lighter;"> Other Team Members</h4>
+      <div style="border-top: 1px solid $terracotta; padding-top: 12px;">
+          <h4 style="font-weight: lighter;">Squad Members</h4>
             <% @team.memberships.each do |member| %>
             <% if member.user && member.user.photo.attached? %>
                <span> <%= cl_image_tag member.user.photo.key, :class => "avatar-small" %>
@@ -38,7 +38,6 @@
     </div>
 
     <div class="team-card-right">
-      <br>
       <h4>League Table</h4>
       <table class="team-table" style="width:100%">
         <tr style="background-color:white;">
@@ -61,7 +60,7 @@
           <th>24</th>
           <th>18</th>
         </tr>
-       <em><tr style="background-color:white; color:orange;"></em>
+       <em><tr style="background-color:white; color:green;"></em>
           <th>2</th>
           <th> <%= @team.name %></th>
           <th>6</th>
@@ -142,6 +141,7 @@
           <th>4</th>
         </tr>
       </table>
+      <br>
       <% if current_user != @team.user %>
         <button id="join-button-sweet">Become a squad member</button>
 
