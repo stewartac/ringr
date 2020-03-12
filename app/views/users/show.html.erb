@@ -102,7 +102,7 @@
             <% current_user.teams.each do |team|%>
             <div class="empty-card">
               <div class="profile-card-body">
-                <h3 style="none"> <%= link_to team.name, team_path(team) %></h3>
+                <h3 style="font-size: 24px;"> <%= link_to team.name, team_path(team) %></h3>
                 <%= link_to "Create a new game for this team", new_team_game_path(team) %>
               </div>
             </div>
