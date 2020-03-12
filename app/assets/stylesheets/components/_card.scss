@@ -11,7 +11,7 @@
   flex: 0 1 24%;
   flex-direction: row;
   flex-grow: 1;
-  background: #DAF5FF;
+  background: $off-white;
   box-shadow: 0 0 2px rgba(0,0,0,0.4);
   height: 260px;
   transition: 0.5s ease;
@@ -24,7 +24,7 @@
 }
 
 .game-card:hover {
-  background-color: #FFBFA0;
+  background-color: $pink-orange;
 }
 
 .game-card h1 {
@@ -42,7 +42,7 @@
 }
 
 .game-card-top {
-  width: 95%;
+  width: 97%;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -69,10 +69,10 @@
 // }
 
 .game-card-bottom {
-  margin-top: 12px;
+  margin-top: 16px;
   padding-right: 6px;
   padding-left: 6px;
-  width: 95%;
+  width: 97%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
