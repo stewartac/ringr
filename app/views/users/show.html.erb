@@ -68,7 +68,8 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <h2 class="card-title"><%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %><%= booking.game.team.name %><%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %> </h2>
+                    <h2 class="card-title"><%= booking.game.team.name %></h2>
+                    <%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %>
                   </div>
                   <div class="flip-card-back">
                     <h4><%= booking.game.address %></h4>
@@ -158,8 +159,10 @@
                     <div class="profile-card-body">
                       <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
                       <p>Current status: <%= booking.status %></p>
-                      <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
-                      <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
+                      <div class="accept-reject">
+                        <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
+                        <%= link_to "Reject", booking_path(booking, booking: {status: "rejected"}), method: :patch  %>
+                      </div>
                     </div>
                   </div>
                 <% end %>
