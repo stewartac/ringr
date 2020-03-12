@@ -1,11 +1,11 @@
- <div class="page-container">
+<div class="page-container">
   <!-- Game Info -->
   <div class="show-card">
     <div class="show-card-left">
       <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
       <div class="show-card-left-flexbox">
         <div style="padding-right: 16px;">
-          <h4 style="font-weight:lighter;">Captain</h4>
+          <h4 style="font-weight: lighter;">Captain</h4>
               <% if @game.team.user.photo.attached? %>
                 <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-small" %>
               <% else %>
@@ -21,7 +21,7 @@
 
 <!-- Bookings for specific game - everyone view-->
         <div>
-          <h4>Confirmed Players</h4>
+          <h4 style="font-weight: lighter;">Confirmed Players</h4>
             <% if @game.bookings.where(status: "accepted").empty? %>
               <p>This game does not have any confirmed Ringrs yet.</p>
             <% @game.bookings.each do |booking| %>
@@ -56,7 +56,7 @@
           <% end %>
         <% end %>
       <% if @game.bookings.where(status: "rejected").any? %>
-      <h3>Rejected bookings</h3>
+      <p>Rejected bookings</p>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
             <% if booking.user.photo.attached? %>
@@ -72,19 +72,27 @@
       <% end %>
       </div>
     </div>
-    <div class="show-card-right">
+    <div>
       <br>
-      <h3 class="team-font">Game Details</h3>
       <p>Format: <%= @game.format %></p>
-      <p><%= @game.date.strftime('%a %d %b %Y') %></p>
         <% if @game.remaining_spots <= 0 %>
           <p>There are no more spots available for this game</p>
         <% else %>
-          <p><i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %></p>
           <p>£ <%= @game.price %> </p>
           <p>Players needed: <%= @game.available_spaces %></p>
         <% end %>
       <p>Venue: <%= @game.address %></p>
+    </div>
+  </div>
+
+    <div class="show-card-right">
+      <br>
+      <h4 style="font-weight: lighter;">Game Details</h4>
+        <p><%= @game.date.strftime('%a %d %b %Y - ') %>
+          <i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %>
+        </p>
+      <p>We have had two dropouts due to last minute illness. Looking for a goalkeeper and a striker. Big game against the top of the league - must win.</p>
+
       <div id="map"
          style="width: 100%;
          height: 250px;"
