@@ -39,8 +39,9 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <h2 class="card-title"><%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %><%= booking.game.team.name %><%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h2>
-                    <h5><%= booking.game.countdown %> Days</h5>
+                    <h2 class="card-title"><%= booking.game.team.name %></h2>
+                    <h2><%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h2>
+                    <h5 style="padding-top: 5px;"><%= booking.game.countdown %> Days</h5>
                   </div>
                   <div class="flip-card-back">
                     <h4><%= booking.game.address %></h4>
