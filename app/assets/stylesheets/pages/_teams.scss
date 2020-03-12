@@ -7,6 +7,12 @@
   opacity: 0.1;
 }
 
+.team-font {
+  font-family: $cards-font;
+  font-weight: lighter;
+  color: $terracotta;
+}
+
 .team-container {
   height: 90vh;
   text-align: center;
@@ -21,7 +27,8 @@
   height: 90%;
   margin: 24px auto;
   text-align: center;
-  // padding-top: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -32,9 +39,9 @@
   position: sticky;
   align-self: flex-start;
   display: inline-flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  text-align: center;
   border-bottom: 1px solid $terracotta;
   padding-left: 16px;
   padding-right: 16px;
@@ -43,9 +50,9 @@
 .team-card-left {
   width: 50%;
   padding: 8px 16px;
-  text-align: center;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 

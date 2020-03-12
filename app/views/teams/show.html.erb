@@ -4,26 +4,22 @@
   <div class="team-card">
 
     <div class="team-card-top">
-      <h4 class="text-center show-team-font pt-2"> <%= @team.name %></h4>
+      <h4 class="show-team-font pt-2"> <%= @team.name %></h4>
+      <p class="team-font"> " <%= @team.bio %> " </p>
     </div>
 
-    <div class="team-card-left">
-      <div>
-        <h4 style="font-weight:lighter;">About</h4>
-        <p style="font-style: italic;"><%= @team.bio %></p>
-      </div>
-
-
-      <div>
-      <h4 style="font-weight: lighter;">Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></h4>
-      <% if @team.user && @team.user.photo.attached? %>
-        <%= cl_image_tag @team.user.photo.key, :class => "avatar-card" %>
-      <% else %>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-card" />
-      <% end %>
-      <br>
-      <br>
-      <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
+    <div class="team-card-left" style="font-weight: lighter;">
+      <h4>Squad</h4>
+      <div >
+        <p style="font-weight: lighter;">Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></p>
+        <% if @team.user && @team.user.photo.attached? %>
+          <%= cl_image_tag @team.user.photo.key, :class => "avatar-small" %>
+        <% else %>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-card" />
+        <% end %>
+        <br>
+        <br>
+        <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
       </div>
 
       <div style="border-top: 1px solid $terracotta; padding-top: 12px;">
