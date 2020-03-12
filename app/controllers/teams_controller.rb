@@ -50,7 +50,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :league_link, :bio)
+    params.require(:team).permit(:name, :league_link, :bio, :sport)
   end
 
 end

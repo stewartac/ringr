@@ -6,6 +6,7 @@
       <%= simple_form_for(@team) do |f|%>
       <div class="login-container">
         <%= f.input :name, input_html: { class: 'input-info' } %>
+        <%= f.input :sport, :collection => Team::SPORTS, prompt: "Select Sport" %>
         <%= f.input :league_link, input_html: { class: 'input-info' } %>
         <%= f.input :bio, input_html: { class: 'input-info' } %>
         <div class="input-info">

@@ -25,7 +25,7 @@
  background-color: $pink-orange;
 }
 
-.nav-link {
+.profile-nav-link {
   &:hover {
     background-color: #ffd3b3;
   }
@@ -95,10 +95,9 @@
       height: 200px;
       width: 100%;
       object-fit: cover;
-      border-radius: 2px;
-      padding: 8px;
+      border-radius: 15px;
       background: white;
-      border: solid 2px lightgray;
+      border: solid 1px #FE9A51;
     }
   }
   #profile-pic-name {
