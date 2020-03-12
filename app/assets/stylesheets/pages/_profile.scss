@@ -43,6 +43,7 @@
   height: 100%;
   overflow-y: scroll;
   height: calc(100vh - 80px);
+  margin-right: 20px;
 
   .profile-info-details {
     display: flex;
@@ -91,6 +92,9 @@
     padding: 8px;
     border-right: solid 1px lightgray;
     width: 300px;
+    margin-left: 20px;
+    margin-top: 30px;
+    padding-right: 20px;
     img {
       height: 200px;
       width: 100%;
@@ -256,4 +260,11 @@
   color: #FE9A51;
 }
 
+.accept-reject {
+  display: flex;
+  flex-direction: row;
+  a {
+    padding-right: 10px;
+  }
+}
 
