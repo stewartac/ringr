@@ -32,7 +32,7 @@
   height: 60px;
   width: 100%;
   align-self: flex-end;
-  align-items: center;
+  text-align: center;
 }
 
 .show-card-left-flexbox {
@@ -49,6 +49,10 @@
 
 .bottom-div {
   padding-top: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  align-item: center;
+
 }
 
 #request-button {
@@ -56,14 +60,17 @@
   background-color: $green;
   padding: 16px 14px;
   text-align: center;
-  width: 100%;
+  width: 40%;
   text-decoration: none;
+  border-radius: 6px;
 }
 
 #request-button:hover {
-  text-decoration: none;
-  background-color: $white;
-  color: $green;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
 }
 
 .show-team-font {
