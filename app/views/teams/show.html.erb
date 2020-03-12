@@ -4,11 +4,9 @@
   <div class="team-card">
 
     <div class="team-card-top">
-      <% @team.games.each do |game| %>
-        <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
+        <p><%= image_tag "#{@team.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
           <h4 class="text-center show-team-font pt-2"> <%= @team.name %></h4>
-        <p><%= image_tag "#{game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
-      <% end %>
+        <p><%= image_tag "#{@team.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
     </div>
 
     <div class="team-card-left">
