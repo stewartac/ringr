@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
+  SPORTS = %w[Football Rugby Netball Hockey Basketball Cricket]
   belongs_to :user
   has_many :games
   has_many :memberships
