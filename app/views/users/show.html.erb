@@ -69,8 +69,8 @@
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <h2 class="card-title"><%= booking.game.team.name %>
-                    <%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h2>
+                    <h2 class="card-title"><%= booking.game.team.name %></h2>
+                    <h2><%= image_tag "#{booking.game.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h2>
                   </div>
                   <div class="flip-card-back">
                     <h4><%= booking.game.address %></h4>
