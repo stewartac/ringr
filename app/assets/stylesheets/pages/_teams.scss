@@ -80,9 +80,11 @@
 }
 
 #join-button:hover {
-  text-decoration: none;
-  background-color: $white;
-  color: $green;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
 }
 
 #join-button-sweet {
@@ -95,10 +97,9 @@
 }
 
 #join-button-sweet:hover {
-  color: $green;
-  background-color: $white;
-  padding: 16px 14px;
-  border-radius: 6px;
-  text-align: center;
-  text-decoration: none;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
 }
