@@ -5,10 +5,8 @@
     <div class="show-card-left">
       <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
       <div class="show-card-left-flexbox">
-      <div style="border-right: 1px black solid" "">
-
-
-        <h3>Captain</h3>
+      <div style="padding-right: 16px;">
+        <h4 style="font-weight:lighter;">Captain</h4>
           <% if @game.team.user.photo.attached? %>
             <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
           <% else %>
@@ -20,17 +18,7 @@
       <% end %>
     </div>
     <div style="text-align:center">
-      <h3>Game info</h3>
-      <p>Big game against the top of the league. We've had a last minute dropout so looking for a ringer to come in, preferably a striker who can score!</p>
-    </div>
-
-
-      </div>
-
-
-<!-- Bookings for specific game - everyone view-->
-      <div>
-        <h4 style="font-weight: lighter">Confirmed Players</h4>
+      <h4 style="font-weight: lighter;">Confirmed Players</h4>
           <% @game.bookings.each do |booking| %>
             <% if booking.status == "accepted" %>
               <% if booking.user.photo.attached? %>
@@ -42,6 +30,21 @@
                 <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
+        </div>
+      </div>
+
+
+<!-- Bookings for specific game - everyone view-->
+      <div>
+        <br>
+        <p>Format: <%= @game.format %></p>
+          <% if @game.remaining_spots <= 0 %>
+            <p>There are no more spots available for this game</p>
+          <% else %>
+            <p>£ <%= @game.price %> </p>
+            <p>Players needed: <%= @game.available_spaces %></p>
+          <% end %>
+        <p>Address: <%= @game.address %></p>
       </div>
 
 <!-- Bookings for specific game - captain only view-->
@@ -79,17 +82,9 @@
 
     <div class="show-card-right">
       <br>
-      <h3>Game Details</h3>
-      <p>Format: <%= @game.format %></p>
-      <p><%= @game.date.strftime('%a %d %b %Y - ') %><i class="fas fa-clock"></i><%= @game.time.strftime("%I:%M%p") %></p>
-        <% if @game.remaining_spots <= 0 %>
-          <p>There are no more spots available for this game</p>
-        <% else %>
-          <p>£ <%= @game.price %> </p>
-          <p>Players needed: <%= @game.available_spaces %></p>
-        <% end %>
+      <h4 style="font-weight:lighter;">Game Info</h4> <p><%= @game.date.strftime('%a %d %b %Y - ') %><i class="fas fa-clock"></i><%= @game.time.strftime("%I:%M%p") %></p>
+      <p>Big game against the top of the league. We've had a last minute dropout so looking for a ringer to come in. Ideally a striker who can finish!</p>
 
-      <p>Venue: <%= @game.address %></p>
       <div id="map"
          style="width: 100%;
          height: 250px;"
@@ -107,4 +102,6 @@
     </div>
   </div>
 </div>
+
+
 
