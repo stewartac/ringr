@@ -23,6 +23,8 @@
 <!-- Bookings for specific game - everyone view-->
 
         <h3>Confirmed Players</h3>
+        <% if @game.bookings.where(status: "accepted").empty? %>
+        <p>This game does not have any confirmed Ringrs yet.</p>
           <% @game.bookings.each do |booking| %>
             <% if booking.status == "accepted" %>
               <% if booking.user.photo.attached? %>
@@ -34,6 +36,7 @@
                 <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
+        <% end %>
       </div>
 
 <!-- Bookings for specific game - captain only view-->
@@ -47,13 +50,13 @@
             <% if booking.user.photo.attached? %>
             <span> <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
             <% else %>
-              <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
+              <%= image_tag "avatar.png", class: "avatar-small" %> </>
             <% end %>
-              <%= booking.user.first_name %>  <%= booking.user.last_name %></span>
-              <p><%= booking.user.profile %></p>
+                   <strong><%= booking.user.first_name %>  <%= booking.user.last_name %> </strong> - <%= booking.user.profile %></span>
             <% end %>
           <% end %>
         <% end %>
+      <% if @game.bookings.where(status: "rejected").any? %>
       <h3>Rejected bookings</h3>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
@@ -66,6 +69,7 @@
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
+        <% end %>
       <% end %>
       </div>
 
