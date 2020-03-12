@@ -46,6 +46,7 @@
                     <h4><%= booking.game.address %></h4>
                     <p><%= booking.game.date.strftime('%d-%m-%Y') %></p>
                     <p><%= link_to "View game details", game_path(booking.game) %></p>
+                    <p><%= link_to "Go to team page", team_path(booking.game.team_id) %></p>
                   </div>
                 </div>
               </div>
@@ -74,6 +75,7 @@
                     <h4><%= booking.game.address %></h4>
                     <p><%= booking.game.date.strftime('%d-%m-%Y') %></p>
                     <p><%= link_to "View game details", game_path(booking.game) %></p>
+                    <p><%= link_to "Go to team page", team_path(booking.game.team_id) %></p>
                   </div>
                 </div>
               </div>
