@@ -106,8 +106,8 @@ html {
 .home-page-card {
   font-weight: lighter;
   flex-grow: 1;
-  border-right: 1px $june-bud solid;
-  border-left: 1px $june-bud solid;
+  // border-right: 0.5px $terracotta solid;
+  // border-left: 0.5px $terracotta solid;
   background: $off-white;
   padding: 24px 24px;
   height: 540px;
@@ -120,18 +120,22 @@ html {
   height: auto;
   overflow: hidden;
   opacity: 0.8;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 #cricket-image {
+  border-radius: 6px;
   width: auto;
   height: 70%;
   overflow: hidden;
   opacity: 0.8;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
 }
 
-#green {
-  color: #a1c932;
-}
+// #green {
+//   color: #a1c932;
+// }
 
 .form-check-input {
   display: none;
@@ -167,4 +171,8 @@ html {
 
 .filter_sports {
   text-align: center;
+}
+
+img {
+  object-fit: cover;
 }

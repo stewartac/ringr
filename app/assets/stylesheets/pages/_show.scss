@@ -23,7 +23,7 @@
   font-family: Poppins;
   font-weight: lighter;
   width: 50%;
-  padding: 8px 16px;
+  padding: 8px 16px 0 16px;
   text-align: center;
 }
 
@@ -37,9 +37,18 @@
 
 .show-card-left-flexbox {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
+}
+
+.middle-div {
+  padding-top: 8px;
+  border-top: 1px $terracotta dotted;
   border-bottom: 1px $terracotta dotted;
+}
+
+.bottom-div {
+  padding-top: 8px;
 }
 
 #request-button {
