@@ -22,7 +22,7 @@
       <div>
 <!-- Bookings for specific game - everyone view-->
 
-        <h4 style="font-weight: lighter">Confirmed Players</h4>
+        <h3>Confirmed Players</h3>
           <% @game.bookings.each do |booking| %>
             <% if booking.status == "accepted" %>
               <% if booking.user.photo.attached? %>
@@ -39,8 +39,9 @@
 <!-- Bookings for specific game - captain only view-->
       <div>
       <% if current_user == @game.team.user %>
+        <% if @game.bookings.where(status: "requested").any? %>
             <!-- Capatain sees requested & rejected bookings-->
-      <h4>Pending bookings</h4>
+      <h3>Pending bookings</h3>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "requested" %>
             <% if booking.user.photo.attached? %>
@@ -52,7 +53,8 @@
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
-      <h2>Rejected bookings</h2>
+        <% end %>
+      <h3>Rejected bookings</h3>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
             <% if booking.user.photo.attached? %>
@@ -64,7 +66,7 @@
               <p><%= booking.user.profile %></p>
             <% end %>
           <% end %>
-        <% end %>
+      <% end %>
       </div>
 
     </div>
