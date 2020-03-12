@@ -41,11 +41,13 @@
   text-align: center;
   text-transform: uppercase;
   color: #fff;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .login-container {
   background: #ebebeb;
   padding: 12px;
+  border-radius: 0px 0px 20px 20px;
 }
 
 /* Every row inside .login-container is defined with p tags */

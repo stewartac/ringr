@@ -8,6 +8,9 @@
           <option value="time">Sort by Time</option>
           <option value="distance">Sort by Distance</option>
       </select>
+      <% if params[:filter] %>
+        <input name="filter2" value="<%= params[:filter][:sports] %>" type="hidden">
+      <% end %>
       <%= submit_tag "Filter Search", class: "search-button" %>
     <% end %>
   </div>
