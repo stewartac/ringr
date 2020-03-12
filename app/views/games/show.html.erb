@@ -80,8 +80,8 @@
     <div class="show-card-right">
       <br>
       <h4>Game Details</h4>
-        <p><%= @game.date.strftime('%a %d %b %Y - ') %>
-          <i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %>
+          <p><i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %>
+          <%= @game.date.strftime(' - %a %d %b %Y') %>
         </p>
         <p>Format: <%= @game.format %></p>
         <% if @game.remaining_spots <= 0 %>
