@@ -139,7 +139,7 @@ html {
   &.active {
     ~ label {
         img {
-          background-color: $pink-orange;
+          background-color: $green !important;
       }
     }
   }
