@@ -4,8 +4,8 @@
     <h1 class="login-header">Create a new game</h1>
       <%= simple_form_for([@team, @game]) do |f|%>
       <div class="login-container">
-        <%= f.input :date, input_html: { class: 'input' } %>
-        <%= f.input :time, input_html: { class: 'input' } %>
+        <%= f.input :date, order: [:day, :month, :year], input_html: { class: 'input' } %>
+        <%= f.input :time, minute_step: 15, input_html: { class: 'input' } %>
         <%= f.input :sport, :collection => Game::SPORTS, prompt: "Select Sport" %>
         <%= f.input :format, input_html: { class: 'input' } %>
         <%= f.input :address, input_html: { class: 'input' } %>
