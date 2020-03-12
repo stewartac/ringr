@@ -1,10 +1,10 @@
 .show-card {
   color: black;
-  background-color: $sky-blue;
+  background-color: $off-white;
   margin: 18px 24px;
   display: flex;
   flex-wrap: wrap;
-  padding: 12px 24px;
+  padding: 12px 12px;
   border-radius: 8px;
   justify-content: space-between;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -12,12 +12,16 @@
 
 .show-card-left {
   width: 50%;
-  padding: 8px 16px;
-  border-right: 1px solid $tumbleweed;
+  padding: 8px 8px;
+  border-right: 1px solid $terracotta;
   text-align: center;
+  font-family: Poppins;
+  font-weight: lighter;
 }
 
 .show-card-right {
+  font-family: Poppins;
+  font-weight: lighter;
   width: 50%;
   padding: 8px 16px;
   text-align: center;
@@ -31,9 +35,16 @@
   align-items: center;
 }
 
+.show-card-left-flexbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px $terracotta dotted;
+}
+
 #request-button {
   color: $white;
-  background-color: $pink-orange;
+  background-color: $green;
   padding: 16px 14px;
   text-align: center;
   width: 100%;
@@ -43,20 +54,20 @@
 #request-button:hover {
   text-decoration: none;
   background-color: $white;
-  color: $pink-orange;
+  color: $green;
 }
 
 .show-team-font {
   font-family: $cards-font;
   font-weight: lighter;
-  font-size: 48px;
-  color: $tumbleweed;
+  font-size: 36px;
+  color: $terracotta;
 }
 
 .show-team-font:hover {
   font-family: $cards-font;
   font-weight: lighter;
-  font-size: 48px;
+  font-size: 36px;
   color: $green;
 }
 

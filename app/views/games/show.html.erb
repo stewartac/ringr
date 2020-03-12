@@ -1,32 +1,31 @@
- <div class="page-container">
+<div class="page-container">
   <!-- Game Info -->
   <div class="show-card">
-
     <div class="show-card-left">
-      <div>
-        <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
+      <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
+      <div class="show-card-left-flexbox">
+        <div style="padding-right: 16px;">
+          <h4 style="font-weight: lighter;">Captain</h4>
+              <% if @game.team.user.photo.attached? %>
+                <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-small" %>
+              <% else %>
+                <img> <%= image_tag "avatar.png", class: "avatar-small" %> </>
+              <% end %>
+                <p style="font-weight: lighter"><%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
+              <% if current_user == @game.team.user %>
+                <p><%= link_to "Delete game", game_path(@game), :id => "join-button", method: :delete, data: { confirm: "Are you sure?!" }%></p>
+              <% end %>
+            <br>
+        </div>
 
-        <h3 style="font-weight: lighter">Captain</h3>
-          <% if @game.team.user.photo.attached? %>
-            <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
-          <% else %>
-            <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
-          <% end %>
-          <p style="font-weight: lighter"><%= @game.team.user.first_name%> <%= @game.team.user.last_name%></p>
-      <% if current_user == @game.team.user %>
-      <p><%= link_to "Delete game", game_path(@game), :id => "join-button", method: :delete, data: { confirm: "Are you sure?!" }%></p>
-      <% end %>
-      <br>
-      </div>
 
-      <div>
 <!-- Bookings for specific game - everyone view-->
-
-        <h3>Confirmed Players</h3>
-        <% if @game.bookings.where(status: "accepted").empty? %>
-        <p>This game does not have any confirmed Ringrs yet.</p>
-          <% @game.bookings.each do |booking| %>
-            <% if booking.status == "accepted" %>
+        <div>
+          <h4 style="font-weight: lighter;">Confirmed Players</h4>
+            <% if @game.bookings.where(status: "accepted").empty? %>
+              <p>This game does not have any confirmed Ringrs yet.</p>
+            <% @game.bookings.each do |booking| %>
+              <% if booking.status == "accepted" %>
               <% if booking.user.photo.attached? %>
                 <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
               <% else %>
@@ -34,17 +33,17 @@
               <% end %>
                 <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
                 <p><%= booking.user.profile %></p>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
 
 <!-- Bookings for specific game - captain only view-->
       <div>
       <% if current_user == @game.team.user %>
         <% if @game.bookings.where(status: "requested").any? %>
             <!-- Capatain sees requested & rejected bookings-->
-      <h3>Pending bookings</h3>
+      <p>Pending bookings</p>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "requested" %>
             <% if booking.user.photo.attached? %>
@@ -57,7 +56,7 @@
           <% end %>
         <% end %>
       <% if @game.bookings.where(status: "rejected").any? %>
-      <h3>Rejected bookings</h3>
+      <p>Rejected bookings</p>
         <% @game.bookings.each do |booking| %>
           <% if booking.status == "rejected" %>
             <% if booking.user.photo.attached? %>
@@ -72,23 +71,28 @@
         <% end %>
       <% end %>
       </div>
-
     </div>
-
-    <div class="show-card-right">
+    <div>
       <br>
-      <h3 class="team-font">Game Details</h3>
       <p>Format: <%= @game.format %></p>
-      <p><%= @game.date.strftime('%a %d %b %Y') %></p>
         <% if @game.remaining_spots <= 0 %>
           <p>There are no more spots available for this game</p>
         <% else %>
-          <p><i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %></p>
           <p>£ <%= @game.price %> </p>
           <p>Players needed: <%= @game.available_spaces %></p>
         <% end %>
-
       <p>Venue: <%= @game.address %></p>
+    </div>
+  </div>
+
+    <div class="show-card-right">
+      <br>
+      <h4 style="font-weight: lighter;">Game Details</h4>
+        <p><%= @game.date.strftime('%a %d %b %Y - ') %>
+          <i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %>
+        </p>
+      <p>We have had two dropouts due to last minute illness. Looking for a goalkeeper and a striker. Big game against the top of the league - must win.</p>
+
       <div id="map"
          style="width: 100%;
          height: 250px;"
@@ -96,7 +100,6 @@
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-
     <div class="show-card-bottom">
       <% if current_user != @game.team.user %>
         <%= simple_form_for([@game, @booking]) do |f| %>
@@ -106,4 +109,3 @@
     </div>
   </div>
 </div>
-

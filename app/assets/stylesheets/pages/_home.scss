@@ -26,7 +26,7 @@ html {
 }
 
 #sport-logo:hover {
-  background-color: $pink-orange;
+  background-color: $pale-orange;
 }
 
 #sport-logo:visited {
@@ -139,7 +139,7 @@ html {
   &.active {
     ~ label {
         img {
-          background-color: $green !important;
+          background-color: $peach;
       }
     }
   }
