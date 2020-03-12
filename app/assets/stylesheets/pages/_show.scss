@@ -1,6 +1,6 @@
 .show-card {
   color: black;
-  background-color: $sky-blue;
+  background-color: $pale-orange;
   margin: 18px 24px;
   display: flex;
   flex-wrap: wrap;
@@ -15,9 +15,13 @@
   padding: 8px 16px;
   border-right: 1px solid $tumbleweed;
   text-align: center;
+  font-family: Poppins;
+  font-weight: lighter;
 }
 
 .show-card-right {
+  font-family: Poppins;
+  font-weight: lighter;
   width: 50%;
   padding: 8px 16px;
   text-align: center;
@@ -29,6 +33,11 @@
   width: 100%;
   align-self: flex-end;
   align-items: center;
+}
+
+.show-card-left-flexbox {
+  display: flex;
+  flex-direction: row;
 }
 
 #request-button {

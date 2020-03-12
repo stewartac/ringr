@@ -3,10 +3,12 @@
   <div class="show-card">
 
     <div class="show-card-left">
-      <div>
-        <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
+      <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
+      <div class="show-card-left-flexbox">
+      <div style="border-right: 1px black solid" "">
 
-        <h3 style="font-weight: lighter">Captain</h3>
+
+        <h3>Captain</h3>
           <% if @game.team.user.photo.attached? %>
             <%= cl_image_tag @game.team.user.photo.key, class: "card-trip-user avatar-bordered" %>
           <% else %>
@@ -16,12 +18,18 @@
       <% if current_user == @game.team.user %>
       <p><%= link_to "Delete game", game_path(@game), :id => "join-button", method: :delete, data: { confirm: "Are you sure?!" }%></p>
       <% end %>
-      <br>
+    </div>
+    <div style="text-align:center">
+      <h3>Game info</h3>
+      <p>Big game against the top of the league. We've had a last minute dropout so looking for a ringer to come in, preferably a striker who can score!</p>
+    </div>
+
+
       </div>
 
-      <div>
-<!-- Bookings for specific game - everyone view-->
 
+<!-- Bookings for specific game - everyone view-->
+      <div>
         <h4 style="font-weight: lighter">Confirmed Players</h4>
           <% @game.bookings.each do |booking| %>
             <% if booking.status == "accepted" %>
@@ -71,13 +79,12 @@
 
     <div class="show-card-right">
       <br>
-      <h3 class="team-font">Game Details</h3>
+      <h3>Game Details</h3>
       <p>Format: <%= @game.format %></p>
-      <p><%= @game.date.strftime('%a %d %b %Y') %></p>
+      <p><%= @game.date.strftime('%a %d %b %Y - ') %><i class="fas fa-clock"></i><%= @game.time.strftime("%I:%M%p") %></p>
         <% if @game.remaining_spots <= 0 %>
           <p>There are no more spots available for this game</p>
         <% else %>
-          <p><i class="fas fa-clock"></i> <%= @game.time.strftime("%I:%M%p") %></p>
           <p>£ <%= @game.price %> </p>
           <p>Players needed: <%= @game.available_spaces %></p>
         <% end %>
