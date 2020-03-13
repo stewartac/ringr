@@ -105,8 +105,11 @@
           <div class="items your-team-cards">
             <% current_user.teams.each do |team|%>
             <div class="empty-card">
-              <div class="profile-card-body">
-                <h3 style="font-size: 24px;"> <%= link_to team.name, team_path(team) %></h3>
+              <div class="profile-card-body" style="text-align: center;">
+                <div class="team-name-icon">
+                  <h3 style="font-size: 24px;"> <%= link_to team.name, team_path(team) %></h3>
+                  <h2><%= image_tag "#{team.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h2>
+                </div>
                 <%= link_to "Create a new game for this team", new_team_game_path(team) %>
               </div>
             </div>
