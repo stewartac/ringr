@@ -30,8 +30,7 @@
                 <% if booking.user.photo.attached? %>
                   <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
                 <% end %>
-                <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
-                <p><%= booking.user.profile %></p>
+                <p><%= booking.user.first_name %> <%= booking.user.last_name %></p>
             <% end %>
           <% end %>
            <% if current_user != @game.team.user %>
