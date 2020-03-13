@@ -12,7 +12,7 @@ class TeamsController < ApplicationController
         redirect_to team_path(@team)
       end
     else
-      @Membership = Membership.new
+      @membership = Membership.new
     end
   end
 
