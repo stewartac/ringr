@@ -32,7 +32,7 @@
           <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
         </div>
       </div>
-
+      <% if @team.sport == "Football" %>
       <div class="team-card-right">
         <h4 style="font-weight: lighter;">League Table</h4>
         <table class="team-table" style="width:100%">
@@ -147,6 +147,123 @@
           <%# end %>
         <% end %>
       </div>
+      <% end %>
+      <% if @team.sport == "Hockey" %>
+      <div class="team-card-right">
+        <h4 style="font-weight: lighter;">League Table</h4>
+        <table class="team-table" style="width:100%">
+          <tr style="background-color:white;">
+            <th>POS</th>
+            <th></th>
+            <th>P</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GD</th>
+            <th>PTS</th>
+          </tr>
+          <tr>
+            <th>1</th>
+            <th>Surbiton Jokers</th>
+            <th>7</th>
+            <th>6</th>
+            <th>0</th>
+            <th>1</th>
+            <th>24</th>
+            <th>18</th>
+          </tr>
+          <em>
+            <tr style="background-color:white;">
+              <th>2</th>
+              <th>Epsom HC Embers</th>
+              <th>6</th>
+              <th>6</th>
+              <th>0</th>
+              <th>0</th>
+              <th>16</th>
+              <th>18</th>
+            </tr>
+          </em>
+          <tr>
+            <th>3</th>
+            <th>Werder Beermen</th>
+            <th>7</th>
+            <th>5</th>
+            <th>1</th>
+            <th>1</th>
+            <th>10</th>
+            <th>16</th>
+          </tr>
+          <tr style="background-color:white;">
+            <th>4</th>
+            <th>Boca Seniors</th>
+            <th>8</th>
+            <th>3</th>
+            <th>1</th>
+            <th>4</th>
+            <th>-3</th>
+            <th>10</th>
+          </tr>
+          <tr>
+            <th>5</th>
+            <th>Penguin FC</th>
+            <th>8</th>
+            <th>3</th>
+            <th>0</th>
+            <th>5</th>
+            <th>-7</th>
+            <th>9</th>
+          </tr>
+          <tr style="background-color:white;">
+            <th>6</th>
+            <th>FC Poor Toe</th>
+            <th>7</th>
+            <th>3</th>
+            <th>0</th>
+            <th>4</th>
+            <th>-13</th>
+            <th>9</th>
+          </tr>
+          <tr>
+            <th>7</th>
+            <th>Old Georgians Fire</th>
+            <th>7</th>
+            <th>2</th>
+            <th>0</th>
+            <th>5</th>
+            <th>-10</th>
+            <th>6</th>
+          </tr>
+          <tr style="background-color:white;">
+            <th>8</th>
+            <th>Obi One Kenobi Nil</th>
+            <th>6</th>
+            <th>1</th>
+            <th>1</th>
+            <th>4</th>
+            <th>-3</th>
+            <th>4</th>
+          </tr>
+          <tr  style="color:green;">
+            <th>9</th>
+            <th><%= @team.name %></th>
+            <th>8</th>
+            <th>1</th>
+            <th>1</th>
+            <th>6</th>
+            <th>-14</th>
+            <th>4</th>
+          </tr>
+        </table>
+        <br>
+        <% if current_user != @team.user %>
+          <button id="join-button-sweet">Become a squad member</button>
+          <%#= simple_form_for ([@team, @membership]) do |f| %>
+            <%#= f.button :submit, 'Become a squad member', id:"join-button-sweet"%>
+          <%# end %>
+        <% end %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
