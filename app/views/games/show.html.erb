@@ -4,9 +4,7 @@
 
     <div class="show-card-left">
       <p style="text-align: center;"><%= link_to "#{@game.team.name}", team_path(@game.team), :class => 'show-team-font' %></p>
-
-      <div>
-        <h4 style="font-weight:lighter;">About</h4>
+    <div>
         <p style="font-style: italic;"><%= @game.team.bio %></p>
       </div>
         <div class="show-card-left-flexbox">
@@ -38,6 +36,11 @@
               <% end %>
             <% end %>
           <% end %>
+           <% if current_user != @game.team.user %>
+        <%= simple_form_for([@game, @booking]) do |f| %>
+          <%= f.button :submit, 'Request to Play', id:"request-button" %>
+        <% end %>
+      <% end %>
         </div>
 
 
@@ -98,13 +101,6 @@
          data-markers="<%= @marker.to_json%>"
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-    </div>
-    <div class="show-card-bottom">
-      <% if current_user != @game.team.user %>
-        <%= simple_form_for([@game, @booking]) do |f| %>
-          <%= f.button :submit, 'Request to Play', id:"request-button" %>
-        <% end %>
-      <% end %>
     </div>
   </div>
 </div>
