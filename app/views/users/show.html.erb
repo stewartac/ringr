@@ -114,6 +114,17 @@
               </div>
             </div>
             <% end %>
+            <% current_user.memberships.each do |membership|%>
+              <div class="empty-card">
+                <div class="profile-card-body" style="text-align: center;">
+                  <div class="team-name-icon">
+                    <h3 style="font-size: 24px;"> <%= link_to membership.team.name, team_path(membership.team) %></h3>
+                    <h2><%= image_tag "#{membership.team.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></h2>
+                  </div>
+                    <%= link_to "Team Member", team_path(membership.team) %>
+                </div>
+              </div>
+              <% end %>
           </div>
           <h4>or</h4>
           <div class="p-3 team-button-create"><%= link_to "Create a new team", new_team_path, :class => "main-button" %></div>

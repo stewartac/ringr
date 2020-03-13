@@ -1,8 +1,9 @@
 <div class="team-container">
   <div class="team-card">
     <div class="team-card-top">
-      <h4 class="show-team-font pt-2"> <%= @team.name %></h4>
-      <p class="team-font"> " <%= @team.bio %> " </p>
+      <p><%= image_tag "#{@team.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
+      <h4 class="show-team-font pt-2"> <%= @team.name %> <p class="team-font" style="font-size: 22px"> " <%= @team.bio %> "</p></h4>
+      <p><%= image_tag "#{@team.sport.downcase}.svg", alt: "alttext", :id => "sport-logo-small" %></p>
     </div>
     <div class="team-cards-left-and-right">
       <div class="team-card-left">
