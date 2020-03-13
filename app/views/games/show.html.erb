@@ -24,16 +24,14 @@
           <h4 style="font-weight: lighter;">Confirmed Players</h4>
             <% if @game.bookings.where(status: "accepted").empty? %>
               <p>This game does not have any confirmed Ringrs yet.</p>
+              <% end %>
             <% @game.bookings.each do |booking| %>
               <% if booking.status == "accepted" %>
-              <% if booking.user.photo.attached? %>
-                <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
-              <% else %>
-                <img> <%= image_tag "avatar.png", class: "avatar-bordered" %> </>
-              <% end %>
+                <% if booking.user.photo.attached? %>
+                  <%= cl_image_tag booking.user.photo.key, class: "card-trip-user avatar-bordered" %>
+                <% end %>
                 <p><%= booking.user.first_name %><%= booking.user.last_name %></p>
                 <p><%= booking.user.profile %></p>
-              <% end %>
             <% end %>
           <% end %>
            <% if current_user != @game.team.user %>
