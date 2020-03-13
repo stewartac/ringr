@@ -6,6 +6,7 @@
     </div>
     <div class="team-cards-left-and-right">
       <div class="team-card-left">
+        <br>
         <h4 style="font-weight: lighter;">Squad</h4>
         <div>
           <% if @team.user && @team.user.photo.attached? %>
@@ -32,7 +33,7 @@
       </div>
 
       <div class="team-card-right">
-        <h4>League Table</h4>
+        <h4 style="font-weight: lighter;">League Table</h4>
         <table class="team-table" style="width:100%">
           <tr style="background-color:white;">
             <th>POS</th>
