@@ -1,196 +1,153 @@
 <div class="team-container">
- <!--  <%= image_tag "", alt: "alttext", :class => "football-background" %> -->
-
   <div class="team-card">
-
     <div class="team-card-top">
-      <h4 class="text-center show-team-font pt-2"> <%= @team.name %></h4>
+      <h4 class="show-team-font pt-2"> <%= @team.name %></h4>
+      <p class="team-font"> " <%= @team.bio %> " </p>
     </div>
+    <div class="team-cards-left-and-right">
+      <div class="team-card-left">
+        <br>
+        <h4 style="font-weight: lighter;">Squad</h4>
+        <div>
+          <% if @team.user && @team.user.photo.attached? %>
+            <%= cl_image_tag @team.user.photo.key, :class => "avatar-small" %>
+          <% else %>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-small" />
+          <% end %>
+          <p style="font-weight: lighter; font-size: 14px"> <b> Captain: <%= @team.user.first_name %> <%= @team.user.last_name %> </b> - <%= @team.user.profile %></p>
+        </div>
 
-    <div class="team-card-left">
-      <div>
-        <h4 style="font-weight:lighter;">About</h4>
-        <p style="font-style: italic;"><%= @team.bio %></p>
-      </div>
-
-
-      <div>
-      <h4 style="font-weight: lighter;">Captain: <%= @team.user.first_name %> <%= @team.user.last_name %></h4>
-      <% if @team.user && @team.user.photo.attached? %>
-        <%= cl_image_tag @team.user.photo.key, :class => "avatar-card" %>
-      <% else %>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-card" />
-      <% end %>
-      <br>
-      <br>
-      <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
-      </div>
-
-      <div style="border-top: 1px solid $terracotta; padding-top: 12px;">
-          <h4 style="font-weight: lighter;">Squad Members</h4>
-          <p>
-            <% @team.memberships.each do |member| %>
+        <div>
+          <% @team.memberships.each do |member| %>
             <% if member.user && member.user.photo.attached? %>
-               <span> <%= cl_image_tag member.user.photo.key, :class => "avatar-small" %>
+              <%= cl_image_tag member.user.photo.key, :class => "avatar-small" %>
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-small" />
-            <% end %></span>
-             <p><%= member.user.first_name %> <%= member.user.last_name %></p>
             <% end %>
+            <p style="font-weight: lighter; font-size: 14px"> <b> <%= member.user.first_name %> <%= member.user.last_name %> </b> - <%= member.user.profile %></p>
+          <% end %>
+        </div>
+        <div>
+          <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
+        </div>
+      </div>
+
+      <div class="team-card-right">
+        <h4 style="font-weight: lighter;">League Table</h4>
+        <table class="team-table" style="width:100%">
+          <tr style="background-color:white;">
+            <th>POS</th>
+            <th></th>
+            <th>P</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GD</th>
+            <th>PTS</th>
+          </tr>
+          <tr>
+            <th>1</th>
+            <th>Puff Puff Pass</th>
+            <th>7</th>
+            <th>6</th>
+            <th>0</th>
+            <th>1</th>
+            <th>24</th>
+            <th>18</th>
+          </tr>
+          <em>
+            <tr style="background-color:white; color:green;">
+              <th>2</th>
+              <th> <%= @team.name %></th>
+              <th>6</th>
+              <th>6</th>
+              <th>0</th>
+              <th>0</th>
+              <th>16</th>
+              <th>18</th>
+            </tr>
+          </em>
+          <tr>
+            <th>3</th>
+            <th>Werder Beermen</th>
+            <th>7</th>
+            <th>5</th>
+            <th>1</th>
+            <th>1</th>
+            <th>10</th>
+            <th>16</th>
+          </tr>
+          <tr style="background-color:white;">
+            <th>4</th>
+            <th>Boca Seniors</th>
+            <th>8</th>
+            <th>3</th>
+            <th>1</th>
+            <th>4</th>
+            <th>-3</th>
+            <th>10</th>
+          </tr>
+          <tr>
+            <th>5</th>
+            <th>Penguin FC</th>
+            <th>8</th>
+            <th>3</th>
+            <th>0</th>
+            <th>5</th>
+            <th>-7</th>
+            <th>9</th>
+          </tr>
+          <tr style="background-color:white;">
+            <th>6</th>
+            <th>FC Poor Toe</th>
+            <th>7</th>
+            <th>3</th>
+            <th>0</th>
+            <th>4</th>
+            <th>-13</th>
+            <th>9</th>
+          </tr>
+          <tr>
+            <th>7</th>
+            <th>The Hackney Parrots</th>
+            <th>7</th>
+            <th>2</th>
+            <th>0</th>
+            <th>5</th>
+            <th>-10</th>
+            <th>6</th>
+          </tr>
+          <tr style="background-color:white;">
+            <th>8</th>
+            <th>Obi One Kenobi Nil</th>
+            <th>6</th>
+            <th>1</th>
+            <th>1</th>
+            <th>4</th>
+            <th>-3</th>
+            <th>4</th>
+          </tr>
+          <tr>
+            <th>9</th>
+            <th>Ivory Toast</th>
+            <th>8</th>
+            <th>1</th>
+            <th>1</th>
+            <th>6</th>
+            <th>-14</th>
+            <th>4</th>
+          </tr>
+        </table>
+        <br>
+        <% if current_user != @team.user %>
+          <button id="join-button-sweet">Become a squad member</button>
+          <%#= simple_form_for ([@team, @membership]) do |f| %>
+            <%#= f.button :submit, 'Become a squad member', id:"join-button-sweet"%>
+          <%# end %>
+        <% end %>
       </div>
     </div>
-
-    <div class="team-card-right">
-      <h4>League Table</h4>
-      <table class="team-table" style="width:100%">
-        <tr style="background-color:white;">
-          <th>POS</th>
-          <th></th>
-          <th>P</th>
-          <th>W</th>
-          <th>D</th>
-          <th>L</th>
-          <th>GD</th>
-          <th>PTS</th>
-        </tr>
-        <tr>
-          <th>1</th>
-          <th>Puff Puff Pass</th>
-          <th>7</th>
-          <th>6</th>
-          <th>0</th>
-          <th>1</th>
-          <th>24</th>
-          <th>18</th>
-        </tr>
-       <em><tr style="background-color:white; color:green;"></em>
-          <th>2</th>
-          <th> <%= @team.name %></th>
-          <th>6</th>
-          <th>6</th>
-          <th>0</th>
-          <th>0</th>
-          <th>16</th>
-          <th>18</th>
-        </tr>
-        <tr>
-          <th>3</th>
-          <th>Werder Beermen</th>
-          <th>7</th>
-          <th>5</th>
-          <th>1</th>
-          <th>1</th>
-          <th>10</th>
-          <th>16</th>
-        </tr>
-        <tr style="background-color:white;">
-          <th>4</th>
-          <th>Boca Seniors</th>
-          <th>8</th>
-          <th>3</th>
-          <th>1</th>
-          <th>4</th>
-          <th>-3</th>
-          <th>10</th>
-        </tr>
-        <tr>
-          <th>5</th>
-          <th>Penguin FC</th>
-          <th>8</th>
-          <th>3</th>
-          <th>0</th>
-          <th>5</th>
-          <th>-7</th>
-          <th>9</th>
-        </tr>
-        <tr style="background-color:white;">
-          <th>6</th>
-          <th>FC Poor Toe</th>
-          <th>7</th>
-          <th>3</th>
-          <th>0</th>
-          <th>4</th>
-          <th>-13</th>
-          <th>9</th>
-        </tr>
-        <tr>
-          <th>7</th>
-          <th>The Hackney Parrots</th>
-          <th>7</th>
-          <th>2</th>
-          <th>0</th>
-          <th>5</th>
-          <th>-10</th>
-          <th>6</th>
-        </tr>
-        <tr style="background-color:white;">
-          <th>8</th>
-          <th>Obi One Kenobi Nil</th>
-          <th>6</th>
-          <th>1</th>
-          <th>1</th>
-          <th>4</th>
-          <th>-3</th>
-          <th>4</th>
-        </tr>
-        <tr>
-          <th>9</th>
-          <th>Ivory Toast</th>
-          <th>8</th>
-          <th>1</th>
-          <th>1</th>
-          <th>6</th>
-          <th>-14</th>
-          <th>4</th>
-        </tr>
-      </table>
-      <br>
-      <% if current_user != @team.user %>
-        <button id="join-button-sweet">Become a squad member</button>
-
-        <!-- <p><%= simple_form_for ([@team, @membership]) do |f| %></p>
-        <p><%= f.button :submit, 'Become a squad member', id:"join-button-sweet"%></p> -->
-      <% end %>
-      <% end %>
-    </div>
-
   </div>
-
-
 </div>
-
-<script>
-
-  // const joinTeamRequest = document.querySelector("#join-button-sweet");
-
-
-  // const initSweetalert = async () => {
-  //   const { value: password } = await Swal.fire({
-  //     title: 'You need a password to join this team',
-  //     input: 'password',
-  //     inputPlaceholder: 'Enter here or ask the team captain',
-  //     inputAttributes: {
-  //       maxlength: 10,
-  //       autocapitalize: 'off',
-  //       autocorrect: 'off'
-  //     }
-  //   })
-  //   if (password) {
-  //     // Swal.fire(`Entered password: ${password}`)
-  //     const {value: confirm } = await Swal.fire({
-  //       title: 'Congrats!',
-  //       text: "You're in the team",
-  //       icon: "success",
-  //       confirmButtonText: "Woohoo!"
-  //       })
-  //   }
-  //   if (confirm) {
-  //     window.location.replace("<%= root_path%>")
-  //   }
-  // }
-  // joinTeamRequest.addEventListener('click', event => {
-  //   initSweetalert()
-  // })
-</script>
 
 
