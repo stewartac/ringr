@@ -16,10 +16,10 @@ user3 = User.create!(first_name: "Theo", last_name: "Verge", email: "test4@test.
 
 puts "Creating teams"
 
-team1 = Team.create!(name: "Farcelona", user: User.first)
-team2 = Team.create!(name: "Inter minan", user: User.second)
-team3 = Team.create!(name: "Netball FC", user: User.first)
-team4 = Team.create!(name: "Theo Lonely basketball FC", user: User.third)
+team1 = Team.create!(name: "Farcelona", user: User.first, sport: "football")
+team2 = Team.create!(name: "Inter minan", user: User.second, sport: "hockey")
+team3 = Team.create!(name: "Netball FC", user: User.first, sport: "netball")
+team4 = Team.create!(name: "Theo Lonely basketball FC", user: User.third, sport: "netball")
 
 puts "Creating games"
 
