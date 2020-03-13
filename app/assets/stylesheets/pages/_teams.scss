@@ -24,16 +24,19 @@
 }
 
 .team-card-top {
+  display: flex;
   width: 100%;
   height: 80px;
   position: sticky;
   align-self: flex-start;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
   text-align: center;
   border-bottom: 1px solid $terracotta;
   padding-left: 16px;
   padding-right: 16px;
+  align-items: center;
+  padding-top: 8px;
 }
 
 .team-card-left {
