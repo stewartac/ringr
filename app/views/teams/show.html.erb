@@ -7,35 +7,43 @@
       <h4 class="show-team-font pt-2"> <%= @team.name %></h4>
       <p class="team-font"> " <%= @team.bio %> " </p>
     </div>
+
     <div class="team-card-left">
       <h4 style="font-weight: lighter;">Squad</h4>
+
       <div class="squad-members">
         <div>
         <% if @team.user && @team.user.photo.attached? %>
           <%= cl_image_tag @team.user.photo.key, :class => "avatar-small" %>
         <% else %>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-card" />
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-small" />
         <% end %>
-        <p style="font-weight: lighter;"><p><%= @team.user.first_name %> <%= @team.user.last_name %></p>
-      </div>
-        <p>Bio will be inserted here like this.</p>
-        <br>
-        <br>
-      </div>
+        </div>
+          <div>
+          <p style="font-weight: lighter; font-size: 14px"> <b> <%= @team.user.first_name %> <%= @team.user.last_name %> </b> - <%= @team.user.profile %></p>
+          </div>
 
-      <div style="border-top: 1px solid $terracotta; padding-top: 12px;">
-          <p>
+
+<!--       </div>
+
+      <div style="border-top: 1px solid $terracotta; padding-top: 12px;"> -->
+        <div>
+          <div>
             <% @team.memberships.each do |member| %>
             <% if member.user && member.user.photo.attached? %>
                <span> <%= cl_image_tag member.user.photo.key, :class => "avatar-small" %>
             <% else %>
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-small" />
             <% end %></span>
-             <p><%= member.user.first_name %> <%= member.user.last_name %></p>
+          </div>
+          <div>
+             <p style="font-weight: lighter; font-size: 14px"> <b> <%= member.user.first_name %> <%= member.user.last_name %> </b> - <%= member.user.profile %></p>
+          </div>
             <% end %>
-      </div>
+        </div>
       <p> <%= link_to "Create a game", new_team_game_path(@team), :id => "join-button" %></p>
-    </div>
+      </div>
+
 
     <div class="team-card-right">
       <h4>League Table</h4>
@@ -158,38 +166,5 @@
 
 </div>
 
-<script>
-
-  // const joinTeamRequest = document.querySelector("#join-button-sweet");
-
-
-  // const initSweetalert = async () => {
-  //   const { value: password } = await Swal.fire({
-  //     title: 'You need a password to join this team',
-  //     input: 'password',
-  //     inputPlaceholder: 'Enter here or ask the team captain',
-  //     inputAttributes: {
-  //       maxlength: 10,
-  //       autocapitalize: 'off',
-  //       autocorrect: 'off'
-  //     }
-  //   })
-  //   if (password) {
-  //     // Swal.fire(`Entered password: ${password}`)
-  //     const {value: confirm } = await Swal.fire({
-  //       title: 'Congrats!',
-  //       text: "You're in the team",
-  //       icon: "success",
-  //       confirmButtonText: "Woohoo!"
-  //       })
-  //   }
-  //   if (confirm) {
-  //     window.location.replace("<%= root_path%>")
-  //   }
-  // }
-  // joinTeamRequest.addEventListener('click', event => {
-  //   initSweetalert()
-  // })
-</script>
 
 

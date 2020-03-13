@@ -58,7 +58,9 @@
 
 .squad-members {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .team-card-right {
