@@ -10,6 +10,8 @@
 }
 
 .navbar-lewagon {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   background: $seashell;
   transition: 0.5s background-color ease;
@@ -39,6 +41,18 @@
   padding-top: 10px;
 }
 
+.navbar-font {
+  font-family: $cards-font;
+  font-weight: lighter;
+  font-size: 38px;
+  color: $pink-orange;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+}
 
 .navbar-brand {
   padding: 0.5rem 1rem;
@@ -48,7 +62,6 @@
   width: 120px;
   padding-top: 5px;
 }
-
 
 .dropdown-item:active {
   background-color: #FE9A51;

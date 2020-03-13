@@ -12,7 +12,7 @@
     </div>
 
     <div class="d-flex align-center">
-      <div class="p-3"><a href="#play-now" class="main-button">Play now!</a></div>
+      <div class="p-3"><a href="#play-now" class="main-button">Find a game now!</a></div>
       <div class="p-3"><a href="#find-out-more" class="green-button">Find out more</a></div>
     </div>
   </div>
@@ -27,7 +27,7 @@
 
 <div class="info-cards">
   <div class="home-page-card">
-    <h3 class="text-center">What we do</h3>
+    <h3 class="text-center" id="fun">What we do</h3>
       <p class="text-center align-center">Ringr instantly links teams with players. Through our advanced algorithm we make the right connection, leaving you to get the job done on the pitch.</p><%= image_tag "cricket_amateur.png", :id => 'cricket-image' %>
   </div>
 
@@ -35,7 +35,7 @@
     <%= image_tag "rugby_orange.png", :class => 'style-image' %>
     <br>
     <br>
-      <h3 class="text-center" id="green">Captains</h3>
+      <h3 class="text-center" id="fun">Captains</h3>
         <p class="text-center">Last minute dropouts are a regular problem for sports teams. Just getting a squad together can be a stressful process. Fortunately, Ringr can find you keen reinforcements nearby, however last minute!
           <div class="p-2">
             <a href="#find-out-more" class="green-button">Find a ringr</a>
@@ -44,7 +44,7 @@
   </div>
 
   <div class="home-page-card">
-    <h3 class="text-center">Players</h3>
+    <h3 class="text-center" id="fun">Players</h3>
       <p class="text-center">Whether you've knocked off work early and want to let off some steam, or just can't get your mates together for a game, Ringr puts you in the action, connecting you to teams in need of an extra player.</p>
         <div class="p-2">
           <a href="#play-now" class="main-button">Find a game</a>
@@ -61,7 +61,7 @@
 
   <div class="logo-container cursor: pointer;">
     <%= simple_form_for :filter, url: games_path, method: :get do |f| %>
-      <fieldset class="form-group check_boxes required filter_sports ">
+      <fieldset class="form-group check_boxes required filter_sports" style="max-width: 600px">
         <legend class="col-form-label text-center"><h1 class="pb-2 play-header-text">Choose your sport</h1><abbr title="required"></abbr></legend>
           <% Game::SPORTS.each do |sport| %>
             <div class="form-check custom-control custom-checkbox custom-control-inline">
