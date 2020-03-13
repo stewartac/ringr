@@ -150,7 +150,7 @@
                 <% if booking.status == "accepted" %>
                   <div class="empty-card">
                     <div class="profile-card-body">
-                        <p><%= booking.user.first_name %> has been confirmed to play with <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
+                        <p><%= booking.user.first_name %> <%= booking.user.last_name %> has been confirmed to play with <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
                         <p>Current status: <%= booking.status %></p>
                     </div>
                   </div>
@@ -174,7 +174,7 @@
                 <% if booking.status == "requested" %>
                   <div class="empty-card">
                     <div class="profile-card-body">
-                      <p><%= booking.user.first_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
+                      <p><%= booking.user.first_name %> <%= booking.user.last_name %> would like to join your team <%= booking.game.team.name %> on <%= booking.game.date.strftime('%a %d %b %Y') %> <%= booking.game.time.strftime("at %I:%M%p") %></p>
                       <p>Current status: <%= booking.status %></p>
                       <div class="accept-reject">
                         <%= link_to "Accept", booking_path(booking, booking: {status: "accepted"}), method: :patch  %>
